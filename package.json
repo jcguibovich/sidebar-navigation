@@ -1,0 +1,19 @@
+{
+  "name": "sidebar-navigation",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Heath Shults",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/heathshults/sidebar-navigation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/heathshults/sidebar-navigation/issues"
+  },
+  "homepage": "https://github.com/heathshults/sidebar-navigation#readme",
+  "description": ""
+}
