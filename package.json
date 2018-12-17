@@ -15,5 +15,14 @@
     "url": "https://github.com/heathshults/sidebar-navigation/issues"
   },
   "homepage": "https://github.com/heathshults/sidebar-navigation#readme",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^9.4.3",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.4",
+    "node-sass": "^4.11.0",
+    "stylelint": "^9.9.0"
+  }
 }

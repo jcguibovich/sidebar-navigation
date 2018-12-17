@@ -1,14 +1,14 @@
-//Hamburger toggle icon
+//hammy toggle icon
 $(document).ready(function () {
-  var trigger = $('.hamburger'),
+  var trigger = $('.hammy'),
     //overlay = $('.overlay'),
     isClosed = false;
 
   trigger.click(function () {
-    hamburger_cross();
+    hammy_cross();
   });
 
-  function hamburger_cross() {
+  function hammy_cross() {
 
     if (isClosed == true) {
       //overlay.hide();
@@ -28,18 +28,18 @@ $('[data-toggle="offcanvas"]').click(function () {
 });
 
 // menu hight and scrolling control
-$(document).ready(function () {
-  var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-  $('div.sidebar__nav__scroller').css("height", vh - 20);
-  //$('#wrapper').toggleClass('toggled');
+// $(document).ready(function () {
+//   var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+//   $('div.sidebar__nav__scroller').css("height", vh - 20);
+//   //$('#wrapper').toggleClass('toggled');
 
-  $(window).on('resize', function () {
-    //console.log(vh);
-    var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
-    $('div.sidebar__nav__scroller').css("height", vh - 20);
-  });
+//   $(window).on('resize', function () {
+//     //console.log(vh);
+//     var vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+//     $('div.sidebar__nav__scroller').css("height", vh - 20);
+//   });
 
-});
+// });
 
 // menu highlight current page
 // $('li.nav-item a').click(function() {
@@ -50,7 +50,7 @@ $(document).ready(function navHighlighter() {
   var url = window.location.hash;
   var filename = url.substr(url.lastIndexOf('/') + 1);
   //console.log(url, filename);
-  $('li.nav-item a[href$="' + filename + '"]').parent().addClass("active");
+  $('li.sidebar-nave__menu-item a[href$="' + filename + '"]').parent().addClass("active");
 });
 
 $(document).ready(function() {
@@ -63,7 +63,7 @@ $(document).ready(function() {
 })
 
 // toggle dropdowns
-$('.dropdown-toggle').click(function(cb){
+$('.js-tgl').click(function(cb){
   $(this).toggleClass('active')
   var target_el = $(this).attr('data-target')
   $(target_el).toggleClass('is-open'), cb

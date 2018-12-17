@@ -4,18 +4,12 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0">
-    <title>BlueStar CSS Guidelines (1.0.0) – High-level advice and guidelines for writing sane, manageable, scalable
+    <title>Fannie Mae CSS Guidelines (1.0.0) – High-level advice and guidelines for writing sane, manageable, scalable
         CSS</title>
     <meta name="description" content="High-level advice and guidelines for writing sane, manageable, scalable CSS">
-    <link rel="apple-touch-icon" sizes="180x180" href="http://www.bluestarsports.com/images/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="http://www.bluestarsports.com/images/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="http://www.bluestarsports.com/images/favicons/favicon-16x16.png">
-    <link rel="manifest" href="http://www.bluestarsports.com/images/favicons/manifest.json">
-    <link rel="mask-icon" href="http://www.bluestarsports.com/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
-    <link rel="shortcut icon" href="http://www.bluestarsports.com/images/favicons/favicon.ico">
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
         crossorigin="anonymous"> -->
-    <link type="text/css" rel="stylesheet" href="css/sidenav.css">
+    <link type="text/css" rel="stylesheet" href="css/sidebar-nav.css">
     <style>
         /*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css */
 @font-face {
@@ -40,7 +34,7 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
-body {font-family:Roboto,sans-serif;font-weight: 400; font-size: 1rem; color:#333;}
+body {font-family:Roboto,sans-serif;font-weight: 400; font-size: 1rem; color:#333; box-sizing: border-box}
 *,::after,::before{box-sizing:inherit;}
       </style>
 </head>
@@ -52,12 +46,12 @@ body {font-family:Roboto,sans-serif;font-weight: 400; font-size: 1rem; color:#33
             <!-- Sidebar -->
     <div id="sidebar-wrapper" class="sidebar--left">
         <nav id="left-nav-bar" class="sidebar--left__nav" role="navigation">
-                <h2 id="contents" class="sidebar__title">Design System</h2>
+                <h2 id="contents" class="sidebar-nav__title">Design System</h2>
             <div id="ns1" class="sidebar-nav__scroller">
             <ul class="sidebar-nav__menu" id="menu">
-
-                <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link sidebar__menu-title" href="#introduction">Introduction</a></li>
-                <li class="sidebar-nav__menu-item dropdown"><a class="sidebar-nav__menu-link dropdown-toggle" href="javascript:void(0)" data-target="#item2" data-toggle="collapse">Syntax and Formatting</a>
+                
+                <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link sidebar-nav__menu-title" href="#introduction">Introduction</a></li>
+                <li class="sidebar-nav__menu-item dropdown"><a class="js-tgl sidebar-nav__menu-link dropdown-toggle" href="javascript:void(0)" data-target="#item2" data-toggle="collapse"><span class="fk-svg-rotate"><span class="fk-ucon"></span> Syntax and Formatting</a>
                     <ul class="nav-stacked  sidebar-nav__submenu" id="item2">
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#syntax-and-formatting">Overview</a></li>
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#multiple-files">Multiple Files</a></li>
@@ -66,7 +60,7 @@ body {font-family:Roboto,sans-serif;font-weight: 400; font-size: 1rem; color:#33
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#titling">Titling</a></li>
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#anatomy-of-a-ruleset">Anatomy of a Ruleset</a></li>
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#multi-line-css">Multi-line CSS</a></li>
-                        <li class="sidebar-nav__menu-item dropdown"><a class="sidebar-nav__menu-link dropdown-toggle" href="javascript:void(0)" data-target="#item3" data-toggle="collapse">Indenting &amp; Alignment</a>
+                        <li class="sidebar-nav__menu-item dropdown"><a class="js-tgl sidebar-nav__menu-link dropdown-toggle" href="javascript:void(0)" data-target="#item3" data-toggle="collapse"><span class="fk-svg-rotate"><span class="fk-ucon"></span> Indenting &amp; Alignment</a>
                             <ul class="nav-stacked  sidebar-nav__submenu" id="item3">
                                 <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#indenting">Indenting</a></li>
                                 <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#indenting-sass">Indenting Sass</a></li>
@@ -77,7 +71,7 @@ body {font-family:Roboto,sans-serif;font-weight: 400; font-size: 1rem; color:#33
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#html">HTML</a></li>
                     </ul>
                 </li>
-                <li class="sidebar-nav__menu-item dropdown"><a class="sidebar-nav__menu-link dropdown-toggle" href="#commenting" data-target="#item4" data-toggle="collapse">Commenting</a>
+                <li class="sidebar-nav__menu-item dropdown"><a class="js-tgl sidebar-nav__menu-link dropdown-toggle" href="#commenting" data-target="#item4" data-toggle="collapse"><span class="fk-svg-rotate"><span class="fk-ucon"></span> Commenting</a>
                     <ul class="nav-stacked  sidebar-nav__submenu" id="item4">
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#high-level">High-level</a>
                             <ul>
@@ -89,10 +83,10 @@ body {font-family:Roboto,sans-serif;font-weight: 400; font-size: 1rem; color:#33
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#removing-comments">Removing Comments</a></li>
                     </ul>
                 </li>
-                <li class="sidebar-nav__menu-item dropdown"><a class="sidebar-nav__menu-link dropdown-toggle" href="#naming-conventions" data-target="#item5" data-toggle="collapse">Naming Conventions</a>
+                <li class="sidebar-nav__menu-item dropdown"><a class="js-tgl sidebar-nav__menu-link dropdown-toggle" href="#naming-conventions" data-target="#item5" data-toggle="collapse"><span class="fk-svg-rotate"><span class="fk-ucon"></span> Naming Conventions</a>
                     <ul class="nav-stacked  sidebar-nav__submenu" id="item5">
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#hyphen-delimited">Hyphen Delimited</a></li>
-                        <li class="sidebar-nav__menu-item dropdown"><a class="sidebar-nav__menu-link dropdown-toggle" href="#bem-like-naming" data-target="#item6" data-toggle="collapse">BEM-like Naming</a>
+                        <li class="sidebar-nav__menu-item dropdown"><a class="js-tgl sidebar-nav__menu-link dropdown-toggle" href="#bem-like-naming" data-target="#item6" data-toggle="collapse"><span class="fk-svg-rotate"><span class="fk-ucon"></span> BEM-like Naming</a>
                             <ul class="nav-stacked  sidebar-nav__submenu" id="item6">
                                 <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#starting-context">Starting Context</a></li>
                                 <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#more-layers">More Layers</a></li>
@@ -100,7 +94,7 @@ body {font-family:Roboto,sans-serif;font-weight: 400; font-size: 1rem; color:#33
                             </ul>
                         </li>
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#naming-conventions-in-html">Naming Conventions in HTML</a></li>
-                        <li class="sidebar-nav__menu-item dropdown"><a class="sidebar-nav__menu-link dropdown-toggle" href="#javascript-hooks" data-target="#item7" data-toggle="collapse">JavaScript Hooks</a>
+                        <li class="sidebar-nav__menu-item dropdown"><a class="js-tgl sidebar-nav__menu-link dropdown-toggle" href="#javascript-hooks" data-target="#item7" data-toggle="collapse"><span class="fk-svg-rotate"><span class="fk-ucon"></span> JavaScript Hooks</a>
                             <ul class="nav-stacked  sidebar-nav__submenu" id="item7">
                                 <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#data--attributes"><code class="highlighter-rouge">data-*</code> Attributes</a></li>
                             </ul>
@@ -108,7 +102,7 @@ body {font-family:Roboto,sans-serif;font-weight: 400; font-size: 1rem; color:#33
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#taking-it-further">Taking It Further</a></li>
                     </ul>
                 </li>
-                <li class="sidebar-nav__menu-item dropdown"><a class="sidebar-nav__menu-link dropdown-toggle" href="#css-selectors" data-target="#item8" data-toggle="collapse">CSS Selectors</a>
+                <li class="sidebar-nav__menu-item dropdown"><a class="js-tgl sidebar-nav__menu-link dropdown-toggle" href="#css-selectors" data-target="#item8" data-toggle="collapse"><span class="fk-svg-rotate"><span class="fk-ucon"></span> CSS Selectors</a>
                     <ul class="nav-stacked  sidebar-nav__submenu" id="item8">
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#selector-intent">Selector Intent</a></li>
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#reusability">Reusability</a></li>
@@ -131,7 +125,7 @@ body {font-family:Roboto,sans-serif;font-weight: 400; font-size: 1rem; color:#33
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#general-rules">General Rules</a></li>
                     </ul>
                 </li>
-                <li class="sidebar-nav__menu-item dropdown"><a class="sidebar-nav__menu-link dropdown-toggle" href="#specificity" data-target="#item9" data-toggle="collapse">Specificity</a>
+                <li class="sidebar-nav__menu-item dropdown"><a class="js-tgl sidebar-nav__menu-link dropdown-toggle" href="#specificity" data-target="#item9" data-toggle="collapse"><span class="fk-svg-rotate"><span class="fk-ucon"></span> Specificity</a>
                     <ul class="nav-stacked  sidebar-nav__submenu" id="item9">
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#ids-in-css">IDs in CSS</a></li>
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#nesting">Nesting</a></li>
@@ -139,7 +133,7 @@ body {font-family:Roboto,sans-serif;font-weight: 400; font-size: 1rem; color:#33
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#hacking-specificity">Hacking Specificity</a></li>
                     </ul>
                 </li>
-                <li class="sidebar-nav__menu-item dropdown"><a class="sidebar-nav__menu-link dropdown-toggle" href="#architectural-principles" data-target="#item10" data-toggle="collapse">Architectural Principles</a>
+                <li class="sidebar-nav__menu-item dropdown"><a class="js-tgl sidebar-nav__menu-link dropdown-toggle" href="#architectural-principles" data-target="#item10" data-toggle="collapse"><span class="fk-svg-rotate"><span class="fk-ucon"></span> Architectural Principles</a>
                     <ul class="nav-stacked  sidebar-nav__submenu" id="item10">
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#high-level-overview">High-level Overview</a></li>
                         <li class="sidebar-nav__menu-item"><a class="sidebar-nav__menu-link" href="#object-orientation">Object-orientation</a></li>
