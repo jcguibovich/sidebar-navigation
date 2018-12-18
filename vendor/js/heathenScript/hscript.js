@@ -1,23 +1,29 @@
 //hammy toggle icon
 $(document).ready(function () {
-  var trigger = $('.hammy'),
+  $('.nautical-compass').keyup(() => {
+    $(this).addClass('nautics-compass-rotate')
+  })
+  
+  var trigger = $('.nautical-compass'),
     //overlay = $('.overlay'),
     isClosed = false;
 
   trigger.click(function () {
-    hammy_cross();
+    nautica_spin();
   });
 
-  function hammy_cross() {
+  function nautica_spin() {
 
     if (isClosed == true) {
       //overlay.hide();
       trigger.removeClass('is-open');
+      trigger.toggleClass('nautics-compass-rotate-cw')
       trigger.addClass('is-closed');
       isClosed = false;
     } else {
       //overlay.show();
       trigger.removeClass('is-closed');
+      trigger.toggleClass('nautics-compass-rotate--cc')
       trigger.addClass('is-open');
       isClosed = true;
     }
@@ -46,27 +52,32 @@ $('[data-toggle="offcanvas"]').click(function () {
 
 // });
 
-$(document).ready(function navHighlighter() {
-  var url = window.location.hash;
-  var filename = url.substr(url.lastIndexOf('/') + 1);
-  //console.log(url, filename);
-  $('li.sidebar-nave__menu-item a[href$="' + filename + '"]').parent().addClass("active");
-});
+// $(document).ready(function navHighlighter() {
+//   var url = window.location.hash;
+//   var filename = url.substr(url.lastIndexOf('/') + 1);
+//   //console.log(url, filename);
+//   $('li.sidebar-nave__menu-item a[href$="' + filename + '"]').parent().addClass("active");
+// });
 
-$(document).ready(function() {
-  var url = window.location.hash;
-  var filename = url.substr(url.lastIndexOf('/') + 1);
-  console.log(url, filename);
-  $('a.sidebar__nav__menu__link[href$="' + filename + '"]').parent().addClass("active");
+// $(document).ready(function() {
+//   var url = window.location.hash;
+//   var filename = url.substr(url.lastIndexOf('/') + 1);
+//   console.log(url, filename);
+//   $('a.sidebar__nav__menu__link[href$="' + filename + '"]').parent().addClass("active");
 
 
-})
+// })
 
 // toggle dropdowns
 $('.js-tgl').click(function(cb){
-  $(this).toggleClass('active')
-  var target_el = $(this).attr('data-target')
-  $(target_el).toggleClass('is-open'), cb
+  var $this = $(this)
+  if ( !$this.hasClass('active') ) {
+    $this.toggleClass('active')
+    var target_el = $this.attr('data-target')
+    $(target_el).toggleClass('is-open'), cb
+  } else {
+    return alert('Woops! Something happened. Its not good...')
+  }
 })
 
 
