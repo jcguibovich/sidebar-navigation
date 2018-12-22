@@ -1,6 +1,6 @@
 //hammy toggle icon
 $(document).ready(function () {
-  $('.nautical-compass').keyup(() => {
+  $('.nautical-compass').click(() => {
     $(this).addClass('nautics-compass-rotate')
   })
   
@@ -16,15 +16,15 @@ $(document).ready(function () {
 
     if (isClosed == true) {
       //overlay.hide();
-      trigger.removeClass('is-open');
+      trigger.removeClass('is-active');
       trigger.toggleClass('nautics-compass-rotate-cw')
-      trigger.addClass('is-closed');
+      trigger.addClass('is-hidden');
       isClosed = false;
     } else {
       //overlay.show();
-      trigger.removeClass('is-closed');
+      trigger.removeClass('is-hidden');
       trigger.toggleClass('nautics-compass-rotate--cc')
-      trigger.addClass('is-open');
+      trigger.addClass('is-active');
       isClosed = true;
     }
   }
@@ -74,7 +74,7 @@ $('.js-tgl').click(function(cb){
   if ( !$this.hasClass('active') ) {
     $this.toggleClass('active')
     var target_el = $this.attr('data-target')
-    $(target_el).toggleClass('is-open'), cb
+    $(target_el).toggleClass('is-active'), cb
   } else {
     return alert('Woops! Something happened. Its not good...')
   }
