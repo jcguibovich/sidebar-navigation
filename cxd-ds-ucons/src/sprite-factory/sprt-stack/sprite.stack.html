@@ -1,0 +1,3451 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<title>SVG stack preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+		
+<!--
+	
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as stack SVGs, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-Aspect-landscape-dims { width: 24px; height: 24px; }
+	.svg-Aspect-portrait-dims { width: 24px; height: 24px; }
+	.svg-Aspect-small-dims { width: 24px; height: 24px; }
+	.svg-Aspect-square-dims { width: 24px; height: 24px; }
+	.svg-Closed-caption-dims { width: 24px; height: 24px; }
+	.svg-Education-dims { width: 24px; height: 24px; }
+	.svg-Fingerprint-dims { width: 24px; height: 24px; }
+	.svg-Palette-dims { width: 24px; height: 24px; }
+	.svg-Playlist-add-dims { width: 24px; height: 24px; }
+	.svg-Playlist-check-dims { width: 24px; height: 24px; }
+	.svg-Playlist-play-dims { width: 24px; height: 24px; }
+	.svg-Podcast-dims { width: 24px; height: 24px; }
+	.svg-Queue-add-dims { width: 24px; height: 24px; }
+	.svg-Replay-10-dims { width: 24px; height: 24px; }
+	.svg-Replay-30-dims { width: 24px; height: 24px; }
+	.svg-Replay-5-dims { width: 24px; height: 24px; }
+	.svg-Settings-vertical-dims { width: 24px; height: 24px; }
+	.svg-Share-dims { width: 24px; height: 24px; }
+	.svg-Tag-dims { width: 21px; height: 24px; }
+	.svg-Thumb-down-dims { width: 24px; height: 24px; }
+	.svg-Thumb-up-dims { width: 24px; height: 24px; }
+	.svg-accessibility-dims { width: 24px; height: 24px; }
+	.svg-accessible-dims { width: 24px; height: 24px; }
+	.svg-account-balance-dims { width: 24px; height: 24px; }
+	.svg-account-balance-wallet-dims { width: 24px; height: 24px; }
+	.svg-add-box-dims { width: 24px; height: 24px; }
+	.svg-add-circle-dims { width: 24px; height: 24px; }
+	.svg-airplay-dims { width: 24px; height: 24px; }
+	.svg-arrow-alt-down-dims { width: 24px; height: 24px; }
+	.svg-arrow-alt-downleft-dims { width: 24px; height: 24px; }
+	.svg-arrow-alt-left-dims { width: 24px; height: 24px; }
+	.svg-arrow-alt-leftup-dims { width: 24px; height: 24px; }
+	.svg-arrow-alt-right-dims { width: 24px; height: 24px; }
+	.svg-arrow-alt-rightdown-dims { width: 24px; height: 24px; }
+	.svg-arrow-alt-up-dims { width: 24px; height: 24px; }
+	.svg-arrow-alt-upright-dims { width: 24px; height: 24px; }
+	.svg-arrow-down-dims { width: 24px; height: 24px; }
+	.svg-arrow-left-dims { width: 24px; height: 24px; }
+	.svg-arrow-right-dims { width: 24px; height: 24px; }
+	.svg-arrow-up-dims { width: 24px; height: 24px; }
+	.svg-assignment-dims { width: 24px; height: 24px; }
+	.svg-attach-dims { width: 24px; height: 24px; }
+	.svg-attach-money-dims { width: 24px; height: 24px; }
+	.svg-bank-note-dims { width: 24px; height: 24px; }
+	.svg-binoculars-dims { width: 24px; height: 24px; }
+	.svg-book-dims { width: 24px; height: 24px; }
+	.svg-bookmark-dims { width: 24px; height: 24px; }
+	.svg-bookmark-o-dims { width: 24px; height: 24px; }
+	.svg-books-dims { width: 24px; height: 24px; }
+	.svg-border-all-dims { width: 24px; height: 24px; }
+	.svg-border-bottom-dims { width: 24px; height: 24px; }
+	.svg-border-horizontal-dims { width: 24px; height: 24px; }
+	.svg-border-inner-dims { width: 24px; height: 24px; }
+	.svg-border-left-dims { width: 24px; height: 24px; }
+	.svg-border-none-dims { width: 24px; height: 24px; }
+	.svg-border-outer-dims { width: 24px; height: 24px; }
+	.svg-border-right-dims { width: 24px; height: 24px; }
+	.svg-border-top-dims { width: 24px; height: 24px; }
+	.svg-border-vertical-dims { width: 24px; height: 24px; }
+	.svg-business-graph-bar-dims { width: 24px; height: 24px; }
+	.svg-business-graph-bar-decrease-dims { width: 24px; height: 24px; }
+	.svg-business-graph-bar-increase-dims { width: 24px; height: 24px; }
+	.svg-business-graph-bar-status-dims { width: 24px; height: 24px; }
+	.svg-business-graph-pie-dims { width: 24px; height: 24px; }
+	.svg-calculator-dims { width: 24px; height: 24px; }
+	.svg-calendar-dims { width: 24px; height: 24px; }
+	.svg-calendar-add-dims { width: 24px; height: 24px; }
+	.svg-calendar-blank-dims { width: 24px; height: 24px; }
+	.svg-calendar-check-dims { width: 24px; height: 24px; }
+	.svg-calendar-delete-dims { width: 24px; height: 24px; }
+	.svg-calendar-note-dims { width: 24px; height: 24px; }
+	.svg-calendar-remove-dims { width: 24px; height: 24px; }
+	.svg-caret-down-dims { width: 24px; height: 24px; }
+	.svg-caret-left-dims { width: 24px; height: 24px; }
+	.svg-caret-right-dims { width: 24px; height: 24px; }
+	.svg-caret-up-dims { width: 24px; height: 24px; }
+	.svg-cast-dims { width: 24px; height: 24px; }
+	.svg-chat-dims { width: 24px; height: 24px; }
+	.svg-chat-conversation-dims { width: 24px; height: 24px; }
+	.svg-checkmark-dims { width: 24px; height: 24px; }
+	.svg-checkmark-0-dims { width: 24px; height: 24px; }
+	.svg-chevron-circle-down-dims { width: 21px; height: 24px; }
+	.svg-chevron-circle-left-dims { width: 21px; height: 24px; }
+	.svg-chevron-circle-right-dims { width: 21px; height: 24px; }
+	.svg-chevron-circle-up-dims { width: 21px; height: 24px; }
+	.svg-chevron-down-dims { width: 24px; height: 24px; }
+	.svg-chevron-left-dims { width: 24px; height: 24px; }
+	.svg-chevron-right-dims { width: 24px; height: 24px; }
+	.svg-chevron-up-dims { width: 24px; height: 24px; }
+	.svg-circle-filled-dims { width: 24px; height: 24px; }
+	.svg-clock-dims { width: 24px; height: 24px; }
+	.svg-close-dims { width: 24px; height: 24px; }
+	.svg-cloud-dims { width: 24px; height: 24px; }
+	.svg-cloud-done-dims { width: 24px; height: 24px; }
+	.svg-cloud-download-dims { width: 24px; height: 24px; }
+	.svg-cloud-upload-dims { width: 24px; height: 24px; }
+	.svg-code-dims { width: 30px; height: 24px; }
+	.svg-coin-receive-dims { width: 24px; height: 24px; }
+	.svg-coins-dims { width: 24px; height: 24px; }
+	.svg-compass-dims { width: 24px; height: 24px; }
+	.svg-content-box-dims { width: 24px; height: 24px; }
+	.svg-content-box-alt-dims { width: 24px; height: 24px; }
+	.svg-content-box-filled-dims { width: 24px; height: 24px; }
+	.svg-content-briefcase-dims { width: 24px; height: 24px; }
+	.svg-context-section-dims { width: 24px; height: 24px; }
+	.svg-copyright-dims { width: 24px; height: 24px; }
+	.svg-credit-card-dims { width: 24px; height: 24px; }
+	.svg-credit-card-lock-dims { width: 24px; height: 24px; }
+	.svg-cursor-dims { width: 24px; height: 24px; }
+	.svg-cursor-target-dims { width: 24px; height: 24px; }
+	.svg-cut-dims { width: 24px; height: 24px; }
+	.svg-dashboard-dims { width: 24px; height: 24px; }
+	.svg-desktop-dims { width: 24px; height: 24px; }
+	.svg-dollar-circle-dims { width: 24px; height: 24px; }
+	.svg-drag-handle-horizontal-dims { width: 24px; height: 24px; }
+	.svg-drag-handle-vertical-dims { width: 24px; height: 24px; }
+	.svg-edit-dims { width: 24px; height: 24px; }
+	.svg-eject-dims { width: 24px; height: 24px; }
+	.svg-email-at-dims { width: 24px; height: 24px; }
+	.svg-email-closed-dims { width: 24px; height: 24px; }
+	.svg-email-open-dims { width: 24px; height: 24px; }
+	.svg-enlarge-dims { width: 24px; height: 24px; }
+	.svg-enlarge2-dims { width: 24px; height: 24px; }
+	.svg-equalizer-dims { width: 24px; height: 24px; }
+	.svg-exit-to-app-dims { width: 24px; height: 24px; }
+	.svg-eye-dims { width: 24px; height: 24px; }
+	.svg-eye-hide-dims { width: 24px; height: 24px; }
+	.svg-eye-show-dims { width: 24px; height: 24px; }
+	.svg-eye-slash-dims { width: 24px; height: 24px; }
+	.svg-fast-forward-dims { width: 24px; height: 24px; }
+	.svg-fast-rewind-dims { width: 24px; height: 24px; }
+	.svg-favorite-dims { width: 24px; height: 24px; }
+	.svg-favorite-o-dims { width: 24px; height: 24px; }
+	.svg-feedback-attention-dims { width: 24px; height: 24px; }
+	.svg-feedback-error-dims { width: 24px; height: 24px; }
+	.svg-feedback-remove-dims { width: 24px; height: 24px; }
+	.svg-feedback-stop-dims { width: 24px; height: 24px; }
+	.svg-feedback-warning-dims { width: 24px; height: 24px; }
+	.svg-file-dims { width: 24px; height: 24px; }
+	.svg-file-audio-dims { width: 24px; height: 24px; }
+	.svg-file-bookmark-dims { width: 24px; height: 24px; }
+	.svg-file-download-dims { width: 24px; height: 24px; }
+	.svg-file-download2-dims { width: 24px; height: 24px; }
+	.svg-file-favorite-dims { width: 24px; height: 24px; }
+	.svg-file-favorite-star-dims { width: 24px; height: 24px; }
+	.svg-file-graph-dims { width: 24px; height: 24px; }
+	.svg-file-graph-2-dims { width: 24px; height: 24px; }
+	.svg-file-landscape-dims { width: 24px; height: 24px; }
+	.svg-file-landscape-image-dims { width: 24px; height: 24px; }
+	.svg-file-landscape-new-dims { width: 24px; height: 24px; }
+	.svg-file-lock-dims { width: 24px; height: 24px; }
+	.svg-file-note-dims { width: 24px; height: 24px; }
+	.svg-file-tasks-checklist-dims { width: 24px; height: 24px; }
+	.svg-file-upload-dims { width: 24px; height: 24px; }
+	.svg-file-upload2-dims { width: 24px; height: 24px; }
+	.svg-file-video-dims { width: 24px; height: 24px; }
+	.svg-file-view-dims { width: 24px; height: 24px; }
+	.svg-files-dims { width: 24px; height: 24px; }
+	.svg-files-2-dims { width: 24px; height: 24px; }
+	.svg-files-coding-dims { width: 24px; height: 24px; }
+	.svg-files-compare-dims { width: 24px; height: 24px; }
+	.svg-files-landscape-dims { width: 24px; height: 24px; }
+	.svg-files-library-dims { width: 24px; height: 24px; }
+	.svg-filter-dims { width: 19px; height: 24px; }
+	.svg-first-page-dims { width: 24px; height: 24px; }
+	.svg-flag-dims { width: 24px; height: 24px; }
+	.svg-folder-dims { width: 24px; height: 24px; }
+	.svg-folder-audio-dims { width: 24px; height: 24px; }
+	.svg-folder-block-dims { width: 24px; height: 24px; }
+	.svg-folder-bookmark-dims { width: 24px; height: 24px; }
+	.svg-folder-check-dims { width: 24px; height: 24px; }
+	.svg-folder-favorite-star-dims { width: 24px; height: 24px; }
+	.svg-folder-home-dims { width: 24px; height: 24px; }
+	.svg-folder-image-dims { width: 24px; height: 24px; }
+	.svg-folder-lock-dims { width: 24px; height: 24px; }
+	.svg-folder-network-dims { width: 24px; height: 24px; }
+	.svg-folder-refresh-dims { width: 24px; height: 24px; }
+	.svg-folder-settings-dims { width: 24px; height: 24px; }
+	.svg-folder-shared-dims { width: 24px; height: 24px; }
+	.svg-folder-special-dims { width: 24px; height: 24px; }
+	.svg-folder-upload-dims { width: 24px; height: 24px; }
+	.svg-folder-video-dims { width: 24px; height: 24px; }
+	.svg-folder-view-dims { width: 24px; height: 24px; }
+	.svg-folder-zip-dims { width: 24px; height: 24px; }
+	.svg-folders-dims { width: 24px; height: 24px; }
+	.svg-format-align-center-dims { width: 24px; height: 24px; }
+	.svg-format-align-justify-dims { width: 24px; height: 24px; }
+	.svg-format-align-left-dims { width: 24px; height: 24px; }
+	.svg-format-align-right-dims { width: 24px; height: 24px; }
+	.svg-format-bold-dims { width: 24px; height: 24px; }
+	.svg-format-clear-dims { width: 24px; height: 24px; }
+	.svg-format-color-fill-dims { width: 24px; height: 24px; }
+	.svg-format-color-reset-dims { width: 24px; height: 24px; }
+	.svg-format-color-text-dims { width: 24px; height: 24px; }
+	.svg-format-font-dims { width: 24px; height: 24px; }
+	.svg-format-indent-decrease-dims { width: 24px; height: 24px; }
+	.svg-format-indent-increase-dims { width: 24px; height: 24px; }
+	.svg-format-italic-dims { width: 24px; height: 24px; }
+	.svg-format-line-spacing-dims { width: 24px; height: 24px; }
+	.svg-format-list-bulleted-dims { width: 24px; height: 24px; }
+	.svg-format-list-numbered-dims { width: 24px; height: 24px; }
+	.svg-format-paint-dims { width: 24px; height: 24px; }
+	.svg-format-quote-dims { width: 24px; height: 24px; }
+	.svg-format-shapes-dims { width: 24px; height: 24px; }
+	.svg-format-size-dims { width: 24px; height: 24px; }
+	.svg-format-strikethrough-dims { width: 24px; height: 24px; }
+	.svg-fullscreen-dims { width: 24px; height: 24px; }
+	.svg-fullscreen-exit-dims { width: 24px; height: 24px; }
+	.svg-globe-dims { width: 24px; height: 24px; }
+	.svg-hearing-dims { width: 24px; height: 24px; }
+	.svg-home2-dims { width: 22px; height: 24px; }
+	.svg-hourglass-dims { width: 24px; height: 24px; }
+	.svg-hourglass-o-dims { width: 24px; height: 24px; }
+	.svg-id-badge-dims { width: 24px; height: 24px; }
+	.svg-id-card-dims { width: 24px; height: 24px; }
+	.svg-image-dims { width: 24px; height: 24px; }
+	.svg-keyhole-dims { width: 24px; height: 24px; }
+	.svg-label-dims { width: 24px; height: 24px; }
+	.svg-laptop-dims { width: 24px; height: 24px; }
+	.svg-last-page-dims { width: 24px; height: 24px; }
+	.svg-layers-dims { width: 24px; height: 24px; }
+	.svg-layers-off-dims { width: 24px; height: 24px; }
+	.svg-library-books-dims { width: 24px; height: 24px; }
+	.svg-line-style-dims { width: 24px; height: 24px; }
+	.svg-line-weight-dims { width: 24px; height: 24px; }
+	.svg-list-dims { width: 24px; height: 24px; }
+	.svg-list-add-dims { width: 24px; height: 24px; }
+	.svg-live-help-dims { width: 24px; height: 24px; }
+	.svg-loading-dims { width: 24px; height: 24px; }
+	.svg-local-shipping-dims { width: 24px; height: 24px; }
+	.svg-lock-dims { width: 24px; height: 24px; }
+	.svg-map-pin-dims { width: 24px; height: 24px; }
+	.svg-menu-dims { width: 24px; height: 24px; }
+	.svg-message-dims { width: 24px; height: 24px; }
+	.svg-message-bubble-blank-dims { width: 24px; height: 24px; }
+	.svg-mic-off-dims { width: 24px; height: 24px; }
+	.svg-mic-on-dims { width: 24px; height: 24px; }
+	.svg-mms-dims { width: 24px; height: 24px; }
+	.svg-mobile-dims { width: 24px; height: 24px; }
+	.svg-money-note-dims { width: 24px; height: 24px; }
+	.svg-mood-bad-dims { width: 24px; height: 24px; }
+	.svg-mood-excited-dims { width: 24px; height: 24px; }
+	.svg-mood-happy-dims { width: 24px; height: 24px; }
+	.svg-mood-neutral-dims { width: 24px; height: 24px; }
+	.svg-mood-sad-dims { width: 24px; height: 24px; }
+	.svg-more-horizontal-dims { width: 24px; height: 24px; }
+	.svg-more-vertical-dims { width: 24px; height: 24px; }
+	.svg-mouse-dims { width: 24px; height: 24px; }
+	.svg-notification-dims { width: 24px; height: 24px; }
+	.svg-notification-active-dims { width: 24px; height: 24px; }
+	.svg-notifications-add-dims { width: 24px; height: 24px; }
+	.svg-notifications-idle-dims { width: 24px; height: 24px; }
+	.svg-notifications-off-dims { width: 24px; height: 24px; }
+	.svg-open-in-new-dims { width: 24px; height: 24px; }
+	.svg-package-dims { width: 24px; height: 24px; }
+	.svg-package-download-dims { width: 24px; height: 24px; }
+	.svg-package-upload-dims { width: 24px; height: 24px; }
+	.svg-pause-dims { width: 24px; height: 24px; }
+	.svg-percent-dims { width: 24px; height: 24px; }
+	.svg-picture-in-picture-dims { width: 24px; height: 24px; }
+	.svg-pictures-dims { width: 24px; height: 24px; }
+	.svg-piggy-bank-dims { width: 24px; height: 24px; }
+	.svg-play-arrow-dims { width: 24px; height: 24px; }
+	.svg-plus-dims { width: 24px; height: 24px; }
+	.svg-pointer-dims { width: 24px; height: 24px; }
+	.svg-poll-dims { width: 24px; height: 24px; }
+	.svg-printer-dims { width: 24px; height: 24px; }
+	.svg-priority_high-dims { width: 24px; height: 24px; }
+	.svg-radio-button-checked-dims { width: 24px; height: 24px; }
+	.svg-radio-button-unchecked-dims { width: 24px; height: 24px; }
+	.svg-receipt-dims { width: 24px; height: 24px; }
+	.svg-redo-dims { width: 24px; height: 24px; }
+	.svg-remove-dims { width: 24px; height: 24px; }
+	.svg-reply-dims { width: 24px; height: 24px; }
+	.svg-reply-all-dims { width: 24px; height: 24px; }
+	.svg-restore-dims { width: 24px; height: 24px; }
+	.svg-search-dims { width: 24px; height: 24px; }
+	.svg-send-dims { width: 24px; height: 24px; }
+	.svg-server-dims { width: 24px; height: 24px; }
+	.svg-settings-dims { width: 24px; height: 24px; }
+	.svg-shield-dims { width: 24px; height: 24px; }
+	.svg-shrink-dims { width: 24px; height: 24px; }
+	.svg-shrink1-dims { width: 24px; height: 24px; }
+	.svg-sitemap-dims { width: 24px; height: 24px; }
+	.svg-skip-next-dims { width: 24px; height: 24px; }
+	.svg-skip-previous-dims { width: 24px; height: 24px; }
+	.svg-sms-failed-dims { width: 24px; height: 24px; }
+	.svg-sort-dims { width: 24px; height: 24px; }
+	.svg-spellcheck-dims { width: 24px; height: 24px; }
+	.svg-star-dims { width: 24px; height: 24px; }
+	.svg-star-half-dims { width: 24px; height: 24px; }
+	.svg-star-o-dims { width: 24px; height: 24px; }
+	.svg-step-next-dims { width: 24px; height: 24px; }
+	.svg-store-dims { width: 24px; height: 24px; }
+	.svg-street-signs-dims { width: 24px; height: 24px; }
+	.svg-swap-horizontal-dims { width: 24px; height: 24px; }
+	.svg-swap-vertical-dims { width: 24px; height: 24px; }
+	.svg-tablet-dims { width: 24px; height: 24px; }
+	.svg-tag-large-dims { width: 24px; height: 24px; }
+	.svg-tags-dims { width: 26px; height: 24px; }
+	.svg-text-wrap-dims { width: 24px; height: 24px; }
+	.svg-texting-dims { width: 24px; height: 24px; }
+	.svg-timer-dims { width: 24px; height: 24px; }
+	.svg-timer-off-dims { width: 24px; height: 24px; }
+	.svg-title-dims { width: 24px; height: 24px; }
+	.svg-toc-dims { width: 24px; height: 24px; }
+	.svg-trademark-dims { width: 26px; height: 24px; }
+	.svg-trash-dims { width: 24px; height: 24px; }
+	.svg-undo-dims { width: 24px; height: 24px; }
+	.svg-undo2-dims { width: 24px; height: 24px; }
+	.svg-unfold-less-dims { width: 24px; height: 24px; }
+	.svg-unfold-more-dims { width: 24px; height: 24px; }
+	.svg-unlock-dims { width: 24px; height: 24px; }
+	.svg-update-dims { width: 24px; height: 24px; }
+	.svg-user-dims { width: 24px; height: 24px; }
+	.svg-user-add-dims { width: 24px; height: 24px; }
+	.svg-user-block-dims { width: 24px; height: 24px; }
+	.svg-user-check-dims { width: 24px; height: 24px; }
+	.svg-user-circle-dims { width: 24px; height: 24px; }
+	.svg-user-close-dims { width: 24px; height: 24px; }
+	.svg-user-lock-dims { width: 24px; height: 24px; }
+	.svg-user-refresh-dims { width: 24px; height: 24px; }
+	.svg-user-search-dims { width: 24px; height: 24px; }
+	.svg-user-square-dims { width: 24px; height: 24px; }
+	.svg-user-subtract-dims { width: 24px; height: 24px; }
+	.svg-user-timeout-dims { width: 24px; height: 24px; }
+	.svg-users-dims { width: 24px; height: 24px; }
+	.svg-vertical-align-bottom-dims { width: 24px; height: 24px; }
+	.svg-vertical-align-center-dims { width: 24px; height: 24px; }
+	.svg-vertical-align-top-dims { width: 24px; height: 24px; }
+	.svg-view-columns-dims { width: 24px; height: 24px; }
+	.svg-view-list-dims { width: 24px; height: 24px; }
+	.svg-view-list-alt-dims { width: 24px; height: 24px; }
+	.svg-view-thumbnails-dims { width: 24px; height: 24px; }
+	.svg-views-cards-dims { width: 24px; height: 24px; }
+	.svg-zoom-area-in-dims { width: 24px; height: 24px; }
+	.svg-zoom-area-out-dims { width: 24px; height: 24px; }
+	.svg-zoom-in-dims { width: 24px; height: 24px; }
+	.svg-zoom-out-dims { width: 24px; height: 24px; }
+</style>
+
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+		<header>
+			<h1>SVG stack preview</h1>
+			<p>This preview features an SVG stack. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-fragment" target="_blank">support SVG fragment identifiers</a> for SVG stacks to work.</li>
+				<li>Support for SVG fragment identifiers hasn't always been that decent. For older browsers you will have to use some prolyfill like <a href="https://github.com/preciousforever/SVG-Stacker/blob/master/fixsvgstack.jquery.js" target="_blank">fixsvgstack.jquery.js</a>.</li>
+			</ul>
+		</header>
+		<section>
+			
+<!--
+	
+SVG stack
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) to reference certain portions of the
+external sprite. By default, all shapes inside the sprite are hidden by CSS. The `:target` pseudo
+selector is used to show the very shape that is referenced by the fragment identifier.  
+
+-->
+
+			<ul>
+				
+				<li title="Aspect-landscape">
+					<div class="icon-box">
+						
+						<!-- Aspect-landscape -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Aspect-landscape" class="svg-Aspect-landscape-dims" alt="Aspect-landscape"/>
+						
+					</div>
+					<h2>Aspect-landscape</h2>
+				</li>
+				<li title="Aspect-portrait">
+					<div class="icon-box">
+						
+						<!-- Aspect-portrait -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Aspect-portrait" class="svg-Aspect-portrait-dims" alt="Aspect-portrait"/>
+						
+					</div>
+					<h2>Aspect-portrait</h2>
+				</li>
+				<li title="Aspect-small">
+					<div class="icon-box">
+						
+						<!-- Aspect-small -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Aspect-small" class="svg-Aspect-small-dims" alt="Aspect-small"/>
+						
+					</div>
+					<h2>Aspect-small</h2>
+				</li>
+				<li title="Aspect-square">
+					<div class="icon-box">
+						
+						<!-- Aspect-square -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Aspect-square" class="svg-Aspect-square-dims" alt="Aspect-square"/>
+						
+					</div>
+					<h2>Aspect-square</h2>
+				</li>
+				<li title="Closed-caption">
+					<div class="icon-box">
+						
+						<!-- Closed-caption -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Closed-caption" class="svg-Closed-caption-dims" alt="Closed-caption"/>
+						
+					</div>
+					<h2>Closed-caption</h2>
+				</li>
+				<li title="Education">
+					<div class="icon-box">
+						
+						<!-- Education -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Education" class="svg-Education-dims" alt="Education"/>
+						
+					</div>
+					<h2>Education</h2>
+				</li>
+				<li title="Fingerprint">
+					<div class="icon-box">
+						
+						<!-- Fingerprint -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Fingerprint" class="svg-Fingerprint-dims" alt="Fingerprint"/>
+						
+					</div>
+					<h2>Fingerprint</h2>
+				</li>
+				<li title="Palette">
+					<div class="icon-box">
+						
+						<!-- Palette -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Palette" class="svg-Palette-dims" alt="Palette"/>
+						
+					</div>
+					<h2>Palette</h2>
+				</li>
+				<li title="Playlist-add">
+					<div class="icon-box">
+						
+						<!-- Playlist-add -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Playlist-add" class="svg-Playlist-add-dims" alt="Playlist-add"/>
+						
+					</div>
+					<h2>Playlist-add</h2>
+				</li>
+				<li title="Playlist-check">
+					<div class="icon-box">
+						
+						<!-- Playlist-check -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Playlist-check" class="svg-Playlist-check-dims" alt="Playlist-check"/>
+						
+					</div>
+					<h2>Playlist-check</h2>
+				</li>
+				<li title="Playlist-play">
+					<div class="icon-box">
+						
+						<!-- Playlist-play -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Playlist-play" class="svg-Playlist-play-dims" alt="Playlist-play"/>
+						
+					</div>
+					<h2>Playlist-play</h2>
+				</li>
+				<li title="Podcast">
+					<div class="icon-box">
+						
+						<!-- Podcast -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Podcast" class="svg-Podcast-dims" alt="Podcast"/>
+						
+					</div>
+					<h2>Podcast</h2>
+				</li>
+				<li title="Queue-add">
+					<div class="icon-box">
+						
+						<!-- Queue-add -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Queue-add" class="svg-Queue-add-dims" alt="Queue-add"/>
+						
+					</div>
+					<h2>Queue-add</h2>
+				</li>
+				<li title="Replay-10">
+					<div class="icon-box">
+						
+						<!-- Replay-10 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Replay-10" class="svg-Replay-10-dims" alt="Replay-10"/>
+						
+					</div>
+					<h2>Replay-10</h2>
+				</li>
+				<li title="Replay-30">
+					<div class="icon-box">
+						
+						<!-- Replay-30 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Replay-30" class="svg-Replay-30-dims" alt="Replay-30"/>
+						
+					</div>
+					<h2>Replay-30</h2>
+				</li>
+				<li title="Replay-5">
+					<div class="icon-box">
+						
+						<!-- Replay-5 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Replay-5" class="svg-Replay-5-dims" alt="Replay-5"/>
+						
+					</div>
+					<h2>Replay-5</h2>
+				</li>
+				<li title="Settings-vertical">
+					<div class="icon-box">
+						
+						<!-- Settings-vertical -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Settings-vertical" class="svg-Settings-vertical-dims" alt="Settings-vertical"/>
+						
+					</div>
+					<h2>Settings-vertical</h2>
+				</li>
+				<li title="Share">
+					<div class="icon-box">
+						
+						<!-- Share -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Share" class="svg-Share-dims" alt="Share"/>
+						
+					</div>
+					<h2>Share</h2>
+				</li>
+				<li title="Tag">
+					<div class="icon-box">
+						
+						<!-- Tag -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Tag" class="svg-Tag-dims" alt="Tag"/>
+						
+					</div>
+					<h2>Tag</h2>
+				</li>
+				<li title="Thumb-down">
+					<div class="icon-box">
+						
+						<!-- Thumb-down -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Thumb-down" class="svg-Thumb-down-dims" alt="Thumb-down"/>
+						
+					</div>
+					<h2>Thumb-down</h2>
+				</li>
+				<li title="Thumb-up">
+					<div class="icon-box">
+						
+						<!-- Thumb-up -->
+						<img src="sprite-factory/sprt-stack/stack.svg#Thumb-up" class="svg-Thumb-up-dims" alt="Thumb-up"/>
+						
+					</div>
+					<h2>Thumb-up</h2>
+				</li>
+				<li title="accessibility">
+					<div class="icon-box">
+						
+						<!-- accessibility -->
+						<img src="sprite-factory/sprt-stack/stack.svg#accessibility" class="svg-accessibility-dims" alt="accessibility"/>
+						
+					</div>
+					<h2>accessibility</h2>
+				</li>
+				<li title="accessible">
+					<div class="icon-box">
+						
+						<!-- accessible -->
+						<img src="sprite-factory/sprt-stack/stack.svg#accessible" class="svg-accessible-dims" alt="accessible"/>
+						
+					</div>
+					<h2>accessible</h2>
+				</li>
+				<li title="account-balance">
+					<div class="icon-box">
+						
+						<!-- account-balance -->
+						<img src="sprite-factory/sprt-stack/stack.svg#account-balance" class="svg-account-balance-dims" alt="account-balance"/>
+						
+					</div>
+					<h2>account-balance</h2>
+				</li>
+				<li title="account-balance-wallet">
+					<div class="icon-box">
+						
+						<!-- account-balance-wallet -->
+						<img src="sprite-factory/sprt-stack/stack.svg#account-balance-wallet" class="svg-account-balance-wallet-dims" alt="account-balance-wallet"/>
+						
+					</div>
+					<h2>account-balance-wallet</h2>
+				</li>
+				<li title="add-box">
+					<div class="icon-box">
+						
+						<!-- add-box -->
+						<img src="sprite-factory/sprt-stack/stack.svg#add-box" class="svg-add-box-dims" alt="add-box"/>
+						
+					</div>
+					<h2>add-box</h2>
+				</li>
+				<li title="add-circle">
+					<div class="icon-box">
+						
+						<!-- add-circle -->
+						<img src="sprite-factory/sprt-stack/stack.svg#add-circle" class="svg-add-circle-dims" alt="add-circle"/>
+						
+					</div>
+					<h2>add-circle</h2>
+				</li>
+				<li title="airplay">
+					<div class="icon-box">
+						
+						<!-- airplay -->
+						<img src="sprite-factory/sprt-stack/stack.svg#airplay" class="svg-airplay-dims" alt="airplay"/>
+						
+					</div>
+					<h2>airplay</h2>
+				</li>
+				<li title="arrow-alt-down">
+					<div class="icon-box">
+						
+						<!-- arrow-alt-down -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-alt-down" class="svg-arrow-alt-down-dims" alt="arrow-alt-down"/>
+						
+					</div>
+					<h2>arrow-alt-down</h2>
+				</li>
+				<li title="arrow-alt-downleft">
+					<div class="icon-box">
+						
+						<!-- arrow-alt-downleft -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-alt-downleft" class="svg-arrow-alt-downleft-dims" alt="arrow-alt-downleft"/>
+						
+					</div>
+					<h2>arrow-alt-downleft</h2>
+				</li>
+				<li title="arrow-alt-left">
+					<div class="icon-box">
+						
+						<!-- arrow-alt-left -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-alt-left" class="svg-arrow-alt-left-dims" alt="arrow-alt-left"/>
+						
+					</div>
+					<h2>arrow-alt-left</h2>
+				</li>
+				<li title="arrow-alt-leftup">
+					<div class="icon-box">
+						
+						<!-- arrow-alt-leftup -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-alt-leftup" class="svg-arrow-alt-leftup-dims" alt="arrow-alt-leftup"/>
+						
+					</div>
+					<h2>arrow-alt-leftup</h2>
+				</li>
+				<li title="arrow-alt-right">
+					<div class="icon-box">
+						
+						<!-- arrow-alt-right -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-alt-right" class="svg-arrow-alt-right-dims" alt="arrow-alt-right"/>
+						
+					</div>
+					<h2>arrow-alt-right</h2>
+				</li>
+				<li title="arrow-alt-rightdown">
+					<div class="icon-box">
+						
+						<!-- arrow-alt-rightdown -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-alt-rightdown" class="svg-arrow-alt-rightdown-dims" alt="arrow-alt-rightdown"/>
+						
+					</div>
+					<h2>arrow-alt-rightdown</h2>
+				</li>
+				<li title="arrow-alt-up">
+					<div class="icon-box">
+						
+						<!-- arrow-alt-up -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-alt-up" class="svg-arrow-alt-up-dims" alt="arrow-alt-up"/>
+						
+					</div>
+					<h2>arrow-alt-up</h2>
+				</li>
+				<li title="arrow-alt-upright">
+					<div class="icon-box">
+						
+						<!-- arrow-alt-upright -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-alt-upright" class="svg-arrow-alt-upright-dims" alt="arrow-alt-upright"/>
+						
+					</div>
+					<h2>arrow-alt-upright</h2>
+				</li>
+				<li title="arrow-down">
+					<div class="icon-box">
+						
+						<!-- arrow-down -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-down" class="svg-arrow-down-dims" alt="arrow-down"/>
+						
+					</div>
+					<h2>arrow-down</h2>
+				</li>
+				<li title="arrow-left">
+					<div class="icon-box">
+						
+						<!-- arrow-left -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-left" class="svg-arrow-left-dims" alt="arrow-left"/>
+						
+					</div>
+					<h2>arrow-left</h2>
+				</li>
+				<li title="arrow-right">
+					<div class="icon-box">
+						
+						<!-- arrow-right -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-right" class="svg-arrow-right-dims" alt="arrow-right"/>
+						
+					</div>
+					<h2>arrow-right</h2>
+				</li>
+				<li title="arrow-up">
+					<div class="icon-box">
+						
+						<!-- arrow-up -->
+						<img src="sprite-factory/sprt-stack/stack.svg#arrow-up" class="svg-arrow-up-dims" alt="arrow-up"/>
+						
+					</div>
+					<h2>arrow-up</h2>
+				</li>
+				<li title="assignment">
+					<div class="icon-box">
+						
+						<!-- assignment -->
+						<img src="sprite-factory/sprt-stack/stack.svg#assignment" class="svg-assignment-dims" alt="assignment"/>
+						
+					</div>
+					<h2>assignment</h2>
+				</li>
+				<li title="attach">
+					<div class="icon-box">
+						
+						<!-- attach -->
+						<img src="sprite-factory/sprt-stack/stack.svg#attach" class="svg-attach-dims" alt="attach"/>
+						
+					</div>
+					<h2>attach</h2>
+				</li>
+				<li title="attach-money">
+					<div class="icon-box">
+						
+						<!-- attach-money -->
+						<img src="sprite-factory/sprt-stack/stack.svg#attach-money" class="svg-attach-money-dims" alt="attach-money"/>
+						
+					</div>
+					<h2>attach-money</h2>
+				</li>
+				<li title="bank-note">
+					<div class="icon-box">
+						
+						<!-- bank-note -->
+						<img src="sprite-factory/sprt-stack/stack.svg#bank-note" class="svg-bank-note-dims" alt="bank-note"/>
+						
+					</div>
+					<h2>bank-note</h2>
+				</li>
+				<li title="binoculars">
+					<div class="icon-box">
+						
+						<!-- binoculars -->
+						<img src="sprite-factory/sprt-stack/stack.svg#binoculars" class="svg-binoculars-dims" alt="binoculars"/>
+						
+					</div>
+					<h2>binoculars</h2>
+				</li>
+				<li title="book">
+					<div class="icon-box">
+						
+						<!-- book -->
+						<img src="sprite-factory/sprt-stack/stack.svg#book" class="svg-book-dims" alt="book"/>
+						
+					</div>
+					<h2>book</h2>
+				</li>
+				<li title="bookmark">
+					<div class="icon-box">
+						
+						<!-- bookmark -->
+						<img src="sprite-factory/sprt-stack/stack.svg#bookmark" class="svg-bookmark-dims" alt="bookmark"/>
+						
+					</div>
+					<h2>bookmark</h2>
+				</li>
+				<li title="bookmark-o">
+					<div class="icon-box">
+						
+						<!-- bookmark-o -->
+						<img src="sprite-factory/sprt-stack/stack.svg#bookmark-o" class="svg-bookmark-o-dims" alt="bookmark-o"/>
+						
+					</div>
+					<h2>bookmark-o</h2>
+				</li>
+				<li title="books">
+					<div class="icon-box">
+						
+						<!-- books -->
+						<img src="sprite-factory/sprt-stack/stack.svg#books" class="svg-books-dims" alt="books"/>
+						
+					</div>
+					<h2>books</h2>
+				</li>
+				<li title="border-all">
+					<div class="icon-box">
+						
+						<!-- border-all -->
+						<img src="sprite-factory/sprt-stack/stack.svg#border-all" class="svg-border-all-dims" alt="border-all"/>
+						
+					</div>
+					<h2>border-all</h2>
+				</li>
+				<li title="border-bottom">
+					<div class="icon-box">
+						
+						<!-- border-bottom -->
+						<img src="sprite-factory/sprt-stack/stack.svg#border-bottom" class="svg-border-bottom-dims" alt="border-bottom"/>
+						
+					</div>
+					<h2>border-bottom</h2>
+				</li>
+				<li title="border-horizontal">
+					<div class="icon-box">
+						
+						<!-- border-horizontal -->
+						<img src="sprite-factory/sprt-stack/stack.svg#border-horizontal" class="svg-border-horizontal-dims" alt="border-horizontal"/>
+						
+					</div>
+					<h2>border-horizontal</h2>
+				</li>
+				<li title="border-inner">
+					<div class="icon-box">
+						
+						<!-- border-inner -->
+						<img src="sprite-factory/sprt-stack/stack.svg#border-inner" class="svg-border-inner-dims" alt="border-inner"/>
+						
+					</div>
+					<h2>border-inner</h2>
+				</li>
+				<li title="border-left">
+					<div class="icon-box">
+						
+						<!-- border-left -->
+						<img src="sprite-factory/sprt-stack/stack.svg#border-left" class="svg-border-left-dims" alt="border-left"/>
+						
+					</div>
+					<h2>border-left</h2>
+				</li>
+				<li title="border-none">
+					<div class="icon-box">
+						
+						<!-- border-none -->
+						<img src="sprite-factory/sprt-stack/stack.svg#border-none" class="svg-border-none-dims" alt="border-none"/>
+						
+					</div>
+					<h2>border-none</h2>
+				</li>
+				<li title="border-outer">
+					<div class="icon-box">
+						
+						<!-- border-outer -->
+						<img src="sprite-factory/sprt-stack/stack.svg#border-outer" class="svg-border-outer-dims" alt="border-outer"/>
+						
+					</div>
+					<h2>border-outer</h2>
+				</li>
+				<li title="border-right">
+					<div class="icon-box">
+						
+						<!-- border-right -->
+						<img src="sprite-factory/sprt-stack/stack.svg#border-right" class="svg-border-right-dims" alt="border-right"/>
+						
+					</div>
+					<h2>border-right</h2>
+				</li>
+				<li title="border-top">
+					<div class="icon-box">
+						
+						<!-- border-top -->
+						<img src="sprite-factory/sprt-stack/stack.svg#border-top" class="svg-border-top-dims" alt="border-top"/>
+						
+					</div>
+					<h2>border-top</h2>
+				</li>
+				<li title="border-vertical">
+					<div class="icon-box">
+						
+						<!-- border-vertical -->
+						<img src="sprite-factory/sprt-stack/stack.svg#border-vertical" class="svg-border-vertical-dims" alt="border-vertical"/>
+						
+					</div>
+					<h2>border-vertical</h2>
+				</li>
+				<li title="business-graph-bar">
+					<div class="icon-box">
+						
+						<!-- business-graph-bar -->
+						<img src="sprite-factory/sprt-stack/stack.svg#business-graph-bar" class="svg-business-graph-bar-dims" alt="business-graph-bar"/>
+						
+					</div>
+					<h2>business-graph-bar</h2>
+				</li>
+				<li title="business-graph-bar-decrease">
+					<div class="icon-box">
+						
+						<!-- business-graph-bar-decrease -->
+						<img src="sprite-factory/sprt-stack/stack.svg#business-graph-bar-decrease" class="svg-business-graph-bar-decrease-dims" alt="business-graph-bar-decrease"/>
+						
+					</div>
+					<h2>business-graph-bar-decrease</h2>
+				</li>
+				<li title="business-graph-bar-increase">
+					<div class="icon-box">
+						
+						<!-- business-graph-bar-increase -->
+						<img src="sprite-factory/sprt-stack/stack.svg#business-graph-bar-increase" class="svg-business-graph-bar-increase-dims" alt="business-graph-bar-increase"/>
+						
+					</div>
+					<h2>business-graph-bar-increase</h2>
+				</li>
+				<li title="business-graph-bar-status">
+					<div class="icon-box">
+						
+						<!-- business-graph-bar-status -->
+						<img src="sprite-factory/sprt-stack/stack.svg#business-graph-bar-status" class="svg-business-graph-bar-status-dims" alt="business-graph-bar-status"/>
+						
+					</div>
+					<h2>business-graph-bar-status</h2>
+				</li>
+				<li title="business-graph-pie">
+					<div class="icon-box">
+						
+						<!-- business-graph-pie -->
+						<img src="sprite-factory/sprt-stack/stack.svg#business-graph-pie" class="svg-business-graph-pie-dims" alt="business-graph-pie"/>
+						
+					</div>
+					<h2>business-graph-pie</h2>
+				</li>
+				<li title="calculator">
+					<div class="icon-box">
+						
+						<!-- calculator -->
+						<img src="sprite-factory/sprt-stack/stack.svg#calculator" class="svg-calculator-dims" alt="calculator"/>
+						
+					</div>
+					<h2>calculator</h2>
+				</li>
+				<li title="calendar">
+					<div class="icon-box">
+						
+						<!-- calendar -->
+						<img src="sprite-factory/sprt-stack/stack.svg#calendar" class="svg-calendar-dims" alt="calendar"/>
+						
+					</div>
+					<h2>calendar</h2>
+				</li>
+				<li title="calendar-add">
+					<div class="icon-box">
+						
+						<!-- calendar-add -->
+						<img src="sprite-factory/sprt-stack/stack.svg#calendar-add" class="svg-calendar-add-dims" alt="calendar-add"/>
+						
+					</div>
+					<h2>calendar-add</h2>
+				</li>
+				<li title="calendar-blank">
+					<div class="icon-box">
+						
+						<!-- calendar-blank -->
+						<img src="sprite-factory/sprt-stack/stack.svg#calendar-blank" class="svg-calendar-blank-dims" alt="calendar-blank"/>
+						
+					</div>
+					<h2>calendar-blank</h2>
+				</li>
+				<li title="calendar-check">
+					<div class="icon-box">
+						
+						<!-- calendar-check -->
+						<img src="sprite-factory/sprt-stack/stack.svg#calendar-check" class="svg-calendar-check-dims" alt="calendar-check"/>
+						
+					</div>
+					<h2>calendar-check</h2>
+				</li>
+				<li title="calendar-delete">
+					<div class="icon-box">
+						
+						<!-- calendar-delete -->
+						<img src="sprite-factory/sprt-stack/stack.svg#calendar-delete" class="svg-calendar-delete-dims" alt="calendar-delete"/>
+						
+					</div>
+					<h2>calendar-delete</h2>
+				</li>
+				<li title="calendar-note">
+					<div class="icon-box">
+						
+						<!-- calendar-note -->
+						<img src="sprite-factory/sprt-stack/stack.svg#calendar-note" class="svg-calendar-note-dims" alt="calendar-note"/>
+						
+					</div>
+					<h2>calendar-note</h2>
+				</li>
+				<li title="calendar-remove">
+					<div class="icon-box">
+						
+						<!-- calendar-remove -->
+						<img src="sprite-factory/sprt-stack/stack.svg#calendar-remove" class="svg-calendar-remove-dims" alt="calendar-remove"/>
+						
+					</div>
+					<h2>calendar-remove</h2>
+				</li>
+				<li title="caret-down">
+					<div class="icon-box">
+						
+						<!-- caret-down -->
+						<img src="sprite-factory/sprt-stack/stack.svg#caret-down" class="svg-caret-down-dims" alt="caret-down"/>
+						
+					</div>
+					<h2>caret-down</h2>
+				</li>
+				<li title="caret-left">
+					<div class="icon-box">
+						
+						<!-- caret-left -->
+						<img src="sprite-factory/sprt-stack/stack.svg#caret-left" class="svg-caret-left-dims" alt="caret-left"/>
+						
+					</div>
+					<h2>caret-left</h2>
+				</li>
+				<li title="caret-right">
+					<div class="icon-box">
+						
+						<!-- caret-right -->
+						<img src="sprite-factory/sprt-stack/stack.svg#caret-right" class="svg-caret-right-dims" alt="caret-right"/>
+						
+					</div>
+					<h2>caret-right</h2>
+				</li>
+				<li title="caret-up">
+					<div class="icon-box">
+						
+						<!-- caret-up -->
+						<img src="sprite-factory/sprt-stack/stack.svg#caret-up" class="svg-caret-up-dims" alt="caret-up"/>
+						
+					</div>
+					<h2>caret-up</h2>
+				</li>
+				<li title="cast">
+					<div class="icon-box">
+						
+						<!-- cast -->
+						<img src="sprite-factory/sprt-stack/stack.svg#cast" class="svg-cast-dims" alt="cast"/>
+						
+					</div>
+					<h2>cast</h2>
+				</li>
+				<li title="chat">
+					<div class="icon-box">
+						
+						<!-- chat -->
+						<img src="sprite-factory/sprt-stack/stack.svg#chat" class="svg-chat-dims" alt="chat"/>
+						
+					</div>
+					<h2>chat</h2>
+				</li>
+				<li title="chat-conversation">
+					<div class="icon-box">
+						
+						<!-- chat-conversation -->
+						<img src="sprite-factory/sprt-stack/stack.svg#chat-conversation" class="svg-chat-conversation-dims" alt="chat-conversation"/>
+						
+					</div>
+					<h2>chat-conversation</h2>
+				</li>
+				<li title="checkmark">
+					<div class="icon-box">
+						
+						<!-- checkmark -->
+						<img src="sprite-factory/sprt-stack/stack.svg#checkmark" class="svg-checkmark-dims" alt="checkmark"/>
+						
+					</div>
+					<h2>checkmark</h2>
+				</li>
+				<li title="checkmark-0">
+					<div class="icon-box">
+						
+						<!-- checkmark-0 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#checkmark-0" class="svg-checkmark-0-dims" alt="checkmark-0"/>
+						
+					</div>
+					<h2>checkmark-0</h2>
+				</li>
+				<li title="chevron-circle-down">
+					<div class="icon-box">
+						
+						<!-- chevron-circle-down -->
+						<img src="sprite-factory/sprt-stack/stack.svg#chevron-circle-down" class="svg-chevron-circle-down-dims" alt="chevron-circle-down"/>
+						
+					</div>
+					<h2>chevron-circle-down</h2>
+				</li>
+				<li title="chevron-circle-left">
+					<div class="icon-box">
+						
+						<!-- chevron-circle-left -->
+						<img src="sprite-factory/sprt-stack/stack.svg#chevron-circle-left" class="svg-chevron-circle-left-dims" alt="chevron-circle-left"/>
+						
+					</div>
+					<h2>chevron-circle-left</h2>
+				</li>
+				<li title="chevron-circle-right">
+					<div class="icon-box">
+						
+						<!-- chevron-circle-right -->
+						<img src="sprite-factory/sprt-stack/stack.svg#chevron-circle-right" class="svg-chevron-circle-right-dims" alt="chevron-circle-right"/>
+						
+					</div>
+					<h2>chevron-circle-right</h2>
+				</li>
+				<li title="chevron-circle-up">
+					<div class="icon-box">
+						
+						<!-- chevron-circle-up -->
+						<img src="sprite-factory/sprt-stack/stack.svg#chevron-circle-up" class="svg-chevron-circle-up-dims" alt="chevron-circle-up"/>
+						
+					</div>
+					<h2>chevron-circle-up</h2>
+				</li>
+				<li title="chevron-down">
+					<div class="icon-box">
+						
+						<!-- chevron-down -->
+						<img src="sprite-factory/sprt-stack/stack.svg#chevron-down" class="svg-chevron-down-dims" alt="chevron-down"/>
+						
+					</div>
+					<h2>chevron-down</h2>
+				</li>
+				<li title="chevron-left">
+					<div class="icon-box">
+						
+						<!-- chevron-left -->
+						<img src="sprite-factory/sprt-stack/stack.svg#chevron-left" class="svg-chevron-left-dims" alt="chevron-left"/>
+						
+					</div>
+					<h2>chevron-left</h2>
+				</li>
+				<li title="chevron-right">
+					<div class="icon-box">
+						
+						<!-- chevron-right -->
+						<img src="sprite-factory/sprt-stack/stack.svg#chevron-right" class="svg-chevron-right-dims" alt="chevron-right"/>
+						
+					</div>
+					<h2>chevron-right</h2>
+				</li>
+				<li title="chevron-up">
+					<div class="icon-box">
+						
+						<!-- chevron-up -->
+						<img src="sprite-factory/sprt-stack/stack.svg#chevron-up" class="svg-chevron-up-dims" alt="chevron-up"/>
+						
+					</div>
+					<h2>chevron-up</h2>
+				</li>
+				<li title="circle-filled">
+					<div class="icon-box">
+						
+						<!-- circle-filled -->
+						<img src="sprite-factory/sprt-stack/stack.svg#circle-filled" class="svg-circle-filled-dims" alt="circle-filled"/>
+						
+					</div>
+					<h2>circle-filled</h2>
+				</li>
+				<li title="clock">
+					<div class="icon-box">
+						
+						<!-- clock -->
+						<img src="sprite-factory/sprt-stack/stack.svg#clock" class="svg-clock-dims" alt="clock"/>
+						
+					</div>
+					<h2>clock</h2>
+				</li>
+				<li title="close">
+					<div class="icon-box">
+						
+						<!-- close -->
+						<img src="sprite-factory/sprt-stack/stack.svg#close" class="svg-close-dims" alt="close"/>
+						
+					</div>
+					<h2>close</h2>
+				</li>
+				<li title="cloud">
+					<div class="icon-box">
+						
+						<!-- cloud -->
+						<img src="sprite-factory/sprt-stack/stack.svg#cloud" class="svg-cloud-dims" alt="cloud"/>
+						
+					</div>
+					<h2>cloud</h2>
+				</li>
+				<li title="cloud-done">
+					<div class="icon-box">
+						
+						<!-- cloud-done -->
+						<img src="sprite-factory/sprt-stack/stack.svg#cloud-done" class="svg-cloud-done-dims" alt="cloud-done"/>
+						
+					</div>
+					<h2>cloud-done</h2>
+				</li>
+				<li title="cloud-download">
+					<div class="icon-box">
+						
+						<!-- cloud-download -->
+						<img src="sprite-factory/sprt-stack/stack.svg#cloud-download" class="svg-cloud-download-dims" alt="cloud-download"/>
+						
+					</div>
+					<h2>cloud-download</h2>
+				</li>
+				<li title="cloud-upload">
+					<div class="icon-box">
+						
+						<!-- cloud-upload -->
+						<img src="sprite-factory/sprt-stack/stack.svg#cloud-upload" class="svg-cloud-upload-dims" alt="cloud-upload"/>
+						
+					</div>
+					<h2>cloud-upload</h2>
+				</li>
+				<li title="code">
+					<div class="icon-box">
+						
+						<!-- code -->
+						<img src="sprite-factory/sprt-stack/stack.svg#code" class="svg-code-dims" alt="code"/>
+						
+					</div>
+					<h2>code</h2>
+				</li>
+				<li title="coin-receive">
+					<div class="icon-box">
+						
+						<!-- coin-receive -->
+						<img src="sprite-factory/sprt-stack/stack.svg#coin-receive" class="svg-coin-receive-dims" alt="coin-receive"/>
+						
+					</div>
+					<h2>coin-receive</h2>
+				</li>
+				<li title="coins">
+					<div class="icon-box">
+						
+						<!-- coins -->
+						<img src="sprite-factory/sprt-stack/stack.svg#coins" class="svg-coins-dims" alt="coins"/>
+						
+					</div>
+					<h2>coins</h2>
+				</li>
+				<li title="compass">
+					<div class="icon-box">
+						
+						<!-- compass -->
+						<img src="sprite-factory/sprt-stack/stack.svg#compass" class="svg-compass-dims" alt="compass"/>
+						
+					</div>
+					<h2>compass</h2>
+				</li>
+				<li title="content-box">
+					<div class="icon-box">
+						
+						<!-- content-box -->
+						<img src="sprite-factory/sprt-stack/stack.svg#content-box" class="svg-content-box-dims" alt="content-box"/>
+						
+					</div>
+					<h2>content-box</h2>
+				</li>
+				<li title="content-box-alt">
+					<div class="icon-box">
+						
+						<!-- content-box-alt -->
+						<img src="sprite-factory/sprt-stack/stack.svg#content-box-alt" class="svg-content-box-alt-dims" alt="content-box-alt"/>
+						
+					</div>
+					<h2>content-box-alt</h2>
+				</li>
+				<li title="content-box-filled">
+					<div class="icon-box">
+						
+						<!-- content-box-filled -->
+						<img src="sprite-factory/sprt-stack/stack.svg#content-box-filled" class="svg-content-box-filled-dims" alt="content-box-filled"/>
+						
+					</div>
+					<h2>content-box-filled</h2>
+				</li>
+				<li title="content-briefcase">
+					<div class="icon-box">
+						
+						<!-- content-briefcase -->
+						<img src="sprite-factory/sprt-stack/stack.svg#content-briefcase" class="svg-content-briefcase-dims" alt="content-briefcase"/>
+						
+					</div>
+					<h2>content-briefcase</h2>
+				</li>
+				<li title="context-section">
+					<div class="icon-box">
+						
+						<!-- context-section -->
+						<img src="sprite-factory/sprt-stack/stack.svg#context-section" class="svg-context-section-dims" alt="context-section"/>
+						
+					</div>
+					<h2>context-section</h2>
+				</li>
+				<li title="copyright">
+					<div class="icon-box">
+						
+						<!-- copyright -->
+						<img src="sprite-factory/sprt-stack/stack.svg#copyright" class="svg-copyright-dims" alt="copyright"/>
+						
+					</div>
+					<h2>copyright</h2>
+				</li>
+				<li title="credit-card">
+					<div class="icon-box">
+						
+						<!-- credit-card -->
+						<img src="sprite-factory/sprt-stack/stack.svg#credit-card" class="svg-credit-card-dims" alt="credit-card"/>
+						
+					</div>
+					<h2>credit-card</h2>
+				</li>
+				<li title="credit-card-lock">
+					<div class="icon-box">
+						
+						<!-- credit-card-lock -->
+						<img src="sprite-factory/sprt-stack/stack.svg#credit-card-lock" class="svg-credit-card-lock-dims" alt="credit-card-lock"/>
+						
+					</div>
+					<h2>credit-card-lock</h2>
+				</li>
+				<li title="cursor">
+					<div class="icon-box">
+						
+						<!-- cursor -->
+						<img src="sprite-factory/sprt-stack/stack.svg#cursor" class="svg-cursor-dims" alt="cursor"/>
+						
+					</div>
+					<h2>cursor</h2>
+				</li>
+				<li title="cursor-target">
+					<div class="icon-box">
+						
+						<!-- cursor-target -->
+						<img src="sprite-factory/sprt-stack/stack.svg#cursor-target" class="svg-cursor-target-dims" alt="cursor-target"/>
+						
+					</div>
+					<h2>cursor-target</h2>
+				</li>
+				<li title="cut">
+					<div class="icon-box">
+						
+						<!-- cut -->
+						<img src="sprite-factory/sprt-stack/stack.svg#cut" class="svg-cut-dims" alt="cut"/>
+						
+					</div>
+					<h2>cut</h2>
+				</li>
+				<li title="dashboard">
+					<div class="icon-box">
+						
+						<!-- dashboard -->
+						<img src="sprite-factory/sprt-stack/stack.svg#dashboard" class="svg-dashboard-dims" alt="dashboard"/>
+						
+					</div>
+					<h2>dashboard</h2>
+				</li>
+				<li title="desktop">
+					<div class="icon-box">
+						
+						<!-- desktop -->
+						<img src="sprite-factory/sprt-stack/stack.svg#desktop" class="svg-desktop-dims" alt="desktop"/>
+						
+					</div>
+					<h2>desktop</h2>
+				</li>
+				<li title="dollar-circle">
+					<div class="icon-box">
+						
+						<!-- dollar-circle -->
+						<img src="sprite-factory/sprt-stack/stack.svg#dollar-circle" class="svg-dollar-circle-dims" alt="dollar-circle"/>
+						
+					</div>
+					<h2>dollar-circle</h2>
+				</li>
+				<li title="drag-handle-horizontal">
+					<div class="icon-box">
+						
+						<!-- drag-handle-horizontal -->
+						<img src="sprite-factory/sprt-stack/stack.svg#drag-handle-horizontal" class="svg-drag-handle-horizontal-dims" alt="drag-handle-horizontal"/>
+						
+					</div>
+					<h2>drag-handle-horizontal</h2>
+				</li>
+				<li title="drag-handle-vertical">
+					<div class="icon-box">
+						
+						<!-- drag-handle-vertical -->
+						<img src="sprite-factory/sprt-stack/stack.svg#drag-handle-vertical" class="svg-drag-handle-vertical-dims" alt="drag-handle-vertical"/>
+						
+					</div>
+					<h2>drag-handle-vertical</h2>
+				</li>
+				<li title="edit">
+					<div class="icon-box">
+						
+						<!-- edit -->
+						<img src="sprite-factory/sprt-stack/stack.svg#edit" class="svg-edit-dims" alt="edit"/>
+						
+					</div>
+					<h2>edit</h2>
+				</li>
+				<li title="eject">
+					<div class="icon-box">
+						
+						<!-- eject -->
+						<img src="sprite-factory/sprt-stack/stack.svg#eject" class="svg-eject-dims" alt="eject"/>
+						
+					</div>
+					<h2>eject</h2>
+				</li>
+				<li title="email-at">
+					<div class="icon-box">
+						
+						<!-- email-at -->
+						<img src="sprite-factory/sprt-stack/stack.svg#email-at" class="svg-email-at-dims" alt="email-at"/>
+						
+					</div>
+					<h2>email-at</h2>
+				</li>
+				<li title="email-closed">
+					<div class="icon-box">
+						
+						<!-- email-closed -->
+						<img src="sprite-factory/sprt-stack/stack.svg#email-closed" class="svg-email-closed-dims" alt="email-closed"/>
+						
+					</div>
+					<h2>email-closed</h2>
+				</li>
+				<li title="email-open">
+					<div class="icon-box">
+						
+						<!-- email-open -->
+						<img src="sprite-factory/sprt-stack/stack.svg#email-open" class="svg-email-open-dims" alt="email-open"/>
+						
+					</div>
+					<h2>email-open</h2>
+				</li>
+				<li title="enlarge">
+					<div class="icon-box">
+						
+						<!-- enlarge -->
+						<img src="sprite-factory/sprt-stack/stack.svg#enlarge" class="svg-enlarge-dims" alt="enlarge"/>
+						
+					</div>
+					<h2>enlarge</h2>
+				</li>
+				<li title="enlarge2">
+					<div class="icon-box">
+						
+						<!-- enlarge2 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#enlarge2" class="svg-enlarge2-dims" alt="enlarge2"/>
+						
+					</div>
+					<h2>enlarge2</h2>
+				</li>
+				<li title="equalizer">
+					<div class="icon-box">
+						
+						<!-- equalizer -->
+						<img src="sprite-factory/sprt-stack/stack.svg#equalizer" class="svg-equalizer-dims" alt="equalizer"/>
+						
+					</div>
+					<h2>equalizer</h2>
+				</li>
+				<li title="exit-to-app">
+					<div class="icon-box">
+						
+						<!-- exit-to-app -->
+						<img src="sprite-factory/sprt-stack/stack.svg#exit-to-app" class="svg-exit-to-app-dims" alt="exit-to-app"/>
+						
+					</div>
+					<h2>exit-to-app</h2>
+				</li>
+				<li title="eye">
+					<div class="icon-box">
+						
+						<!-- eye -->
+						<img src="sprite-factory/sprt-stack/stack.svg#eye" class="svg-eye-dims" alt="eye"/>
+						
+					</div>
+					<h2>eye</h2>
+				</li>
+				<li title="eye-hide">
+					<div class="icon-box">
+						
+						<!-- eye-hide -->
+						<img src="sprite-factory/sprt-stack/stack.svg#eye-hide" class="svg-eye-hide-dims" alt="eye-hide"/>
+						
+					</div>
+					<h2>eye-hide</h2>
+				</li>
+				<li title="eye-show">
+					<div class="icon-box">
+						
+						<!-- eye-show -->
+						<img src="sprite-factory/sprt-stack/stack.svg#eye-show" class="svg-eye-show-dims" alt="eye-show"/>
+						
+					</div>
+					<h2>eye-show</h2>
+				</li>
+				<li title="eye-slash">
+					<div class="icon-box">
+						
+						<!-- eye-slash -->
+						<img src="sprite-factory/sprt-stack/stack.svg#eye-slash" class="svg-eye-slash-dims" alt="eye-slash"/>
+						
+					</div>
+					<h2>eye-slash</h2>
+				</li>
+				<li title="fast-forward">
+					<div class="icon-box">
+						
+						<!-- fast-forward -->
+						<img src="sprite-factory/sprt-stack/stack.svg#fast-forward" class="svg-fast-forward-dims" alt="fast-forward"/>
+						
+					</div>
+					<h2>fast-forward</h2>
+				</li>
+				<li title="fast-rewind">
+					<div class="icon-box">
+						
+						<!-- fast-rewind -->
+						<img src="sprite-factory/sprt-stack/stack.svg#fast-rewind" class="svg-fast-rewind-dims" alt="fast-rewind"/>
+						
+					</div>
+					<h2>fast-rewind</h2>
+				</li>
+				<li title="favorite">
+					<div class="icon-box">
+						
+						<!-- favorite -->
+						<img src="sprite-factory/sprt-stack/stack.svg#favorite" class="svg-favorite-dims" alt="favorite"/>
+						
+					</div>
+					<h2>favorite</h2>
+				</li>
+				<li title="favorite-o">
+					<div class="icon-box">
+						
+						<!-- favorite-o -->
+						<img src="sprite-factory/sprt-stack/stack.svg#favorite-o" class="svg-favorite-o-dims" alt="favorite-o"/>
+						
+					</div>
+					<h2>favorite-o</h2>
+				</li>
+				<li title="feedback-attention">
+					<div class="icon-box">
+						
+						<!-- feedback-attention -->
+						<img src="sprite-factory/sprt-stack/stack.svg#feedback-attention" class="svg-feedback-attention-dims" alt="feedback-attention"/>
+						
+					</div>
+					<h2>feedback-attention</h2>
+				</li>
+				<li title="feedback-error">
+					<div class="icon-box">
+						
+						<!-- feedback-error -->
+						<img src="sprite-factory/sprt-stack/stack.svg#feedback-error" class="svg-feedback-error-dims" alt="feedback-error"/>
+						
+					</div>
+					<h2>feedback-error</h2>
+				</li>
+				<li title="feedback-remove">
+					<div class="icon-box">
+						
+						<!-- feedback-remove -->
+						<img src="sprite-factory/sprt-stack/stack.svg#feedback-remove" class="svg-feedback-remove-dims" alt="feedback-remove"/>
+						
+					</div>
+					<h2>feedback-remove</h2>
+				</li>
+				<li title="feedback-stop">
+					<div class="icon-box">
+						
+						<!-- feedback-stop -->
+						<img src="sprite-factory/sprt-stack/stack.svg#feedback-stop" class="svg-feedback-stop-dims" alt="feedback-stop"/>
+						
+					</div>
+					<h2>feedback-stop</h2>
+				</li>
+				<li title="feedback-warning">
+					<div class="icon-box">
+						
+						<!-- feedback-warning -->
+						<img src="sprite-factory/sprt-stack/stack.svg#feedback-warning" class="svg-feedback-warning-dims" alt="feedback-warning"/>
+						
+					</div>
+					<h2>feedback-warning</h2>
+				</li>
+				<li title="file">
+					<div class="icon-box">
+						
+						<!-- file -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file" class="svg-file-dims" alt="file"/>
+						
+					</div>
+					<h2>file</h2>
+				</li>
+				<li title="file-audio">
+					<div class="icon-box">
+						
+						<!-- file-audio -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-audio" class="svg-file-audio-dims" alt="file-audio"/>
+						
+					</div>
+					<h2>file-audio</h2>
+				</li>
+				<li title="file-bookmark">
+					<div class="icon-box">
+						
+						<!-- file-bookmark -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-bookmark" class="svg-file-bookmark-dims" alt="file-bookmark"/>
+						
+					</div>
+					<h2>file-bookmark</h2>
+				</li>
+				<li title="file-download">
+					<div class="icon-box">
+						
+						<!-- file-download -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-download" class="svg-file-download-dims" alt="file-download"/>
+						
+					</div>
+					<h2>file-download</h2>
+				</li>
+				<li title="file-download2">
+					<div class="icon-box">
+						
+						<!-- file-download2 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-download2" class="svg-file-download2-dims" alt="file-download2"/>
+						
+					</div>
+					<h2>file-download2</h2>
+				</li>
+				<li title="file-favorite">
+					<div class="icon-box">
+						
+						<!-- file-favorite -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-favorite" class="svg-file-favorite-dims" alt="file-favorite"/>
+						
+					</div>
+					<h2>file-favorite</h2>
+				</li>
+				<li title="file-favorite-star">
+					<div class="icon-box">
+						
+						<!-- file-favorite-star -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-favorite-star" class="svg-file-favorite-star-dims" alt="file-favorite-star"/>
+						
+					</div>
+					<h2>file-favorite-star</h2>
+				</li>
+				<li title="file-graph">
+					<div class="icon-box">
+						
+						<!-- file-graph -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-graph" class="svg-file-graph-dims" alt="file-graph"/>
+						
+					</div>
+					<h2>file-graph</h2>
+				</li>
+				<li title="file-graph-2">
+					<div class="icon-box">
+						
+						<!-- file-graph-2 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-graph-2" class="svg-file-graph-2-dims" alt="file-graph-2"/>
+						
+					</div>
+					<h2>file-graph-2</h2>
+				</li>
+				<li title="file-landscape">
+					<div class="icon-box">
+						
+						<!-- file-landscape -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-landscape" class="svg-file-landscape-dims" alt="file-landscape"/>
+						
+					</div>
+					<h2>file-landscape</h2>
+				</li>
+				<li title="file-landscape-image">
+					<div class="icon-box">
+						
+						<!-- file-landscape-image -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-landscape-image" class="svg-file-landscape-image-dims" alt="file-landscape-image"/>
+						
+					</div>
+					<h2>file-landscape-image</h2>
+				</li>
+				<li title="file-landscape-new">
+					<div class="icon-box">
+						
+						<!-- file-landscape-new -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-landscape-new" class="svg-file-landscape-new-dims" alt="file-landscape-new"/>
+						
+					</div>
+					<h2>file-landscape-new</h2>
+				</li>
+				<li title="file-lock">
+					<div class="icon-box">
+						
+						<!-- file-lock -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-lock" class="svg-file-lock-dims" alt="file-lock"/>
+						
+					</div>
+					<h2>file-lock</h2>
+				</li>
+				<li title="file-note">
+					<div class="icon-box">
+						
+						<!-- file-note -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-note" class="svg-file-note-dims" alt="file-note"/>
+						
+					</div>
+					<h2>file-note</h2>
+				</li>
+				<li title="file-tasks-checklist">
+					<div class="icon-box">
+						
+						<!-- file-tasks-checklist -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-tasks-checklist" class="svg-file-tasks-checklist-dims" alt="file-tasks-checklist"/>
+						
+					</div>
+					<h2>file-tasks-checklist</h2>
+				</li>
+				<li title="file-upload">
+					<div class="icon-box">
+						
+						<!-- file-upload -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-upload" class="svg-file-upload-dims" alt="file-upload"/>
+						
+					</div>
+					<h2>file-upload</h2>
+				</li>
+				<li title="file-upload2">
+					<div class="icon-box">
+						
+						<!-- file-upload2 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-upload2" class="svg-file-upload2-dims" alt="file-upload2"/>
+						
+					</div>
+					<h2>file-upload2</h2>
+				</li>
+				<li title="file-video">
+					<div class="icon-box">
+						
+						<!-- file-video -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-video" class="svg-file-video-dims" alt="file-video"/>
+						
+					</div>
+					<h2>file-video</h2>
+				</li>
+				<li title="file-view">
+					<div class="icon-box">
+						
+						<!-- file-view -->
+						<img src="sprite-factory/sprt-stack/stack.svg#file-view" class="svg-file-view-dims" alt="file-view"/>
+						
+					</div>
+					<h2>file-view</h2>
+				</li>
+				<li title="files">
+					<div class="icon-box">
+						
+						<!-- files -->
+						<img src="sprite-factory/sprt-stack/stack.svg#files" class="svg-files-dims" alt="files"/>
+						
+					</div>
+					<h2>files</h2>
+				</li>
+				<li title="files-2">
+					<div class="icon-box">
+						
+						<!-- files-2 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#files-2" class="svg-files-2-dims" alt="files-2"/>
+						
+					</div>
+					<h2>files-2</h2>
+				</li>
+				<li title="files-coding">
+					<div class="icon-box">
+						
+						<!-- files-coding -->
+						<img src="sprite-factory/sprt-stack/stack.svg#files-coding" class="svg-files-coding-dims" alt="files-coding"/>
+						
+					</div>
+					<h2>files-coding</h2>
+				</li>
+				<li title="files-compare">
+					<div class="icon-box">
+						
+						<!-- files-compare -->
+						<img src="sprite-factory/sprt-stack/stack.svg#files-compare" class="svg-files-compare-dims" alt="files-compare"/>
+						
+					</div>
+					<h2>files-compare</h2>
+				</li>
+				<li title="files-landscape">
+					<div class="icon-box">
+						
+						<!-- files-landscape -->
+						<img src="sprite-factory/sprt-stack/stack.svg#files-landscape" class="svg-files-landscape-dims" alt="files-landscape"/>
+						
+					</div>
+					<h2>files-landscape</h2>
+				</li>
+				<li title="files-library">
+					<div class="icon-box">
+						
+						<!-- files-library -->
+						<img src="sprite-factory/sprt-stack/stack.svg#files-library" class="svg-files-library-dims" alt="files-library"/>
+						
+					</div>
+					<h2>files-library</h2>
+				</li>
+				<li title="filter">
+					<div class="icon-box">
+						
+						<!-- filter -->
+						<img src="sprite-factory/sprt-stack/stack.svg#filter" class="svg-filter-dims" alt="filter"/>
+						
+					</div>
+					<h2>filter</h2>
+				</li>
+				<li title="first-page">
+					<div class="icon-box">
+						
+						<!-- first-page -->
+						<img src="sprite-factory/sprt-stack/stack.svg#first-page" class="svg-first-page-dims" alt="first-page"/>
+						
+					</div>
+					<h2>first-page</h2>
+				</li>
+				<li title="flag">
+					<div class="icon-box">
+						
+						<!-- flag -->
+						<img src="sprite-factory/sprt-stack/stack.svg#flag" class="svg-flag-dims" alt="flag"/>
+						
+					</div>
+					<h2>flag</h2>
+				</li>
+				<li title="folder">
+					<div class="icon-box">
+						
+						<!-- folder -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder" class="svg-folder-dims" alt="folder"/>
+						
+					</div>
+					<h2>folder</h2>
+				</li>
+				<li title="folder-audio">
+					<div class="icon-box">
+						
+						<!-- folder-audio -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-audio" class="svg-folder-audio-dims" alt="folder-audio"/>
+						
+					</div>
+					<h2>folder-audio</h2>
+				</li>
+				<li title="folder-block">
+					<div class="icon-box">
+						
+						<!-- folder-block -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-block" class="svg-folder-block-dims" alt="folder-block"/>
+						
+					</div>
+					<h2>folder-block</h2>
+				</li>
+				<li title="folder-bookmark">
+					<div class="icon-box">
+						
+						<!-- folder-bookmark -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-bookmark" class="svg-folder-bookmark-dims" alt="folder-bookmark"/>
+						
+					</div>
+					<h2>folder-bookmark</h2>
+				</li>
+				<li title="folder-check">
+					<div class="icon-box">
+						
+						<!-- folder-check -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-check" class="svg-folder-check-dims" alt="folder-check"/>
+						
+					</div>
+					<h2>folder-check</h2>
+				</li>
+				<li title="folder-favorite-star">
+					<div class="icon-box">
+						
+						<!-- folder-favorite-star -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-favorite-star" class="svg-folder-favorite-star-dims" alt="folder-favorite-star"/>
+						
+					</div>
+					<h2>folder-favorite-star</h2>
+				</li>
+				<li title="folder-home">
+					<div class="icon-box">
+						
+						<!-- folder-home -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-home" class="svg-folder-home-dims" alt="folder-home"/>
+						
+					</div>
+					<h2>folder-home</h2>
+				</li>
+				<li title="folder-image">
+					<div class="icon-box">
+						
+						<!-- folder-image -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-image" class="svg-folder-image-dims" alt="folder-image"/>
+						
+					</div>
+					<h2>folder-image</h2>
+				</li>
+				<li title="folder-lock">
+					<div class="icon-box">
+						
+						<!-- folder-lock -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-lock" class="svg-folder-lock-dims" alt="folder-lock"/>
+						
+					</div>
+					<h2>folder-lock</h2>
+				</li>
+				<li title="folder-network">
+					<div class="icon-box">
+						
+						<!-- folder-network -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-network" class="svg-folder-network-dims" alt="folder-network"/>
+						
+					</div>
+					<h2>folder-network</h2>
+				</li>
+				<li title="folder-refresh">
+					<div class="icon-box">
+						
+						<!-- folder-refresh -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-refresh" class="svg-folder-refresh-dims" alt="folder-refresh"/>
+						
+					</div>
+					<h2>folder-refresh</h2>
+				</li>
+				<li title="folder-settings">
+					<div class="icon-box">
+						
+						<!-- folder-settings -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-settings" class="svg-folder-settings-dims" alt="folder-settings"/>
+						
+					</div>
+					<h2>folder-settings</h2>
+				</li>
+				<li title="folder-shared">
+					<div class="icon-box">
+						
+						<!-- folder-shared -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-shared" class="svg-folder-shared-dims" alt="folder-shared"/>
+						
+					</div>
+					<h2>folder-shared</h2>
+				</li>
+				<li title="folder-special">
+					<div class="icon-box">
+						
+						<!-- folder-special -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-special" class="svg-folder-special-dims" alt="folder-special"/>
+						
+					</div>
+					<h2>folder-special</h2>
+				</li>
+				<li title="folder-upload">
+					<div class="icon-box">
+						
+						<!-- folder-upload -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-upload" class="svg-folder-upload-dims" alt="folder-upload"/>
+						
+					</div>
+					<h2>folder-upload</h2>
+				</li>
+				<li title="folder-video">
+					<div class="icon-box">
+						
+						<!-- folder-video -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-video" class="svg-folder-video-dims" alt="folder-video"/>
+						
+					</div>
+					<h2>folder-video</h2>
+				</li>
+				<li title="folder-view">
+					<div class="icon-box">
+						
+						<!-- folder-view -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-view" class="svg-folder-view-dims" alt="folder-view"/>
+						
+					</div>
+					<h2>folder-view</h2>
+				</li>
+				<li title="folder-zip">
+					<div class="icon-box">
+						
+						<!-- folder-zip -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folder-zip" class="svg-folder-zip-dims" alt="folder-zip"/>
+						
+					</div>
+					<h2>folder-zip</h2>
+				</li>
+				<li title="folders">
+					<div class="icon-box">
+						
+						<!-- folders -->
+						<img src="sprite-factory/sprt-stack/stack.svg#folders" class="svg-folders-dims" alt="folders"/>
+						
+					</div>
+					<h2>folders</h2>
+				</li>
+				<li title="format-align-center">
+					<div class="icon-box">
+						
+						<!-- format-align-center -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-align-center" class="svg-format-align-center-dims" alt="format-align-center"/>
+						
+					</div>
+					<h2>format-align-center</h2>
+				</li>
+				<li title="format-align-justify">
+					<div class="icon-box">
+						
+						<!-- format-align-justify -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-align-justify" class="svg-format-align-justify-dims" alt="format-align-justify"/>
+						
+					</div>
+					<h2>format-align-justify</h2>
+				</li>
+				<li title="format-align-left">
+					<div class="icon-box">
+						
+						<!-- format-align-left -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-align-left" class="svg-format-align-left-dims" alt="format-align-left"/>
+						
+					</div>
+					<h2>format-align-left</h2>
+				</li>
+				<li title="format-align-right">
+					<div class="icon-box">
+						
+						<!-- format-align-right -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-align-right" class="svg-format-align-right-dims" alt="format-align-right"/>
+						
+					</div>
+					<h2>format-align-right</h2>
+				</li>
+				<li title="format-bold">
+					<div class="icon-box">
+						
+						<!-- format-bold -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-bold" class="svg-format-bold-dims" alt="format-bold"/>
+						
+					</div>
+					<h2>format-bold</h2>
+				</li>
+				<li title="format-clear">
+					<div class="icon-box">
+						
+						<!-- format-clear -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-clear" class="svg-format-clear-dims" alt="format-clear"/>
+						
+					</div>
+					<h2>format-clear</h2>
+				</li>
+				<li title="format-color-fill">
+					<div class="icon-box">
+						
+						<!-- format-color-fill -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-color-fill" class="svg-format-color-fill-dims" alt="format-color-fill"/>
+						
+					</div>
+					<h2>format-color-fill</h2>
+				</li>
+				<li title="format-color-reset">
+					<div class="icon-box">
+						
+						<!-- format-color-reset -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-color-reset" class="svg-format-color-reset-dims" alt="format-color-reset"/>
+						
+					</div>
+					<h2>format-color-reset</h2>
+				</li>
+				<li title="format-color-text">
+					<div class="icon-box">
+						
+						<!-- format-color-text -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-color-text" class="svg-format-color-text-dims" alt="format-color-text"/>
+						
+					</div>
+					<h2>format-color-text</h2>
+				</li>
+				<li title="format-font">
+					<div class="icon-box">
+						
+						<!-- format-font -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-font" class="svg-format-font-dims" alt="format-font"/>
+						
+					</div>
+					<h2>format-font</h2>
+				</li>
+				<li title="format-indent-decrease">
+					<div class="icon-box">
+						
+						<!-- format-indent-decrease -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-indent-decrease" class="svg-format-indent-decrease-dims" alt="format-indent-decrease"/>
+						
+					</div>
+					<h2>format-indent-decrease</h2>
+				</li>
+				<li title="format-indent-increase">
+					<div class="icon-box">
+						
+						<!-- format-indent-increase -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-indent-increase" class="svg-format-indent-increase-dims" alt="format-indent-increase"/>
+						
+					</div>
+					<h2>format-indent-increase</h2>
+				</li>
+				<li title="format-italic">
+					<div class="icon-box">
+						
+						<!-- format-italic -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-italic" class="svg-format-italic-dims" alt="format-italic"/>
+						
+					</div>
+					<h2>format-italic</h2>
+				</li>
+				<li title="format-line-spacing">
+					<div class="icon-box">
+						
+						<!-- format-line-spacing -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-line-spacing" class="svg-format-line-spacing-dims" alt="format-line-spacing"/>
+						
+					</div>
+					<h2>format-line-spacing</h2>
+				</li>
+				<li title="format-list-bulleted">
+					<div class="icon-box">
+						
+						<!-- format-list-bulleted -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-list-bulleted" class="svg-format-list-bulleted-dims" alt="format-list-bulleted"/>
+						
+					</div>
+					<h2>format-list-bulleted</h2>
+				</li>
+				<li title="format-list-numbered">
+					<div class="icon-box">
+						
+						<!-- format-list-numbered -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-list-numbered" class="svg-format-list-numbered-dims" alt="format-list-numbered"/>
+						
+					</div>
+					<h2>format-list-numbered</h2>
+				</li>
+				<li title="format-paint">
+					<div class="icon-box">
+						
+						<!-- format-paint -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-paint" class="svg-format-paint-dims" alt="format-paint"/>
+						
+					</div>
+					<h2>format-paint</h2>
+				</li>
+				<li title="format-quote">
+					<div class="icon-box">
+						
+						<!-- format-quote -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-quote" class="svg-format-quote-dims" alt="format-quote"/>
+						
+					</div>
+					<h2>format-quote</h2>
+				</li>
+				<li title="format-shapes">
+					<div class="icon-box">
+						
+						<!-- format-shapes -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-shapes" class="svg-format-shapes-dims" alt="format-shapes"/>
+						
+					</div>
+					<h2>format-shapes</h2>
+				</li>
+				<li title="format-size">
+					<div class="icon-box">
+						
+						<!-- format-size -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-size" class="svg-format-size-dims" alt="format-size"/>
+						
+					</div>
+					<h2>format-size</h2>
+				</li>
+				<li title="format-strikethrough">
+					<div class="icon-box">
+						
+						<!-- format-strikethrough -->
+						<img src="sprite-factory/sprt-stack/stack.svg#format-strikethrough" class="svg-format-strikethrough-dims" alt="format-strikethrough"/>
+						
+					</div>
+					<h2>format-strikethrough</h2>
+				</li>
+				<li title="fullscreen">
+					<div class="icon-box">
+						
+						<!-- fullscreen -->
+						<img src="sprite-factory/sprt-stack/stack.svg#fullscreen" class="svg-fullscreen-dims" alt="fullscreen"/>
+						
+					</div>
+					<h2>fullscreen</h2>
+				</li>
+				<li title="fullscreen-exit">
+					<div class="icon-box">
+						
+						<!-- fullscreen-exit -->
+						<img src="sprite-factory/sprt-stack/stack.svg#fullscreen-exit" class="svg-fullscreen-exit-dims" alt="fullscreen-exit"/>
+						
+					</div>
+					<h2>fullscreen-exit</h2>
+				</li>
+				<li title="globe">
+					<div class="icon-box">
+						
+						<!-- globe -->
+						<img src="sprite-factory/sprt-stack/stack.svg#globe" class="svg-globe-dims" alt="globe"/>
+						
+					</div>
+					<h2>globe</h2>
+				</li>
+				<li title="hearing">
+					<div class="icon-box">
+						
+						<!-- hearing -->
+						<img src="sprite-factory/sprt-stack/stack.svg#hearing" class="svg-hearing-dims" alt="hearing"/>
+						
+					</div>
+					<h2>hearing</h2>
+				</li>
+				<li title="home2">
+					<div class="icon-box">
+						
+						<!-- home2 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#home2" class="svg-home2-dims" alt="home2"/>
+						
+					</div>
+					<h2>home2</h2>
+				</li>
+				<li title="hourglass">
+					<div class="icon-box">
+						
+						<!-- hourglass -->
+						<img src="sprite-factory/sprt-stack/stack.svg#hourglass" class="svg-hourglass-dims" alt="hourglass"/>
+						
+					</div>
+					<h2>hourglass</h2>
+				</li>
+				<li title="hourglass-o">
+					<div class="icon-box">
+						
+						<!-- hourglass-o -->
+						<img src="sprite-factory/sprt-stack/stack.svg#hourglass-o" class="svg-hourglass-o-dims" alt="hourglass-o"/>
+						
+					</div>
+					<h2>hourglass-o</h2>
+				</li>
+				<li title="id-badge">
+					<div class="icon-box">
+						
+						<!-- id-badge -->
+						<img src="sprite-factory/sprt-stack/stack.svg#id-badge" class="svg-id-badge-dims" alt="id-badge"/>
+						
+					</div>
+					<h2>id-badge</h2>
+				</li>
+				<li title="id-card">
+					<div class="icon-box">
+						
+						<!-- id-card -->
+						<img src="sprite-factory/sprt-stack/stack.svg#id-card" class="svg-id-card-dims" alt="id-card"/>
+						
+					</div>
+					<h2>id-card</h2>
+				</li>
+				<li title="image">
+					<div class="icon-box">
+						
+						<!-- image -->
+						<img src="sprite-factory/sprt-stack/stack.svg#image" class="svg-image-dims" alt="image"/>
+						
+					</div>
+					<h2>image</h2>
+				</li>
+				<li title="keyhole">
+					<div class="icon-box">
+						
+						<!-- keyhole -->
+						<img src="sprite-factory/sprt-stack/stack.svg#keyhole" class="svg-keyhole-dims" alt="keyhole"/>
+						
+					</div>
+					<h2>keyhole</h2>
+				</li>
+				<li title="label">
+					<div class="icon-box">
+						
+						<!-- label -->
+						<img src="sprite-factory/sprt-stack/stack.svg#label" class="svg-label-dims" alt="label"/>
+						
+					</div>
+					<h2>label</h2>
+				</li>
+				<li title="laptop">
+					<div class="icon-box">
+						
+						<!-- laptop -->
+						<img src="sprite-factory/sprt-stack/stack.svg#laptop" class="svg-laptop-dims" alt="laptop"/>
+						
+					</div>
+					<h2>laptop</h2>
+				</li>
+				<li title="last-page">
+					<div class="icon-box">
+						
+						<!-- last-page -->
+						<img src="sprite-factory/sprt-stack/stack.svg#last-page" class="svg-last-page-dims" alt="last-page"/>
+						
+					</div>
+					<h2>last-page</h2>
+				</li>
+				<li title="layers">
+					<div class="icon-box">
+						
+						<!-- layers -->
+						<img src="sprite-factory/sprt-stack/stack.svg#layers" class="svg-layers-dims" alt="layers"/>
+						
+					</div>
+					<h2>layers</h2>
+				</li>
+				<li title="layers-off">
+					<div class="icon-box">
+						
+						<!-- layers-off -->
+						<img src="sprite-factory/sprt-stack/stack.svg#layers-off" class="svg-layers-off-dims" alt="layers-off"/>
+						
+					</div>
+					<h2>layers-off</h2>
+				</li>
+				<li title="library-books">
+					<div class="icon-box">
+						
+						<!-- library-books -->
+						<img src="sprite-factory/sprt-stack/stack.svg#library-books" class="svg-library-books-dims" alt="library-books"/>
+						
+					</div>
+					<h2>library-books</h2>
+				</li>
+				<li title="line-style">
+					<div class="icon-box">
+						
+						<!-- line-style -->
+						<img src="sprite-factory/sprt-stack/stack.svg#line-style" class="svg-line-style-dims" alt="line-style"/>
+						
+					</div>
+					<h2>line-style</h2>
+				</li>
+				<li title="line-weight">
+					<div class="icon-box">
+						
+						<!-- line-weight -->
+						<img src="sprite-factory/sprt-stack/stack.svg#line-weight" class="svg-line-weight-dims" alt="line-weight"/>
+						
+					</div>
+					<h2>line-weight</h2>
+				</li>
+				<li title="list">
+					<div class="icon-box">
+						
+						<!-- list -->
+						<img src="sprite-factory/sprt-stack/stack.svg#list" class="svg-list-dims" alt="list"/>
+						
+					</div>
+					<h2>list</h2>
+				</li>
+				<li title="list-add">
+					<div class="icon-box">
+						
+						<!-- list-add -->
+						<img src="sprite-factory/sprt-stack/stack.svg#list-add" class="svg-list-add-dims" alt="list-add"/>
+						
+					</div>
+					<h2>list-add</h2>
+				</li>
+				<li title="live-help">
+					<div class="icon-box">
+						
+						<!-- live-help -->
+						<img src="sprite-factory/sprt-stack/stack.svg#live-help" class="svg-live-help-dims" alt="live-help"/>
+						
+					</div>
+					<h2>live-help</h2>
+				</li>
+				<li title="loading">
+					<div class="icon-box">
+						
+						<!-- loading -->
+						<img src="sprite-factory/sprt-stack/stack.svg#loading" class="svg-loading-dims" alt="loading"/>
+						
+					</div>
+					<h2>loading</h2>
+				</li>
+				<li title="local-shipping">
+					<div class="icon-box">
+						
+						<!-- local-shipping -->
+						<img src="sprite-factory/sprt-stack/stack.svg#local-shipping" class="svg-local-shipping-dims" alt="local-shipping"/>
+						
+					</div>
+					<h2>local-shipping</h2>
+				</li>
+				<li title="lock">
+					<div class="icon-box">
+						
+						<!-- lock -->
+						<img src="sprite-factory/sprt-stack/stack.svg#lock" class="svg-lock-dims" alt="lock"/>
+						
+					</div>
+					<h2>lock</h2>
+				</li>
+				<li title="map-pin">
+					<div class="icon-box">
+						
+						<!-- map-pin -->
+						<img src="sprite-factory/sprt-stack/stack.svg#map-pin" class="svg-map-pin-dims" alt="map-pin"/>
+						
+					</div>
+					<h2>map-pin</h2>
+				</li>
+				<li title="menu">
+					<div class="icon-box">
+						
+						<!-- menu -->
+						<img src="sprite-factory/sprt-stack/stack.svg#menu" class="svg-menu-dims" alt="menu"/>
+						
+					</div>
+					<h2>menu</h2>
+				</li>
+				<li title="message">
+					<div class="icon-box">
+						
+						<!-- message -->
+						<img src="sprite-factory/sprt-stack/stack.svg#message" class="svg-message-dims" alt="message"/>
+						
+					</div>
+					<h2>message</h2>
+				</li>
+				<li title="message-bubble-blank">
+					<div class="icon-box">
+						
+						<!-- message-bubble-blank -->
+						<img src="sprite-factory/sprt-stack/stack.svg#message-bubble-blank" class="svg-message-bubble-blank-dims" alt="message-bubble-blank"/>
+						
+					</div>
+					<h2>message-bubble-blank</h2>
+				</li>
+				<li title="mic-off">
+					<div class="icon-box">
+						
+						<!-- mic-off -->
+						<img src="sprite-factory/sprt-stack/stack.svg#mic-off" class="svg-mic-off-dims" alt="mic-off"/>
+						
+					</div>
+					<h2>mic-off</h2>
+				</li>
+				<li title="mic-on">
+					<div class="icon-box">
+						
+						<!-- mic-on -->
+						<img src="sprite-factory/sprt-stack/stack.svg#mic-on" class="svg-mic-on-dims" alt="mic-on"/>
+						
+					</div>
+					<h2>mic-on</h2>
+				</li>
+				<li title="mms">
+					<div class="icon-box">
+						
+						<!-- mms -->
+						<img src="sprite-factory/sprt-stack/stack.svg#mms" class="svg-mms-dims" alt="mms"/>
+						
+					</div>
+					<h2>mms</h2>
+				</li>
+				<li title="mobile">
+					<div class="icon-box">
+						
+						<!-- mobile -->
+						<img src="sprite-factory/sprt-stack/stack.svg#mobile" class="svg-mobile-dims" alt="mobile"/>
+						
+					</div>
+					<h2>mobile</h2>
+				</li>
+				<li title="money-note">
+					<div class="icon-box">
+						
+						<!-- money-note -->
+						<img src="sprite-factory/sprt-stack/stack.svg#money-note" class="svg-money-note-dims" alt="money-note"/>
+						
+					</div>
+					<h2>money-note</h2>
+				</li>
+				<li title="mood-bad">
+					<div class="icon-box">
+						
+						<!-- mood-bad -->
+						<img src="sprite-factory/sprt-stack/stack.svg#mood-bad" class="svg-mood-bad-dims" alt="mood-bad"/>
+						
+					</div>
+					<h2>mood-bad</h2>
+				</li>
+				<li title="mood-excited">
+					<div class="icon-box">
+						
+						<!-- mood-excited -->
+						<img src="sprite-factory/sprt-stack/stack.svg#mood-excited" class="svg-mood-excited-dims" alt="mood-excited"/>
+						
+					</div>
+					<h2>mood-excited</h2>
+				</li>
+				<li title="mood-happy">
+					<div class="icon-box">
+						
+						<!-- mood-happy -->
+						<img src="sprite-factory/sprt-stack/stack.svg#mood-happy" class="svg-mood-happy-dims" alt="mood-happy"/>
+						
+					</div>
+					<h2>mood-happy</h2>
+				</li>
+				<li title="mood-neutral">
+					<div class="icon-box">
+						
+						<!-- mood-neutral -->
+						<img src="sprite-factory/sprt-stack/stack.svg#mood-neutral" class="svg-mood-neutral-dims" alt="mood-neutral"/>
+						
+					</div>
+					<h2>mood-neutral</h2>
+				</li>
+				<li title="mood-sad">
+					<div class="icon-box">
+						
+						<!-- mood-sad -->
+						<img src="sprite-factory/sprt-stack/stack.svg#mood-sad" class="svg-mood-sad-dims" alt="mood-sad"/>
+						
+					</div>
+					<h2>mood-sad</h2>
+				</li>
+				<li title="more-horizontal">
+					<div class="icon-box">
+						
+						<!-- more-horizontal -->
+						<img src="sprite-factory/sprt-stack/stack.svg#more-horizontal" class="svg-more-horizontal-dims" alt="more-horizontal"/>
+						
+					</div>
+					<h2>more-horizontal</h2>
+				</li>
+				<li title="more-vertical">
+					<div class="icon-box">
+						
+						<!-- more-vertical -->
+						<img src="sprite-factory/sprt-stack/stack.svg#more-vertical" class="svg-more-vertical-dims" alt="more-vertical"/>
+						
+					</div>
+					<h2>more-vertical</h2>
+				</li>
+				<li title="mouse">
+					<div class="icon-box">
+						
+						<!-- mouse -->
+						<img src="sprite-factory/sprt-stack/stack.svg#mouse" class="svg-mouse-dims" alt="mouse"/>
+						
+					</div>
+					<h2>mouse</h2>
+				</li>
+				<li title="notification">
+					<div class="icon-box">
+						
+						<!-- notification -->
+						<img src="sprite-factory/sprt-stack/stack.svg#notification" class="svg-notification-dims" alt="notification"/>
+						
+					</div>
+					<h2>notification</h2>
+				</li>
+				<li title="notification-active">
+					<div class="icon-box">
+						
+						<!-- notification-active -->
+						<img src="sprite-factory/sprt-stack/stack.svg#notification-active" class="svg-notification-active-dims" alt="notification-active"/>
+						
+					</div>
+					<h2>notification-active</h2>
+				</li>
+				<li title="notifications-add">
+					<div class="icon-box">
+						
+						<!-- notifications-add -->
+						<img src="sprite-factory/sprt-stack/stack.svg#notifications-add" class="svg-notifications-add-dims" alt="notifications-add"/>
+						
+					</div>
+					<h2>notifications-add</h2>
+				</li>
+				<li title="notifications-idle">
+					<div class="icon-box">
+						
+						<!-- notifications-idle -->
+						<img src="sprite-factory/sprt-stack/stack.svg#notifications-idle" class="svg-notifications-idle-dims" alt="notifications-idle"/>
+						
+					</div>
+					<h2>notifications-idle</h2>
+				</li>
+				<li title="notifications-off">
+					<div class="icon-box">
+						
+						<!-- notifications-off -->
+						<img src="sprite-factory/sprt-stack/stack.svg#notifications-off" class="svg-notifications-off-dims" alt="notifications-off"/>
+						
+					</div>
+					<h2>notifications-off</h2>
+				</li>
+				<li title="open-in-new">
+					<div class="icon-box">
+						
+						<!-- open-in-new -->
+						<img src="sprite-factory/sprt-stack/stack.svg#open-in-new" class="svg-open-in-new-dims" alt="open-in-new"/>
+						
+					</div>
+					<h2>open-in-new</h2>
+				</li>
+				<li title="package">
+					<div class="icon-box">
+						
+						<!-- package -->
+						<img src="sprite-factory/sprt-stack/stack.svg#package" class="svg-package-dims" alt="package"/>
+						
+					</div>
+					<h2>package</h2>
+				</li>
+				<li title="package-download">
+					<div class="icon-box">
+						
+						<!-- package-download -->
+						<img src="sprite-factory/sprt-stack/stack.svg#package-download" class="svg-package-download-dims" alt="package-download"/>
+						
+					</div>
+					<h2>package-download</h2>
+				</li>
+				<li title="package-upload">
+					<div class="icon-box">
+						
+						<!-- package-upload -->
+						<img src="sprite-factory/sprt-stack/stack.svg#package-upload" class="svg-package-upload-dims" alt="package-upload"/>
+						
+					</div>
+					<h2>package-upload</h2>
+				</li>
+				<li title="pause">
+					<div class="icon-box">
+						
+						<!-- pause -->
+						<img src="sprite-factory/sprt-stack/stack.svg#pause" class="svg-pause-dims" alt="pause"/>
+						
+					</div>
+					<h2>pause</h2>
+				</li>
+				<li title="percent">
+					<div class="icon-box">
+						
+						<!-- percent -->
+						<img src="sprite-factory/sprt-stack/stack.svg#percent" class="svg-percent-dims" alt="percent"/>
+						
+					</div>
+					<h2>percent</h2>
+				</li>
+				<li title="picture-in-picture">
+					<div class="icon-box">
+						
+						<!-- picture-in-picture -->
+						<img src="sprite-factory/sprt-stack/stack.svg#picture-in-picture" class="svg-picture-in-picture-dims" alt="picture-in-picture"/>
+						
+					</div>
+					<h2>picture-in-picture</h2>
+				</li>
+				<li title="pictures">
+					<div class="icon-box">
+						
+						<!-- pictures -->
+						<img src="sprite-factory/sprt-stack/stack.svg#pictures" class="svg-pictures-dims" alt="pictures"/>
+						
+					</div>
+					<h2>pictures</h2>
+				</li>
+				<li title="piggy-bank">
+					<div class="icon-box">
+						
+						<!-- piggy-bank -->
+						<img src="sprite-factory/sprt-stack/stack.svg#piggy-bank" class="svg-piggy-bank-dims" alt="piggy-bank"/>
+						
+					</div>
+					<h2>piggy-bank</h2>
+				</li>
+				<li title="play-arrow">
+					<div class="icon-box">
+						
+						<!-- play-arrow -->
+						<img src="sprite-factory/sprt-stack/stack.svg#play-arrow" class="svg-play-arrow-dims" alt="play-arrow"/>
+						
+					</div>
+					<h2>play-arrow</h2>
+				</li>
+				<li title="plus">
+					<div class="icon-box">
+						
+						<!-- plus -->
+						<img src="sprite-factory/sprt-stack/stack.svg#plus" class="svg-plus-dims" alt="plus"/>
+						
+					</div>
+					<h2>plus</h2>
+				</li>
+				<li title="pointer">
+					<div class="icon-box">
+						
+						<!-- pointer -->
+						<img src="sprite-factory/sprt-stack/stack.svg#pointer" class="svg-pointer-dims" alt="pointer"/>
+						
+					</div>
+					<h2>pointer</h2>
+				</li>
+				<li title="poll">
+					<div class="icon-box">
+						
+						<!-- poll -->
+						<img src="sprite-factory/sprt-stack/stack.svg#poll" class="svg-poll-dims" alt="poll"/>
+						
+					</div>
+					<h2>poll</h2>
+				</li>
+				<li title="printer">
+					<div class="icon-box">
+						
+						<!-- printer -->
+						<img src="sprite-factory/sprt-stack/stack.svg#printer" class="svg-printer-dims" alt="printer"/>
+						
+					</div>
+					<h2>printer</h2>
+				</li>
+				<li title="priority_high">
+					<div class="icon-box">
+						
+						<!-- priority_high -->
+						<img src="sprite-factory/sprt-stack/stack.svg#priority_high" class="svg-priority_high-dims" alt="priority_high"/>
+						
+					</div>
+					<h2>priority_high</h2>
+				</li>
+				<li title="radio-button-checked">
+					<div class="icon-box">
+						
+						<!-- radio-button-checked -->
+						<img src="sprite-factory/sprt-stack/stack.svg#radio-button-checked" class="svg-radio-button-checked-dims" alt="radio-button-checked"/>
+						
+					</div>
+					<h2>radio-button-checked</h2>
+				</li>
+				<li title="radio-button-unchecked">
+					<div class="icon-box">
+						
+						<!-- radio-button-unchecked -->
+						<img src="sprite-factory/sprt-stack/stack.svg#radio-button-unchecked" class="svg-radio-button-unchecked-dims" alt="radio-button-unchecked"/>
+						
+					</div>
+					<h2>radio-button-unchecked</h2>
+				</li>
+				<li title="receipt">
+					<div class="icon-box">
+						
+						<!-- receipt -->
+						<img src="sprite-factory/sprt-stack/stack.svg#receipt" class="svg-receipt-dims" alt="receipt"/>
+						
+					</div>
+					<h2>receipt</h2>
+				</li>
+				<li title="redo">
+					<div class="icon-box">
+						
+						<!-- redo -->
+						<img src="sprite-factory/sprt-stack/stack.svg#redo" class="svg-redo-dims" alt="redo"/>
+						
+					</div>
+					<h2>redo</h2>
+				</li>
+				<li title="remove">
+					<div class="icon-box">
+						
+						<!-- remove -->
+						<img src="sprite-factory/sprt-stack/stack.svg#remove" class="svg-remove-dims" alt="remove"/>
+						
+					</div>
+					<h2>remove</h2>
+				</li>
+				<li title="reply">
+					<div class="icon-box">
+						
+						<!-- reply -->
+						<img src="sprite-factory/sprt-stack/stack.svg#reply" class="svg-reply-dims" alt="reply"/>
+						
+					</div>
+					<h2>reply</h2>
+				</li>
+				<li title="reply-all">
+					<div class="icon-box">
+						
+						<!-- reply-all -->
+						<img src="sprite-factory/sprt-stack/stack.svg#reply-all" class="svg-reply-all-dims" alt="reply-all"/>
+						
+					</div>
+					<h2>reply-all</h2>
+				</li>
+				<li title="restore">
+					<div class="icon-box">
+						
+						<!-- restore -->
+						<img src="sprite-factory/sprt-stack/stack.svg#restore" class="svg-restore-dims" alt="restore"/>
+						
+					</div>
+					<h2>restore</h2>
+				</li>
+				<li title="search">
+					<div class="icon-box">
+						
+						<!-- search -->
+						<img src="sprite-factory/sprt-stack/stack.svg#search" class="svg-search-dims" alt="search"/>
+						
+					</div>
+					<h2>search</h2>
+				</li>
+				<li title="send">
+					<div class="icon-box">
+						
+						<!-- send -->
+						<img src="sprite-factory/sprt-stack/stack.svg#send" class="svg-send-dims" alt="send"/>
+						
+					</div>
+					<h2>send</h2>
+				</li>
+				<li title="server">
+					<div class="icon-box">
+						
+						<!-- server -->
+						<img src="sprite-factory/sprt-stack/stack.svg#server" class="svg-server-dims" alt="server"/>
+						
+					</div>
+					<h2>server</h2>
+				</li>
+				<li title="settings">
+					<div class="icon-box">
+						
+						<!-- settings -->
+						<img src="sprite-factory/sprt-stack/stack.svg#settings" class="svg-settings-dims" alt="settings"/>
+						
+					</div>
+					<h2>settings</h2>
+				</li>
+				<li title="shield">
+					<div class="icon-box">
+						
+						<!-- shield -->
+						<img src="sprite-factory/sprt-stack/stack.svg#shield" class="svg-shield-dims" alt="shield"/>
+						
+					</div>
+					<h2>shield</h2>
+				</li>
+				<li title="shrink">
+					<div class="icon-box">
+						
+						<!-- shrink -->
+						<img src="sprite-factory/sprt-stack/stack.svg#shrink" class="svg-shrink-dims" alt="shrink"/>
+						
+					</div>
+					<h2>shrink</h2>
+				</li>
+				<li title="shrink1">
+					<div class="icon-box">
+						
+						<!-- shrink1 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#shrink1" class="svg-shrink1-dims" alt="shrink1"/>
+						
+					</div>
+					<h2>shrink1</h2>
+				</li>
+				<li title="sitemap">
+					<div class="icon-box">
+						
+						<!-- sitemap -->
+						<img src="sprite-factory/sprt-stack/stack.svg#sitemap" class="svg-sitemap-dims" alt="sitemap"/>
+						
+					</div>
+					<h2>sitemap</h2>
+				</li>
+				<li title="skip-next">
+					<div class="icon-box">
+						
+						<!-- skip-next -->
+						<img src="sprite-factory/sprt-stack/stack.svg#skip-next" class="svg-skip-next-dims" alt="skip-next"/>
+						
+					</div>
+					<h2>skip-next</h2>
+				</li>
+				<li title="skip-previous">
+					<div class="icon-box">
+						
+						<!-- skip-previous -->
+						<img src="sprite-factory/sprt-stack/stack.svg#skip-previous" class="svg-skip-previous-dims" alt="skip-previous"/>
+						
+					</div>
+					<h2>skip-previous</h2>
+				</li>
+				<li title="sms-failed">
+					<div class="icon-box">
+						
+						<!-- sms-failed -->
+						<img src="sprite-factory/sprt-stack/stack.svg#sms-failed" class="svg-sms-failed-dims" alt="sms-failed"/>
+						
+					</div>
+					<h2>sms-failed</h2>
+				</li>
+				<li title="sort">
+					<div class="icon-box">
+						
+						<!-- sort -->
+						<img src="sprite-factory/sprt-stack/stack.svg#sort" class="svg-sort-dims" alt="sort"/>
+						
+					</div>
+					<h2>sort</h2>
+				</li>
+				<li title="spellcheck">
+					<div class="icon-box">
+						
+						<!-- spellcheck -->
+						<img src="sprite-factory/sprt-stack/stack.svg#spellcheck" class="svg-spellcheck-dims" alt="spellcheck"/>
+						
+					</div>
+					<h2>spellcheck</h2>
+				</li>
+				<li title="star">
+					<div class="icon-box">
+						
+						<!-- star -->
+						<img src="sprite-factory/sprt-stack/stack.svg#star" class="svg-star-dims" alt="star"/>
+						
+					</div>
+					<h2>star</h2>
+				</li>
+				<li title="star-half">
+					<div class="icon-box">
+						
+						<!-- star-half -->
+						<img src="sprite-factory/sprt-stack/stack.svg#star-half" class="svg-star-half-dims" alt="star-half"/>
+						
+					</div>
+					<h2>star-half</h2>
+				</li>
+				<li title="star-o">
+					<div class="icon-box">
+						
+						<!-- star-o -->
+						<img src="sprite-factory/sprt-stack/stack.svg#star-o" class="svg-star-o-dims" alt="star-o"/>
+						
+					</div>
+					<h2>star-o</h2>
+				</li>
+				<li title="step-next">
+					<div class="icon-box">
+						
+						<!-- step-next -->
+						<img src="sprite-factory/sprt-stack/stack.svg#step-next" class="svg-step-next-dims" alt="step-next"/>
+						
+					</div>
+					<h2>step-next</h2>
+				</li>
+				<li title="store">
+					<div class="icon-box">
+						
+						<!-- store -->
+						<img src="sprite-factory/sprt-stack/stack.svg#store" class="svg-store-dims" alt="store"/>
+						
+					</div>
+					<h2>store</h2>
+				</li>
+				<li title="street-signs">
+					<div class="icon-box">
+						
+						<!-- street-signs -->
+						<img src="sprite-factory/sprt-stack/stack.svg#street-signs" class="svg-street-signs-dims" alt="street-signs"/>
+						
+					</div>
+					<h2>street-signs</h2>
+				</li>
+				<li title="swap-horizontal">
+					<div class="icon-box">
+						
+						<!-- swap-horizontal -->
+						<img src="sprite-factory/sprt-stack/stack.svg#swap-horizontal" class="svg-swap-horizontal-dims" alt="swap-horizontal"/>
+						
+					</div>
+					<h2>swap-horizontal</h2>
+				</li>
+				<li title="swap-vertical">
+					<div class="icon-box">
+						
+						<!-- swap-vertical -->
+						<img src="sprite-factory/sprt-stack/stack.svg#swap-vertical" class="svg-swap-vertical-dims" alt="swap-vertical"/>
+						
+					</div>
+					<h2>swap-vertical</h2>
+				</li>
+				<li title="tablet">
+					<div class="icon-box">
+						
+						<!-- tablet -->
+						<img src="sprite-factory/sprt-stack/stack.svg#tablet" class="svg-tablet-dims" alt="tablet"/>
+						
+					</div>
+					<h2>tablet</h2>
+				</li>
+				<li title="tag-large">
+					<div class="icon-box">
+						
+						<!-- tag-large -->
+						<img src="sprite-factory/sprt-stack/stack.svg#tag-large" class="svg-tag-large-dims" alt="tag-large"/>
+						
+					</div>
+					<h2>tag-large</h2>
+				</li>
+				<li title="tags">
+					<div class="icon-box">
+						
+						<!-- tags -->
+						<img src="sprite-factory/sprt-stack/stack.svg#tags" class="svg-tags-dims" alt="tags"/>
+						
+					</div>
+					<h2>tags</h2>
+				</li>
+				<li title="text-wrap">
+					<div class="icon-box">
+						
+						<!-- text-wrap -->
+						<img src="sprite-factory/sprt-stack/stack.svg#text-wrap" class="svg-text-wrap-dims" alt="text-wrap"/>
+						
+					</div>
+					<h2>text-wrap</h2>
+				</li>
+				<li title="texting">
+					<div class="icon-box">
+						
+						<!-- texting -->
+						<img src="sprite-factory/sprt-stack/stack.svg#texting" class="svg-texting-dims" alt="texting"/>
+						
+					</div>
+					<h2>texting</h2>
+				</li>
+				<li title="timer">
+					<div class="icon-box">
+						
+						<!-- timer -->
+						<img src="sprite-factory/sprt-stack/stack.svg#timer" class="svg-timer-dims" alt="timer"/>
+						
+					</div>
+					<h2>timer</h2>
+				</li>
+				<li title="timer-off">
+					<div class="icon-box">
+						
+						<!-- timer-off -->
+						<img src="sprite-factory/sprt-stack/stack.svg#timer-off" class="svg-timer-off-dims" alt="timer-off"/>
+						
+					</div>
+					<h2>timer-off</h2>
+				</li>
+				<li title="title">
+					<div class="icon-box">
+						
+						<!-- title -->
+						<img src="sprite-factory/sprt-stack/stack.svg#title" class="svg-title-dims" alt="title"/>
+						
+					</div>
+					<h2>title</h2>
+				</li>
+				<li title="toc">
+					<div class="icon-box">
+						
+						<!-- toc -->
+						<img src="sprite-factory/sprt-stack/stack.svg#toc" class="svg-toc-dims" alt="toc"/>
+						
+					</div>
+					<h2>toc</h2>
+				</li>
+				<li title="trademark">
+					<div class="icon-box">
+						
+						<!-- trademark -->
+						<img src="sprite-factory/sprt-stack/stack.svg#trademark" class="svg-trademark-dims" alt="trademark"/>
+						
+					</div>
+					<h2>trademark</h2>
+				</li>
+				<li title="trash">
+					<div class="icon-box">
+						
+						<!-- trash -->
+						<img src="sprite-factory/sprt-stack/stack.svg#trash" class="svg-trash-dims" alt="trash"/>
+						
+					</div>
+					<h2>trash</h2>
+				</li>
+				<li title="undo">
+					<div class="icon-box">
+						
+						<!-- undo -->
+						<img src="sprite-factory/sprt-stack/stack.svg#undo" class="svg-undo-dims" alt="undo"/>
+						
+					</div>
+					<h2>undo</h2>
+				</li>
+				<li title="undo2">
+					<div class="icon-box">
+						
+						<!-- undo2 -->
+						<img src="sprite-factory/sprt-stack/stack.svg#undo2" class="svg-undo2-dims" alt="undo2"/>
+						
+					</div>
+					<h2>undo2</h2>
+				</li>
+				<li title="unfold-less">
+					<div class="icon-box">
+						
+						<!-- unfold-less -->
+						<img src="sprite-factory/sprt-stack/stack.svg#unfold-less" class="svg-unfold-less-dims" alt="unfold-less"/>
+						
+					</div>
+					<h2>unfold-less</h2>
+				</li>
+				<li title="unfold-more">
+					<div class="icon-box">
+						
+						<!-- unfold-more -->
+						<img src="sprite-factory/sprt-stack/stack.svg#unfold-more" class="svg-unfold-more-dims" alt="unfold-more"/>
+						
+					</div>
+					<h2>unfold-more</h2>
+				</li>
+				<li title="unlock">
+					<div class="icon-box">
+						
+						<!-- unlock -->
+						<img src="sprite-factory/sprt-stack/stack.svg#unlock" class="svg-unlock-dims" alt="unlock"/>
+						
+					</div>
+					<h2>unlock</h2>
+				</li>
+				<li title="update">
+					<div class="icon-box">
+						
+						<!-- update -->
+						<img src="sprite-factory/sprt-stack/stack.svg#update" class="svg-update-dims" alt="update"/>
+						
+					</div>
+					<h2>update</h2>
+				</li>
+				<li title="user">
+					<div class="icon-box">
+						
+						<!-- user -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user" class="svg-user-dims" alt="user"/>
+						
+					</div>
+					<h2>user</h2>
+				</li>
+				<li title="user-add">
+					<div class="icon-box">
+						
+						<!-- user-add -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-add" class="svg-user-add-dims" alt="user-add"/>
+						
+					</div>
+					<h2>user-add</h2>
+				</li>
+				<li title="user-block">
+					<div class="icon-box">
+						
+						<!-- user-block -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-block" class="svg-user-block-dims" alt="user-block"/>
+						
+					</div>
+					<h2>user-block</h2>
+				</li>
+				<li title="user-check">
+					<div class="icon-box">
+						
+						<!-- user-check -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-check" class="svg-user-check-dims" alt="user-check"/>
+						
+					</div>
+					<h2>user-check</h2>
+				</li>
+				<li title="user-circle">
+					<div class="icon-box">
+						
+						<!-- user-circle -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-circle" class="svg-user-circle-dims" alt="user-circle"/>
+						
+					</div>
+					<h2>user-circle</h2>
+				</li>
+				<li title="user-close">
+					<div class="icon-box">
+						
+						<!-- user-close -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-close" class="svg-user-close-dims" alt="user-close"/>
+						
+					</div>
+					<h2>user-close</h2>
+				</li>
+				<li title="user-lock">
+					<div class="icon-box">
+						
+						<!-- user-lock -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-lock" class="svg-user-lock-dims" alt="user-lock"/>
+						
+					</div>
+					<h2>user-lock</h2>
+				</li>
+				<li title="user-refresh">
+					<div class="icon-box">
+						
+						<!-- user-refresh -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-refresh" class="svg-user-refresh-dims" alt="user-refresh"/>
+						
+					</div>
+					<h2>user-refresh</h2>
+				</li>
+				<li title="user-search">
+					<div class="icon-box">
+						
+						<!-- user-search -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-search" class="svg-user-search-dims" alt="user-search"/>
+						
+					</div>
+					<h2>user-search</h2>
+				</li>
+				<li title="user-square">
+					<div class="icon-box">
+						
+						<!-- user-square -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-square" class="svg-user-square-dims" alt="user-square"/>
+						
+					</div>
+					<h2>user-square</h2>
+				</li>
+				<li title="user-subtract">
+					<div class="icon-box">
+						
+						<!-- user-subtract -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-subtract" class="svg-user-subtract-dims" alt="user-subtract"/>
+						
+					</div>
+					<h2>user-subtract</h2>
+				</li>
+				<li title="user-timeout">
+					<div class="icon-box">
+						
+						<!-- user-timeout -->
+						<img src="sprite-factory/sprt-stack/stack.svg#user-timeout" class="svg-user-timeout-dims" alt="user-timeout"/>
+						
+					</div>
+					<h2>user-timeout</h2>
+				</li>
+				<li title="users">
+					<div class="icon-box">
+						
+						<!-- users -->
+						<img src="sprite-factory/sprt-stack/stack.svg#users" class="svg-users-dims" alt="users"/>
+						
+					</div>
+					<h2>users</h2>
+				</li>
+				<li title="vertical-align-bottom">
+					<div class="icon-box">
+						
+						<!-- vertical-align-bottom -->
+						<img src="sprite-factory/sprt-stack/stack.svg#vertical-align-bottom" class="svg-vertical-align-bottom-dims" alt="vertical-align-bottom"/>
+						
+					</div>
+					<h2>vertical-align-bottom</h2>
+				</li>
+				<li title="vertical-align-center">
+					<div class="icon-box">
+						
+						<!-- vertical-align-center -->
+						<img src="sprite-factory/sprt-stack/stack.svg#vertical-align-center" class="svg-vertical-align-center-dims" alt="vertical-align-center"/>
+						
+					</div>
+					<h2>vertical-align-center</h2>
+				</li>
+				<li title="vertical-align-top">
+					<div class="icon-box">
+						
+						<!-- vertical-align-top -->
+						<img src="sprite-factory/sprt-stack/stack.svg#vertical-align-top" class="svg-vertical-align-top-dims" alt="vertical-align-top"/>
+						
+					</div>
+					<h2>vertical-align-top</h2>
+				</li>
+				<li title="view-columns">
+					<div class="icon-box">
+						
+						<!-- view-columns -->
+						<img src="sprite-factory/sprt-stack/stack.svg#view-columns" class="svg-view-columns-dims" alt="view-columns"/>
+						
+					</div>
+					<h2>view-columns</h2>
+				</li>
+				<li title="view-list">
+					<div class="icon-box">
+						
+						<!-- view-list -->
+						<img src="sprite-factory/sprt-stack/stack.svg#view-list" class="svg-view-list-dims" alt="view-list"/>
+						
+					</div>
+					<h2>view-list</h2>
+				</li>
+				<li title="view-list-alt">
+					<div class="icon-box">
+						
+						<!-- view-list-alt -->
+						<img src="sprite-factory/sprt-stack/stack.svg#view-list-alt" class="svg-view-list-alt-dims" alt="view-list-alt"/>
+						
+					</div>
+					<h2>view-list-alt</h2>
+				</li>
+				<li title="view-thumbnails">
+					<div class="icon-box">
+						
+						<!-- view-thumbnails -->
+						<img src="sprite-factory/sprt-stack/stack.svg#view-thumbnails" class="svg-view-thumbnails-dims" alt="view-thumbnails"/>
+						
+					</div>
+					<h2>view-thumbnails</h2>
+				</li>
+				<li title="views-cards">
+					<div class="icon-box">
+						
+						<!-- views-cards -->
+						<img src="sprite-factory/sprt-stack/stack.svg#views-cards" class="svg-views-cards-dims" alt="views-cards"/>
+						
+					</div>
+					<h2>views-cards</h2>
+				</li>
+				<li title="zoom-area-in">
+					<div class="icon-box">
+						
+						<!-- zoom-area-in -->
+						<img src="sprite-factory/sprt-stack/stack.svg#zoom-area-in" class="svg-zoom-area-in-dims" alt="zoom-area-in"/>
+						
+					</div>
+					<h2>zoom-area-in</h2>
+				</li>
+				<li title="zoom-area-out">
+					<div class="icon-box">
+						
+						<!-- zoom-area-out -->
+						<img src="sprite-factory/sprt-stack/stack.svg#zoom-area-out" class="svg-zoom-area-out-dims" alt="zoom-area-out"/>
+						
+					</div>
+					<h2>zoom-area-out</h2>
+				</li>
+				<li title="zoom-in">
+					<div class="icon-box">
+						
+						<!-- zoom-in -->
+						<img src="sprite-factory/sprt-stack/stack.svg#zoom-in" class="svg-zoom-in-dims" alt="zoom-in"/>
+						
+					</div>
+					<h2>zoom-in</h2>
+				</li>
+				<li title="zoom-out">
+					<div class="icon-box">
+						
+						<!-- zoom-out -->
+						<img src="sprite-factory/sprt-stack/stack.svg#zoom-out" class="svg-zoom-out-dims" alt="zoom-out"/>
+						
+					</div>
+					<h2>zoom-out</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Wed, 07 Nov 2018 05:27:18 GMT by <a href="https://github.com/jkphl/svg-sprite" target="_blank">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
