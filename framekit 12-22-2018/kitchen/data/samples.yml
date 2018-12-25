@@ -1,0 +1,34 @@
+alphabet: AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz
+digits: 0123456789
+punctuation: ". … , · • : ; ¡ ! ¿ ? { } [ ] ( ) / — – - _ * ‹ › « » ‚ ‘ ’ „ “ ” '"
+characters: "| ¦ @ & † ‡ ❡ ¶ § ◊ ^ ~ © ® ℗ ™"
+math: ≈ ~ = ≠ ∙ ÷ ¬ − + ± × ∕ > ≥ ∞ < ≤ % ‰ ∫ ∂ ∆ ∏ ∑ √
+currencies: 1¤ $18 ¢29 €75 ƒ32 ₹572 £68 ¥998’000
+arrows: ↑ ↗ → ↘ ↓ ↙ ← ↖ ↔ ↕
+units: 47µ 100kΩ 21°C \#19 №38 ℮240g 1·5ℓ
+heading: Helping lenders serve today's home buyers and homeowners
+heading2: Providing financing for quality rental housing in every market, every day
+heading3: Reducing risk and enhancing housing finance market liquidity  
+heading4: Innovating to simplify and better meet the housing needs of today’s families
+headinglong: Innovating to simplify and better meet the housing needs of today’s families and cities
+sentence: The article is something you would not expect to find in an encyclopedia
+paragraph: |
+  Fannie Mae stands with those affected by hurricanes, wildfires, and other disasters as they work to recover and rebuild their communities.
+  We're focused on providing support and assistance during such times of crisis. We work with our customers, partners, and Federal and local authorities to bring relief to homeowners now, and are committed to helping families, neighborhoods, and communities recover in the months and years ahead.
+  Below you'll find links to our standard guidance and information for disaster assistance, as well as special announcements and resources for those affected by recent catastrophic events. Check back often for updates and information.
+paragraph2: |
+  Fannie Mae stands behind lenders with smart, innovative solutions that encourage sustainable lending and affordable rental housing. With programs, standards, and technology that make long-term, fixed-rate mortgages available and help ensure home buyers can afford a mortgage over the long-term. With solutions that ensure renters have access to quality, affordable housing, in every market, for every income level, every day. And with innovation that drives lending certainty, operational efficiency, and affordability so Americans have a place to call home.
+paragraph3: |
+  We stand behind servicers with solutions that support efficient and effective mortgage loan servicing and foreclosure prevention. We help servicers improve their performance with enhanced end-to-end capabilities and training aimed at creating better interactions with struggling homeowners. We want our servicers to be trusted counselors to their customers, advising them of their options and guiding them through the process. Plus, we provide online resources that enable homebuyers to make better decisions.
+definitions:
+  Single Family: "Lorem ipsum Single Family dolor sit amet"
+  Multi-Family: "Suspendisse Multi-Family potenti. Cras aliquam"
+  Homeowners: "Homeowners Morbi ac leo et purus vehicula"
+  Renters: "Renters Sed convallis luctus imperdiet"
+  Business Partners: "Quisque sit amet mattis neque"
+  Capital Markets: "Maecenas commodo mollis enim"
+  Lenders: "Donec ornare pharetra dignissim. Praesent pharetra mi sit"
+images:
+  1: "/assets/img/osx-yosemite.jpg"
+  2: "/assets/img/osx-yosemite-2.jpg"
+  3: "/assets/img/osx-el-capitan.jpg"

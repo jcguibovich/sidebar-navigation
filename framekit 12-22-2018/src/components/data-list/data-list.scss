@@ -1,0 +1,53 @@
+
+.fk-datalist {
+    display: flex;
+    flex-direction: column;
+    //background: red;
+
+   // max-width: 400px;
+    margin:0;
+    padding:0;
+
+    &__item {
+         padding: 16px 0px;
+         border-bottom: 1px solid #ccc;
+          display: inline-block;
+          list-style-type: none;
+          min-width: 250px;
+       
+       &:nth-of-type(1){
+          border-top: 1px solid #ccc;
+          //padding-top: 16px;
+         }
+    }
+
+    &__label{
+         text-transform: uppercase;
+         display: inline-block;   
+         color: #666;
+         font-size: 14px;
+         width:35%;
+         margin-right: 5%;
+         vertical-align: top;
+         text-rendering: optimizeLegibility;
+         letter-spacing: 1px;
+
+         @include mq-until-sm(){
+             width:100%;
+         }
+
+     }
+
+     &__value{
+        // background-color: red;
+         width:55%;
+         display: inline-block; 
+         vertical-align: top;
+         color: #333;
+     }
+
+
+
+
+
+}

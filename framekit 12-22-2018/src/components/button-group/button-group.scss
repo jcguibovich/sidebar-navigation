@@ -1,0 +1,56 @@
+.fk-button-group {
+    display: inline-flex;
+    flex-wrap: wrap;
+
+   // box-shadow: $button-default-shadow;
+
+
+
+
+
+    .fk-btn {
+        flex: 1 0 auto;
+       // background: red;
+        box-shadow: none;
+       // 
+        // hack temp
+        &:not(.is-active){
+         // box-shadow: none;
+         // border:1px solid #ccc;
+        }
+
+        &:first-of-type:not(:last-child) {
+          border-bottom-right-radius: 0;
+          border-top-right-radius: 0;
+        }
+        &:not(:first-of-type):not(:last-child) {
+          border-radius: 0;
+         // margin-left: -$border-width;
+          border-left: none;
+        }
+        &:last-child:not(:first-child) {
+          border-bottom-left-radius: 0;
+          border-top-left-radius: 0;
+          border-left: none;
+         // margin-left: -$border-width;
+        }
+        &:focus,
+        &:hover,
+        &:active,
+        &.active {
+          //z-index: $zindex-0;
+        }
+      }
+
+      &--fullwidth {
+        display: flex;
+    
+        .fk-btn {
+          flex: 1 0 0;
+        }
+      }
+
+
+
+
+}

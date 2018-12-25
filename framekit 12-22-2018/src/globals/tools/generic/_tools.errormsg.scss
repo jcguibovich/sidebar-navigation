@@ -1,0 +1,5 @@
+@function error-maps($name,$map,$key,$level: 1){
+    $newline: '\A ';
+    @return '#{$name} returned a value not found in desired map \A Available Options are: #{available-names($map, $level)}';
+    
+}

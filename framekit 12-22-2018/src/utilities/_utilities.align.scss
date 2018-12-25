@@ -1,0 +1,56 @@
+
+.u-align-baseline    { 
+    vertical-align: baseline !important; } // Browser default
+
+.u-align-top         { 
+    vertical-align: top !important; 
+}
+
+.u-align-middle      { 
+    vertical-align: middle !important; 
+}
+
+.u-align-bottom      { 
+    vertical-align: bottom !important; 
+}
+
+.u-align-text-bottom { 
+    vertical-align: text-bottom !important; 
+}
+
+.u-align-text-top    { 
+    vertical-align: text-top !important; 
+}
+
+.u-align-text-center {
+   text-align: center;
+}
+
+.u-align-self-auto {
+  -ms-flex-item-align: auto !important;
+  align-self: auto !important;
+}
+  
+.u-align-self-start {
+  -ms-flex-item-align: start !important;
+  align-self: flex-start !important;
+}
+
+.u-align-self-end {
+  -ms-flex-item-align: end !important;
+  align-self: flex-end !important;
+}
+
+.u-align-self-center{
+ // @include u-align-self-center();
+}
+  
+.u-align-self-baseline {
+  -ms-flex-item-align: baseline !important;
+  align-self: baseline !important;
+}
+
+.u-align-self-stretch {
+  -ms-flex-item-align: stretch !important;
+  align-self: stretch !important;
+}

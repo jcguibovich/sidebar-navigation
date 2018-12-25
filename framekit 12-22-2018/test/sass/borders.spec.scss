@@ -1,0 +1,23 @@
+//tests general get to tokens. Really stop gap testing until all utility functions are placed
+
+@import "../../node_modules/sass-true/sass/true";
+@import "../../src/globals/global-shared";
+@import '../../src/utilities/__all.scss';
+
+@import "config";
+
+
+
+    // Border Radius
+    @include test('get() border radius md') {
+      @include assert('You can also describe the assertion...') {
+        @include output {
+          @include u-border('thick');
+        }
+        @include expect {
+          width: 116em;
+        }
+      }
+    }
+
+    @include report;

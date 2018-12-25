@@ -1,0 +1,1849 @@
+
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <title>Design Tokens</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/4.2.0/normalize.min.css" />
+          <style>
+            html {
+              box-sizing: border-box;
+              font-size: 1em;
+              font-family: Helvetica, Arial, sans-serif;
+              line-height: 1.5;
+              background: #fff;
+              color: #444;
+            }
+            *,
+            *:before,
+            *:after {
+              box-sizing: inherit;
+            }
+            body { font-size: .75rem; }
+            ::-moz-selection {
+              background: #b3d4fc;
+              text-shadow: none;
+            }
+            ::selection {
+              background: #b3d4fc;
+              text-shadow: none;
+            }
+            .banner,
+            .contentinfo { background: #f5f5f5; }
+            .banner { padding: 1em 0; }
+            .container {
+              margin: 0 auto;
+              padding: 0 2rem;
+              max-width: 80rem;
+            }
+            main {
+              margin-right: -2rem;
+              margin-left:  -2rem;
+              padding-bottom: 2rem;
+            }
+            h1 {
+              margin: 0;
+              font-weight: normal;
+              line-height: 1.25;
+            }
+            table {
+              table-layout: fixed;
+              border-collapse: separate;
+              border-spacing: 1rem;
+              width: 100%;
+            }
+            th,
+            td {
+              padding: 0 1rem;
+              vertical-align: baseline;
+              word-break: break-word;
+              hyphens: auto;
+            }
+            th {
+              font-weight: normal;
+              text-align: left;
+            }
+            thead th {
+              border-bottom: 1px solid #eee;
+              padding-top: 1rem;
+              padding-bottom: .5rem;
+              color: #999;
+            }
+            thead th:first-child {
+              font-size: 1.25rem;
+              color: inherit;
+            }
+            code { font-family: monaco, Consolas, monospace, monospace; }
+            hr {
+              display: block;
+              margin: 2rem 0;
+              border: 0;
+              border-top: 1px solid #eee;
+              padding: 0;
+              height: 1px;
+            }
+            .metric-box,
+            .radius-box {
+              display: inline-block;
+              vertical-align: middle;
+              background: #eee;
+            }
+            .radius-box {
+              width: 100%;
+              height: 3rem;
+            }
+            .radius-box.borderRadiusCircle {
+              width: 3rem;
+            }
+            .line-height-example {
+              border-bottom: 1px solid #eee;
+              background-image: -webkit-linear-gradient(#eee 1px, transparent 1px);
+              background-image: linear-gradient(#eee 1px, transparent 1px);
+              background-size: 100% 1rem;
+            }
+          </style>
+        </head>
+        <body>
+          <header role="banner" class="banner">
+            <div class="container">
+              <h1>Blueprint Design System Tokens</h1>
+            </div>
+          </header>
+          <div class="container">
+            <main role="main">
+              
+              
+      <section>
+        <table>
+          
+      <thead>
+        <tr id=spacing>
+          <th scope="col">Spacing</th>
+          <th scope="col">Value</th>
+          <th scope="col">Examples</th>
+          <th scope="col">Usage</th>
+        </tr>
+      </thead>
+    
+          <tbody>
+            <tr>
+        <th scope="row">
+          <code>$bp-spacing-inline-default</code>
+        </th>
+        <td>
+          <code>0 0 16px 0</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 16px 0; height: 0 0 16px 0;"></div>
+        </td>
+      
+        <td>Inset Stretch Spacing</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inline-lg</code>
+        </th>
+        <td>
+          <code>0 0 24px 0</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 24px 0; height: 0 0 24px 0;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inline-md</code>
+        </th>
+        <td>
+          <code>0 0 16px 0</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 16px 0; height: 0 0 16px 0;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inline-sm</code>
+        </th>
+        <td>
+          <code>0 0 8px 0</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 8px 0; height: 0 0 8px 0;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inline-xl</code>
+        </th>
+        <td>
+          <code>0 0 32px 0</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 32px 0; height: 0 0 32px 0;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inline-xs</code>
+        </th>
+        <td>
+          <code>0 0 4px 0</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 4px 0; height: 0 0 4px 0;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inline-xxl</code>
+        </th>
+        <td>
+          <code>0 0 64px 0</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 64px 0; height: 0 0 64px 0;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inline-xxs</code>
+        </th>
+        <td>
+          <code>0 0 2px 0</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 2px 0; height: 0 0 2px 0;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-default</code>
+        </th>
+        <td>
+          <code>16px 16px 16px 16px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 16px 16px 16px 16px; height: 16px 16px 16px 16px;"></div>
+        </td>
+      
+        <td>Inset Spacing</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-lg</code>
+        </th>
+        <td>
+          <code>24px 24px 24px 24px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 24px 24px 24px 24px; height: 24px 24px 24px 24px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-md</code>
+        </th>
+        <td>
+          <code>16px 16px 16px 16px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 16px 16px 16px 16px; height: 16px 16px 16px 16px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-sm</code>
+        </th>
+        <td>
+          <code>8px 8px 8px 8px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 8px 8px 8px 8px; height: 8px 8px 8px 8px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-squish-default</code>
+        </th>
+        <td>
+          <code>8px 16px 8px 16px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 8px 16px 8px 16px; height: 8px 16px 8px 16px;"></div>
+        </td>
+      
+        <td>Inset Squish Spacing</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-squish-lg</code>
+        </th>
+        <td>
+          <code>16px 24px 16px 24px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 16px 24px 16px 24px; height: 16px 24px 16px 24px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-squish-md</code>
+        </th>
+        <td>
+          <code>8px 16px 8px 16px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 8px 16px 8px 16px; height: 8px 16px 8px 16px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-squish-sm</code>
+        </th>
+        <td>
+          <code>4px 8px 4px 8px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 4px 8px 4px 8px; height: 4px 8px 4px 8px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-squish-xl</code>
+        </th>
+        <td>
+          <code>24px 64px 24px 64px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 24px 64px 24px 64px; height: 24px 64px 24px 64px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-squish-xs</code>
+        </th>
+        <td>
+          <code>2px 4px 2px 4px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 2px 4px 2px 4px; height: 2px 4px 2px 4px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-stretch-default</code>
+        </th>
+        <td>
+          <code>24px 16px 24px 16px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 24px 16px 24px 16px; height: 24px 16px 24px 16px;"></div>
+        </td>
+      
+        <td>Inset Stretch Spacing</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-stretch-lg</code>
+        </th>
+        <td>
+          <code>48px 24px 48px 24px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 48px 24px 48px 24px; height: 48px 24px 48px 24px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-stretch-md</code>
+        </th>
+        <td>
+          <code>24px 16px 24px 16px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 24px 16px 24px 16px; height: 24px 16px 24px 16px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-stretch-sm</code>
+        </th>
+        <td>
+          <code>12px 8px 12px 8px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 12px 8px 12px 8px; height: 12px 8px 12px 8px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-xl</code>
+        </th>
+        <td>
+          <code>32px 32px 32px 32px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 32px 32px 32px 32px; height: 32px 32px 32px 32px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-xs</code>
+        </th>
+        <td>
+          <code>4px 4px 4px 4px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 4px 4px 4px 4px; height: 4px 4px 4px 4px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-inset-xxs</code>
+        </th>
+        <td>
+          <code>2px 2px 2px 2px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 2px 2px 2px 2px; height: 2px 2px 2px 2px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-lg</code>
+        </th>
+        <td>
+          <code>24px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 24px; height: 24px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-md</code>
+        </th>
+        <td>
+          <code>16px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 16px; height: 16px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-sm</code>
+        </th>
+        <td>
+          <code>8px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 8px; height: 8px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-stack-default</code>
+        </th>
+        <td>
+          <code>0 0 0 16px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 0 16px; height: 0 0 0 16px;"></div>
+        </td>
+      
+        <td>Inset stack Spacing</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-stack-lg</code>
+        </th>
+        <td>
+          <code>0 0 0 24px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 0 24px; height: 0 0 0 24px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-stack-md</code>
+        </th>
+        <td>
+          <code>0 0 0 16px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 0 16px; height: 0 0 0 16px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-stack-sm</code>
+        </th>
+        <td>
+          <code>0 0 0 8px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 0 8px; height: 0 0 0 8px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-stack-xl</code>
+        </th>
+        <td>
+          <code>0 0 0 32px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 0 32px; height: 0 0 0 32px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-stack-xs</code>
+        </th>
+        <td>
+          <code>0 0 0 4px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 0 4px; height: 0 0 0 4px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-stack-xxl</code>
+        </th>
+        <td>
+          <code>0 0 0 64px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 0 64px; height: 0 0 0 64px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-stack-xxs</code>
+        </th>
+        <td>
+          <code>0 0 0 2px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 0 0 0 2px; height: 0 0 0 2px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-xl</code>
+        </th>
+        <td>
+          <code>32px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 32px; height: 32px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-xs</code>
+        </th>
+        <td>
+          <code>4px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 4px; height: 4px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-xxl</code>
+        </th>
+        <td>
+          <code>64px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 64px; height: 64px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-spacing-xxs</code>
+        </th>
+        <td>
+          <code>2px</code>
+        </td>
+        
+        <td>
+          <div class="metric-box" style="width: 2px; height: 2px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+          </tbody>
+        </table>
+        <hr />
+      </section>
+    
+              
+              
+              
+      <section>
+        <table>
+          
+      <thead>
+        <tr id=font-weight>
+          <th scope="col">Font Weights</th>
+          <th scope="col">Value</th>
+          <th scope="col">Examples</th>
+          <th scope="col">Usage</th>
+        </tr>
+      </thead>
+    
+          <tbody>
+            <tr>
+        <th scope="row">
+          <code>$bp-font-weight-bold</code>
+        </th>
+        <td>
+          <code>700</code>
+        </td>
+        
+        <td>
+          <div style="font-weight: 700;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-weight-light</code>
+        </th>
+        <td>
+          <code>200</code>
+        </td>
+        
+        <td>
+          <div style="font-weight: 200;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-weight-roman</code>
+        </th>
+        <td>
+          <code>500</code>
+        </td>
+        
+        <td>
+          <div style="font-weight: 500;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-weight-sans-regular</code>
+        </th>
+        <td>
+          <code>400</code>
+        </td>
+        
+        <td>
+          <div style="font-weight: 400;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td>Font Weights</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-weight-serif-regular</code>
+        </th>
+        <td>
+          <code>400</code>
+        </td>
+        
+        <td>
+          <div style="font-weight: 400;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td>Font Weights</td>
+      </tr>
+          </tbody>
+        </table>
+        <hr />
+      </section>
+    
+              
+      <section>
+        <table>
+          
+      <thead>
+        <tr id=font-size>
+          <th scope="col">Font Sizes</th>
+          <th scope="col">Value</th>
+          <th scope="col">Examples</th>
+          <th scope="col">Usage</th>
+        </tr>
+      </thead>
+    
+          <tbody>
+            <tr>
+        <th scope="row">
+          <code>$bp-font-size-base</code>
+        </th>
+        <td>
+          <code>16px</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 16pxrem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td>Font size</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-size-default</code>
+        </th>
+        <td>
+          <code>16px</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 16pxrem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-size-display-1</code>
+        </th>
+        <td>
+          <code>1.125rem</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.125remrem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-size-display-2</code>
+        </th>
+        <td>
+          <code>1.125rem</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.125remrem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-size-lg</code>
+        </th>
+        <td>
+          <code>1.125rem</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.125remrem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-size-md</code>
+        </th>
+        <td>
+          <code>1rem</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1remrem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-size-sm</code>
+        </th>
+        <td>
+          <code>0.875rem</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 0.875remrem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-size-xl</code>
+        </th>
+        <td>
+          <code>1.250rem</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.250remrem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-size-xs</code>
+        </th>
+        <td>
+          <code>0.750rem</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 0.750remrem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-font-size-xxl</code>
+        </th>
+        <td>
+          <code>1.125rem</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.125remrem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-line-height-compressed</code>
+        </th>
+        <td>
+          <code>1.25</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.25rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-line-height-default</code>
+        </th>
+        <td>
+          <code>1.4</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.4rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-line-height-fluffy</code>
+        </th>
+        <td>
+          <code>1.75</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.75rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-link-hover-decoration</code>
+        </th>
+        <td>
+          <code>underline</code>
+        </td>
+        
+        <td>
+          <div style="font-size: underlinerem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-0</code>
+        </th>
+        <td>
+          <code>1</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-d1</code>
+        </th>
+        <td>
+          <code>0.875</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 0.875rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-d2</code>
+        </th>
+        <td>
+          <code>0.75</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 0.75rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u1</code>
+        </th>
+        <td>
+          <code>1.125</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.125rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u10</code>
+        </th>
+        <td>
+          <code>3.250</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 3.250rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u11</code>
+        </th>
+        <td>
+          <code>3.625</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 3.625rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u12</code>
+        </th>
+        <td>
+          <code>4</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 4rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u2</code>
+        </th>
+        <td>
+          <code>1.250</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.250rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u3</code>
+        </th>
+        <td>
+          <code>1.375</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.375rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u4</code>
+        </th>
+        <td>
+          <code>1.50</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.50rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u5</code>
+        </th>
+        <td>
+          <code>1.75</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 1.75rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u6</code>
+        </th>
+        <td>
+          <code>2.0</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 2.0rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u7</code>
+        </th>
+        <td>
+          <code>2.25</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 2.25rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u8</code>
+        </th>
+        <td>
+          <code>2.50</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 2.50rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-type-scale-u9</code>
+        </th>
+        <td>
+          <code>2.875</code>
+        </td>
+        
+        <td>
+          <div style="font-size: 2.875rem;">
+            The quick brown fox jumps over the lazy dog.
+          </div>
+        </td>
+      
+        <td></td>
+      </tr>
+          </tbody>
+        </table>
+        <hr />
+      </section>
+    
+              
+              
+              
+      <section>
+        <table>
+          
+      <thead>
+        <tr id=border-style>
+          <th scope="col">Border Styles</th>
+          <th scope="col">Value</th>
+          <th scope="col">Examples</th>
+          <th scope="col">Usage</th>
+        </tr>
+      </thead>
+    
+          <tbody>
+            <tr>
+        <th scope="row">
+          <code>$bp-border-style-default</code>
+        </th>
+        <td>
+          <code>solid</code>
+        </td>
+        <td style="border: solid;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-border-style-dotted</code>
+        </th>
+        <td>
+          <code>dotted</code>
+        </td>
+        <td style="border: dotted;"></td>
+        <td></td>
+      </tr>
+          </tbody>
+        </table>
+        <hr />
+      </section>
+    
+              
+              
+              
+              
+      <section>
+        <table>
+          
+      <thead>
+        <tr id=border-radius>
+          <th scope="col">Border Radii</th>
+          <th scope="col">Value</th>
+          <th scope="col">Examples</th>
+          <th scope="col">Usage</th>
+        </tr>
+      </thead>
+    
+          <tbody>
+            <tr>
+        <th scope="row">
+          <code>$bp-size-border-radius-lg</code>
+        </th>
+        <td>
+          <code>64px</code>
+        </td>
+        
+        <td>
+          <div class="radius-box" style="border-radius: 64px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-size-border-radius-md</code>
+        </th>
+        <td>
+          <code>4px</code>
+        </td>
+        
+        <td>
+          <div class="radius-box" style="border-radius: 4px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-size-border-radius-none</code>
+        </th>
+        <td>
+          <code>0px</code>
+        </td>
+        
+        <td>
+          <div class="radius-box" style="border-radius: 0px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-size-border-radius-sm</code>
+        </th>
+        <td>
+          <code>4px</code>
+        </td>
+        
+        <td>
+          <div class="radius-box" style="border-radius: 4px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-size-border-radius-xl</code>
+        </th>
+        <td>
+          <code>64px</code>
+        </td>
+        
+        <td>
+          <div class="radius-box" style="border-radius: 64px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-size-border-radius-xs</code>
+        </th>
+        <td>
+          <code>8px</code>
+        </td>
+        
+        <td>
+          <div class="radius-box" style="border-radius: 8px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-size-border-radius-xxl</code>
+        </th>
+        <td>
+          <code>64px</code>
+        </td>
+        
+        <td>
+          <div class="radius-box" style="border-radius: 64px;"></div>
+        </td>
+      
+        <td></td>
+      </tr>
+          </tbody>
+        </table>
+        <hr />
+      </section>
+    
+              
+              
+      <section>
+        <table>
+          
+      <thead>
+        <tr id=background-color>
+          <th scope="col">Background Colors</th>
+          <th scope="col">Value</th>
+          <th scope="col">Examples</th>
+          <th scope="col">Usage</th>
+        </tr>
+      </thead>
+    
+          <tbody>
+            <tr>
+        <th scope="row">
+          <code>$bp-background-dark-brand-blue-dark</code>
+        </th>
+        <td>
+          <code>#064063</code>
+        </td>
+        <td style="background-color: #064063; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-dark-brand-blue-default</code>
+        </th>
+        <td>
+          <code>#0C77BA</code>
+        </td>
+        <td style="background-color: #0C77BA; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-dark-brand-blue-light</code>
+        </th>
+        <td>
+          <code>#0A649D</code>
+        </td>
+        <td style="background-color: #0A649D; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-dark-brand-navy-default</code>
+        </th>
+        <td>
+          <code>#05314D</code>
+        </td>
+        <td style="background-color: #05314D; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-dark-neutral-dark</code>
+        </th>
+        <td>
+          <code>#2D2A2A</code>
+        </td>
+        <td style="background-color: #2D2A2A; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-dark-neutral-default</code>
+        </th>
+        <td>
+          <code>#615C5C</code>
+        </td>
+        <td style="background-color: #615C5C; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-dark-neutral-light</code>
+        </th>
+        <td>
+          <code>#958E8E</code>
+        </td>
+        <td style="background-color: #958E8E; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-dark-neutral-lightest</code>
+        </th>
+        <td>
+          <code>#FFFFFF</code>
+        </td>
+        <td style="background-color: #FFFFFF; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-light-neutral-dark</code>
+        </th>
+        <td>
+          <code>#DFDDDD</code>
+        </td>
+        <td style="background-color: #DFDDDD; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-light-neutral-default</code>
+        </th>
+        <td>
+          <code>#EDEBE9</code>
+        </td>
+        <td style="background-color: #EDEBE9; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-light-neutral-lighter</code>
+        </th>
+        <td>
+          <code>#F1F1EF</code>
+        </td>
+        <td style="background-color: #F1F1EF; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-background-light-neutral-lightest</code>
+        </th>
+        <td>
+          <code>#FFFFFF</code>
+        </td>
+        <td style="background-color: #FFFFFF; border: 1px solid #f6f6f6;"></td>
+        <td></td>
+      </tr>
+          </tbody>
+        </table>
+        <hr />
+      </section>
+    
+              
+              
+              
+      <section>
+        <table>
+          
+      <thead>
+        <tr id=drop-shadow>
+          <th scope="col">Drop Shadows</th>
+          <th scope="col">Value</th>
+          <th scope="col">Examples</th>
+          <th scope="col">Usage</th>
+        </tr>
+      </thead>
+    
+          <tbody>
+            <tr>
+        <th scope="row">
+          <code>$bp-elevation-s-1</code>
+        </th>
+        <td>
+          <code>inset 0 0 0 1px rgba(0, 0, 0, .1)</code>
+        </td>
+        <td style="box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .1);"></td>
+        <td>an inset elevation sfor button - and other - active states</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-elevation-s0</code>
+        </th>
+        <td>
+          <code>0 0 0 0 rgba(0, 0, 0, 0.10)</code>
+        </td>
+        <td style="box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.10);"></td>
+        <td>No shadow</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-elevation-s1</code>
+        </th>
+        <td>
+          <code>0 0 3px rgba(0, 0, 0, 0.6)</code>
+        </td>
+        <td style="box-shadow: 0 0 3px rgba(0, 0, 0, 0.6);"></td>
+        <td>Sublte shadow</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-elevation-s2</code>
+        </th>
+        <td>
+          <code>0 1px 2px rgba(0, 0, 0, 0.5)</code>
+        </td>
+        <td style="box-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);"></td>
+        <td>slight</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-elevation-s3</code>
+        </th>
+        <td>
+          <code>0 4px 12px rgba(0, 0, 0, 0.4)</code>
+        </td>
+        <td style="box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);"></td>
+        <td>pronounced</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-elevation-s4</code>
+        </th>
+        <td>
+          <code>0 12px 32px rgba(0,0,0,.3)</code>
+        </td>
+        <td style="box-shadow: 0 12px 32px rgba(0,0,0,.3);"></td>
+        <td>distant</td>
+      </tr>
+          </tbody>
+        </table>
+        <hr />
+      </section>
+    
+              
+              
+              
+              
+              
+              
+      <section>
+        <table>
+          
+      <thead>
+        <tr id=media-query>
+          <th scope="col">Media Queries</th>
+          <th scope="col">Value</th>
+          <th scope="col">Examples</th>
+          <th scope="col">Usage</th>
+        </tr>
+      </thead>
+    
+          <tbody>
+            <tr>
+        <th scope="row">
+          <code>$bp-mq-lg</code>
+        </th>
+        <td>
+          <code>1441px</code>
+        </td>
+        <td></td>
+        <td>1441px - 1920px. lgr desktop size</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-mq-md</code>
+        </th>
+        <td>
+          <code>1025px</code>
+        </td>
+        <td></td>
+        <td>1025px - 1440px. Smaller desktop size.</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-mq-small</code>
+        </th>
+        <td>
+          <code>769px</code>
+        </td>
+        <td></td>
+        <td>769px - 1024.</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-mq-xlg</code>
+        </th>
+        <td>
+          <code>1921px</code>
+        </td>
+        <td></td>
+        <td>1921px - 3840px. Xlgr desktop size</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-mq-xs</code>
+        </th>
+        <td>
+          <code>361px</code>
+        </td>
+        <td></td>
+        <td>361px - 768px.</td>
+      </tr>
+    
+      <tr>
+        <th scope="row">
+          <code>$bp-mq-xxs</code>
+        </th>
+        <td>
+          <code>0px</code>
+        </td>
+        <td></td>
+        <td>small</td>
+      </tr>
+          </tbody>
+        </table>
+        <hr />
+      </section>
+    
+            </main>
+          </div>
+        </body>
+      </html>
+    

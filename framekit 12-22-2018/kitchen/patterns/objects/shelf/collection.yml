@@ -1,0 +1,1 @@
+notes: A multi-purpose horizontal container using flexbox, which can contain almost any other element and spans equally across its containers size. At the moment, explicitly calling _item is required, but may be optional. There is a right and left container option to control placement, useful as its the base to the header components

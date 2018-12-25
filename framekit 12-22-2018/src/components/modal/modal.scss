@@ -1,0 +1,296 @@
+// .modal-open      - body class for killing the scroll //tktk Matthew...don't understand
+// .modal-container           - container to scroll within
+// .modal-positioningshell   - positioning shell for the actual modal
+// .modal-content   - actual modal w/ bg and corners and stuff
+
+    $fk-modal-padding-y: 0px;
+    $fk-modal-padding-x: 0px;
+    $fk-modal-width: 640px;
+    $fk-modal-border-radius: $bp-size-border-radius-md;
+    
+    $fk-modal-padding-y-xs: 0px;
+    $fk-modal-padding-x-xs: 0px;
+    $fk-modal-width-xs: 300px;
+    $fk-modal-border-radius-xs:  $fk-modal-border-radius;
+    
+    $fk-modal-padding-y-sm: 0px;
+    $fk-modal-padding-x-sm: 0px;
+    $fk-modal-width-sm: 300px;
+    $fk-modal-border-radius-sm:  $fk-modal-border-radius;
+    
+    $fk-modal-padding-y-md: 0px;
+    $fk-modal-padding-x-md: 0px;
+    $fk-modal-width-md: 640px;
+    $fk-modal-border-radius-md:  $fk-modal-border-radius;
+    
+    $fk-modal-padding-y-lg: 0px;
+    $fk-modal-padding-x-lg: 0px;
+    $fk-modal-width-lg: 300px;
+    $fk-modal-border-radius-lg:  $fk-modal-border-radius;
+    
+    $fk-modal-padding-y-xl: 0px;
+    $fk-modal-padding-x-xl: 0px;
+    $fk-modal-width-xl: 300px;
+    $fk-modal-border-radius-xl:  $fk-modal-border-radius;
+    
+    $fk-modal-padding-y-xxl: 0px;
+    $fk-modal-padding-x-xxl: 0px;
+    $fk-modal-width-xxl: 300px;
+    $fk-modal-border-radius-xxl:  $fk-modal-border-radius;
+    
+    $modal-inner-padding:               1rem !default;
+    
+    $modal-dialog-margin:               .5rem !default;
+    $modal-dialog-margin-y-sm-up:       1.75rem !default;
+    
+    $modal-content-bg:                  $bp-color-neutral-10 !default;
+    //$modal-content-border-color:        rgba($bp-color-neutral-95, .2) !default;
+    $modal-content-border-color:         $bp-color-border-default !default;
+
+
+
+    // $modal-content-box-shadow-xs:       0 .25rem .5rem rgba(unquote($bp-color-neutral-95), .5) !default;
+    $modal-content-box-shadow-xs:       $bp-layering-elevation-24 !default;
+    $modal-content-box-shadow-sm-up:    $bp-layering-elevation-02 !default;
+
+
+    //$modal-content-box-shadow-sm-up:    0 .5rem 1rem rgba($bp-color-neutral-95, .5) !default;
+    
+    $modal-backdrop-bg:                 $bp-color-neutral-10 !default;
+    $modal-backdrop-opacity:            .5 !default;
+    $modal-header-border-color:         $bp-color-neutral-10 !default;
+
+    $modal-header-padding:              1rem !default;
+    
+    $modal-lg:                          800px !default;
+    $modal-md:                          500px !default;
+    $modal-sm:                          300px !default;
+    
+    $modal-transition:                  transform .3s ease-out !default;
+    
+    $zindex-modal-backdrop:             1040 !default; 
+    
+    $zindex-modal-background:  1040 !default;
+    $zindex-modal:             1050 !default;
+    
+    
+    /// Mixin for creating different sizes for the buttons
+    @mixin modal-size ($padding-y, $padding-x, $width, $border-radius) {
+      padding: $padding-y $padding-x;
+      width: $width;
+      //height: $height;
+      border-radius: $border-radius;
+    }
+    
+    // Kill the scroll on the body
+    .fk-modal-open {
+      overflow: hidden;
+    }
+    
+    // Container that the modal scrolls within
+    .fk-modal-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: $zindex-modal;
+      
+      // TURNED OFF DISPLAY NONE SO IT'LL SHOW IN THE DOCS
+      /*display: none;*/
+      overflow: hidden;
+      // Prevent Chrome on Windows from adding a focus outline. For details, see
+      // https://github.com/twbs/framekit/pull/10951.
+      outline: 0;
+      // We deliberately don't use `-webkit-overflow-scrolling: touch;` due to a
+      // gnarly iOS Safari bug: https://bugs.webkit.org/show_bug.cgi?id=158342
+      // See also https://github.com/twbs/framekit/issues/17695
+      
+      .fk-modal-open & {
+        overflow-x: hidden;
+        overflow-y: auto;
+      }
+    }
+    
+    // Shell div to position the modal with bottom padding
+    .fk-modal-shell {
+      position: relative;
+      width: auto;
+      margin: $modal-dialog-margin;
+      // allow clicks to pass through for custom click handling to close modal
+      pointer-events: none;
+    
+      // When fading in the modal, animate it to slide down
+      .fade {
+        transform: translate(0, -25%);
+      }
+      .show {
+        transform: translate(0, 0);
+      }
+    }
+    
+    .fk-modal-shell--centered {
+      display: flex;
+      align-items: center;
+      justify-content: center;      
+      min-height: calc(100% - (#{$modal-dialog-margin} * 2));
+      // When fading in the modal, animate it to slide down
+      .fade {
+        transform: translate(0, -25%);
+        opacity: 0;
+      }
+      .show {
+        transform: translate(0, 0);
+      }
+    }
+    
+    
+    // The Actual modal
+    .fk-modal {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      width: 100%; // Ensure `.modal-content` extends the full width of the parent `.modal-dialog`
+      // counteract the pointer-events: none; in the .modal-dialog
+      pointer-events: auto;
+      background-color: $bp-color-neutral-10;
+      background-clip: padding-box;
+      //TKTKTK REPLACE WITH VARIABLE
+      //border: $modal-content-border-width solid $modal-content-border-color;
+      //TKTKTK REPLACE WITH VARIABLE
+      border-radius: $fk-modal-border-radius;
+      //TKTKTK REPLACE WITH VARIABLE
+      //@include box-shadow($modal-content-box-shadow-xs);
+      // Remove focus outline from opened modal
+      outline: 0;
+      @include modal-size($fk-modal-padding-y, $fk-modal-padding-x, $fk-modal-width, $fk-modal-border-radius);
+      
+    }
+    
+    // Modal background
+    .fk-modal-backdrop {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: $zindex-modal-backdrop;
+      // MIGHT USE THIS
+      //z-index: calc((#{$bp-z-index-modal}) -10);
+    
+      // REPLACE WITH VARIABLE
+      background-color: $modal-backdrop-bg;
+    
+      // Fade for backdrop
+      &.fade { opacity: 0; }
+      // REPLACE WITH VARIABLE
+      &.show { opacity: $modal-backdrop-opacity; }
+    }
+    
+    // Modal header
+    // Top section of the modal w/ title and dismiss
+    .fk-modal-header {
+      display: flex;
+      align-items: flex-start; // so the close btn always stays on the upper right corner
+      justify-content: space-between; // Put modal header elements (title and dismiss) on opposite ends
+      // REPLACE WITH VARIABLE
+      padding: $modal-header-padding;
+      padding-bottom: 1.5rem;
+      // REPLACE WITH VARIABLE
+      //border-bottom: $modal-header-border-width solid $modal-header-border-color;
+      border-bottom: 1px solid $bp-color-neutral-30;
+      // REPLACE WITH VARIABLE
+      // @include border-top-radius($modal-content-border-radius);
+      //border-radius thing
+      // width: 100%;
+      .fk-close {
+        // REPLACE WITH VARIABLE
+        padding: $modal-header-padding;
+        // auto on the left force icon to the right even when there is no .modal-title
+        // REPLACE WITH VARIABLE
+        margin: (-$modal-header-padding) (-$modal-header-padding) (-$modal-header-padding) auto;
+      }
+    }
+    
+    // Title text within header
+    .fk-modal-title {
+      margin-bottom: 0;
+      // REPLACE WITH VARIABLE
+      //line-height: $modal-title-line-height;
+      font-size: 18px;
+      font-weight: 600;
+      width: 100%;
+    }
+    
+    // Modal body
+    // Where all modal content resides (sibling of .modal-header and .modal-footer)
+    .fk-modal-body {
+      position: relative;
+      // Enable `flex-grow: 1` so that the body take up as much space as possible
+      // when should there be a fixed height on `.modal-dialog`.
+      flex: 1 1 auto;
+      // REPLACE WITH VARIABLE
+      padding: $modal-inner-padding;
+    }
+    
+    // Footer (for actions)
+    .fk-modal-footer {
+      display: flex;
+      align-items: center; // vertically center
+      justify-content: flex-end; // Right align buttons with flex property because text-align doesn't work on flex items
+      // REPLACE WITH VARIABLE
+      padding: 10px;
+
+      // REPLACE WITH VARIABLE
+      //border-top: $modal-footer-border-width solid $modal-footer-border-color;
+    
+      border-bottom-left-radius: $fk-modal-border-radius;
+      border-bottom-right-radius: $fk-modal-border-radius;
+    
+      background-color: $bp-color-neutral-17;
+    
+      // Easily place margin between footer elements
+      > :not(:first-child) { margin-left: .25rem; }
+      > :not(:last-child) { margin-right: .25rem; }
+    }
+    
+    // Measure scrollbar width for padding body during modal show/hide
+    .fk-modal-scrollbar-measure {
+      position: absolute;
+      top: -9999px;
+      width: 50px;
+      height: 50px;
+      overflow: scroll;
+    }
+    
+    .fk-modal-xs {
+      @include modal-size($fk-modal-padding-y-xs, $fk-modal-padding-x-xs, $fk-modal-width-xs, $fk-modal-border-radius-xs);
+    }
+    // //orig tktktk
+    .fk-modal-sm {
+      @include modal-size($fk-modal-padding-y-sm, $fk-modal-padding-x-sm, $fk-modal-width-sm, $fk-modal-border-radius-sm);
+    }
+    .fk-modal-md {
+      @include modal-size($fk-modal-padding-y, $fk-modal-padding-x, $fk-modal-width, $fk-modal-border-radius);
+    }
+    //orig tktktk
+    .fk-modal-lg {
+      @include modal-size($fk-modal-padding-y-lg, $fk-modal-padding-x-lg, $fk-modal-width-lg, $fk-modal-border-radius-lg);
+    }
+    .fk-modal-xl {
+      @include modal-size($fk-modal-padding-y-xl, $fk-modal-padding-x-xl, $fk-modal-width-xl, $fk-modal-border-radius-xl);
+    }
+    .fk-modal-xxl {
+      @include modal-size($fk-modal-padding-y-xxl, $fk-modal-padding-x-xxl, $fk-modal-width-xxl, $fk-modal-border-radius-xxl);
+    }
+
+  .fk-text-center {
+    text-align: center;
+  }
+
+  // .center-me {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   height: 100vh;
+  // }

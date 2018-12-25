@@ -1,0 +1,91 @@
+---
+name: Modal
+order: 1
+hideTitle: true
+notes: This is the modal class.
+hidden: false
+specs: http://linktodesignspecs.com
+links:
+    http://example.com
+labels:
+- inprogress
+---
+
+<!-- // .modal-open      - body class for killing the scroll //tktk Matthew...don't understand
+     // .modal-container           - container to scroll within
+     // .modal-shell   - positioning shell for the actual modal
+     // .modal-content   - actual modal w/ bg and corners and stuff -->
+     
+
+  <div id="scrim" class="fk-scrim"></div>
+  <div id="modal-container" class="fk-modal-container show is-active">
+      <div id="modal-shell" class="fk-modal-shell--centered" role="document">
+      <div id="modal" class="fk-modal">
+        <div class="fk-modal-header">
+          <p class="fk-modal-title fk-text-center">Modal title</p>
+          <button id="modalclose" class="fk-btn-link close" aria-label="close">
+              <svg class="fk-ucon fk-ucon" aria-hidden="true" focusable="false">
+                  <use href="/assets/bp-ucons.svg#bp-close"></use>
+                </svg>
+          </button>
+        </div>
+        <section class="fk-modal-body">
+          <div class="content">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida, nulla nunc varius lectus, nec rutrum justo nibh eu lectus. Ut vulputate semper dui. Fusce erat odio, sollicitudin vel erat vel, interdum mattis neque.</p>
+            <h2>Second level</h2>
+            <p>Curabitur accumsan turpis pharetra <strong>augue tincidunt</strong> blandit. Quisque condimentum maximus mi, sit amet commodo arcu rutrum id. Proin pretium urna vel cursus venenatis. Suspendisse potenti. Etiam mattis sem rhoncus lacus dapibus facilisis. Donec at dignissim dui. Ut et neque nisl.</p>
+            <ul>
+              <li>In fermentum leo eu lectus mollis, quis dictum mi aliquet.</li>
+              <li>Morbi eu nulla lobortis, lobortis est in, fringilla felis.</li>
+              <li>Aliquam nec felis in sapien venenatis viverra fermentum nec lectus.</li>
+              <li>Ut non enim metus.</li>
+            </ul>
+          </div>
+        </section>
+        <footer class="fk-modal-footer">
+            <div class="fk-content-2up fk-g">
+              <button type="button" class="fk-btn float-left" data-dismiss="modal">Close</button>
+              <button type="button" class="fk-btn-primary float-right">Save changes</button>
+            </footer>
+      </div>
+    </div>
+</div>
+
+<script
+src="https://code.jquery.com/jquery-3.3.1.js"
+integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+crossorigin="anonymous"></script>
+    <script>
+    
+    // $('#modalclose').click(function() {
+    //   var buttonId = $(this).attr('id');
+    //   $('.fk-modal-container').removeAttr('class').addClass(buttonId);
+    //   $('body').addClass('modal-active');
+    // })
+
+    // $('#modalclose').click(function() {
+    //   $(this).addClass('fade');
+    //   $('body').removeClass('modal-active');
+    // });
+
+    $('#modalclose').click(function() {
+      if ($('#modal-container').hasClass('is-active')) {
+        //code for when it's currently open and you want to close it
+        $('#modal-container').removeClass('is-active')
+        $('#modal-container').removeClass('show')
+        $('#modal-container').addClass('fade')
+        $('#modal-shell').addClass('fade')
+        $('#modal').addClass('fade')
+        $('#scrim').addClass('fade')
+        console.log('woot?')
+      } else {
+        //code for when it's closed and you want to open it
+        $('footer').removeClass('fixed-bottom--up')
+        $('footer').addClass('fixed-bottom--down')
+        $('.fk-hidden-info').removeClass('fk-visible')
+        console.log('not woot?')
+      }
+    })
+
+
+    </script>

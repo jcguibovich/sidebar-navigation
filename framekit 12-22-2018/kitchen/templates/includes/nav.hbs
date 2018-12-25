@@ -1,0 +1,64 @@
+
+{{!-- Nav item partial --}}
+{{#*inline "nav-item"}}
+<li class="fk-menu-list__item">
+    <a  href="{{@root.baseurl}}/{{url}}">
+    {{#if label}}
+            {{label}}
+        {{else}}
+            {{pathToTitle url}}
+        {{/if}}
+    </a>
+  </li>
+{{/inline}}
+
+{{!-- <nav class="fk-menu fk-nav fk-nav-sidenav">
+    <p class="fk-menu__label">Tools</p>
+    <ul class="fk-menu-list">
+        <li class="fk-menu-list__item"><a href="{{@root.baseurl}}/styledocs">SASS API Docs</a></li>
+    </ul>
+</nav> --}}
+
+<nav class="fk-menu fk-nav-sidenav">
+    {{!-- <p class="fk-menu__label blah">Core</p>
+    <ul class="fk-menu-list">
+        {{#each (collections "core" sortby="order")}}
+            {{> nav-item label=name}}
+        {{/each}}
+    </ul> --}}
+
+    <p class="fk-menu__label">Objects</p>
+    <ul class="fk-menu-list">
+        {{#each (collections "objects" sortby="name")}}
+            {{> nav-item label=name}}
+        {{/each}}
+    </ul>
+    <p class="fk-menu__label">Components</p>
+    <ul class="fk-menu-list">
+        {{#each (collections "components" sortby="name")}}
+            {{> nav-item label=name}}
+        {{/each}}
+    </ul>
+
+
+    <p class="fk-menu__label">Utilities</p>
+    <ul class="fk-menu-list">
+        {{#each (collections "utilities" sortby="order")}}
+            {{> nav-item label=name}}
+        {{/each}}
+    </ul>
+
+    <p class="fk-menu__label">Other Pages</p>
+    <ul class="fk-menu-list">
+        {{#each (pages sortby="order")}}
+            {{> nav-item label=name}}
+        {{/each}}
+    </ul>
+</nav>
+
+
+
+
+<br>
+<br>
+<br>

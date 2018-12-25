@@ -1,0 +1,33 @@
+
+$fk-tokens: () !default;
+
+
+//@import '../node_modules/cxd-ds-tokens/dist/blueprint-token-map.scss';
+//@import './tokens/blueprint-token-map.scss';
+
+//$fk-tokens: map-s($blueprint-tokens, $fk-tokens);
+//$fk-tokens: map-merge( $fk-tokens , $blueprint-tokens);
+
+
+
+//@mixin resources()
+
+$export-utilities: false !default;
+
+$naming-ds-name:'Blueprint' !default;
+$naming-tk-name:'Framekit' !default;
+
+$naming-namespace-utility: 'u' !default;
+
+$naming-abbr-padding: 'p' !default;
+$naming-abbr-margin: 'm' !default;
+
+
+$naming-abbr-top: 't' !default;
+$naming-abbr-right: 'r' !default;
+$naming-abbr-bottom: 'b' !default;
+$naming-abbr-left: 'l' !default;
+
+$naming-abbr-all: 'a' !default;
+
+@import './rivets';

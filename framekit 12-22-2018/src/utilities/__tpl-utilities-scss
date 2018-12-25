@@ -1,0 +1,54 @@
+/*
+   [utilName]
+*/
+
+$fk-utils-[utilName]-responsive: true !default;
+$fk-utils-[utilName]-print: true !default;
+
+$fk-utils-[utilName]-breakpoints: map('web.breakpoints') !default;
+
+$fk-utils[utilName]-ns: '[utilName]' !default; 
+
+//if map based, add catagory, Type, Item location
+//$fk-utils-[utilName]-map: map('');
+
+
+//Private function to include through looks and conditional statements
+@mixin _[utilName]($variant:'') {
+   
+   // .#{$fk-ns-utilities + $fk-utils-[utilName]-ns}-class#{$variant} 
+
+   //css goes here
+
+   // If map based.. Loop
+    //@each $name, $size in $fk-utils-measure-map {
+    //  @if($name!='base'){
+    //    $variant:--#{$name};
+    // } @else{
+    //     $variant: '';
+    //  }
+    // .#{$fk-ns-utilities + $fk-ns-measure + $variant} {
+    //     @include measure($name);
+    // }
+    //}
+
+}
+
+
+@if($fk-config-enable-utilties){
+    @include _[utilName]();
+}
+
+@if $fk-utils-[utilName]-print AND $fk-config-enable-print {
+    @media print {
+        @include _[utilName]($fk-ns-breakpoint-separator + $fk-ns-print);
+    }
+}
+
+@if ($fk-utils-[utilName]-responsive AND $fk-config-enable-responsive) {
+    @each $breakpoint-name, $breakpoint-size in $fk-utils-[utilName]-breakpoints {
+        @include mq-only($breakpoint-name){
+         //   @include _[utilName]($fk-ns-breakpoint-separator + $breakpoint-name);
+        }
+    }
+} 

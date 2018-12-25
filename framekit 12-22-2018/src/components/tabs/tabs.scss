@@ -1,0 +1,35 @@
+.fk-tabs__container {
+  width: 100%;
+  padding: 0;
+  .fk-tabs__content {
+    display: none;
+    padding: 20px;
+    background: #fff;
+    border-top: 1px solid transparent;
+    box-shadow: 0 1px 1px rgba(173, 173, 173, 1), 0 1px 1px rgba(173, 173, 173, 1);
+  }
+  .fk-tabs__label {
+    display: inline-block;
+    padding: 1rem 1.5625rem;
+    margin: 0 0 -1px;
+    font-weight: 400;
+    color: #0962ba;
+    text-align: center;
+    background: #f8f8f8;
+    border-top: 1px solid #dedede;
+    border-right: 1px solid #dedede;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #dedede;
+    &:hover {
+      color: #0962ba;
+      cursor: pointer;
+      background: #eee;
+    }
+  }
+  .fk-tabs__label.is-active {
+    font-weight: 700;
+    color: #121212;
+    background: #fff;
+    border: 1px solid #fff;
+  }
+}

@@ -1,0 +1,278 @@
+<style type="text/css">
+
+    .fk-panel {
+        padding: 10px;
+        text-align: center;
+    }
+
+    :nth-child(10n-9) > .fk-panel { background: rgba(0,0,0,0.1); }
+    :nth-child(10n-8) > .fk-panel { background: rgba(0,0,0,0.15); }
+    :nth-child(10n-7) > .fk-panel { background: rgba(0,0,0,0.2); }
+    :nth-child(10n-6) > .fk-panel { background: rgba(0,0,0,0.25); }
+    :nth-child(10n-5) > .fk-panel { background: rgba(0,0,0,0.3); }
+    :nth-child(10n-4) > .fk-panel { background: rgba(0,0,0,0.35); }
+    :nth-child(10n-3) > .fk-panel { background: rgba(0,0,0,0.40); }
+    :nth-child(10n-2) > .fk-panel { background: rgba(0,0,0,0.45); }
+    :nth-child(10n-1) > .fk-panel { background: rgba(0,0,0,0.50); }
+    :nth-child(10n) > .fk-panel { background: rgba(0,0,0,0.55); }
+
+
+/* 
+.l-flexbox-width-expand
+.l-flexbox-order--minus1
+.l-flexbox-order--last
+.l-flexbox-child__width-100
+.l-flexbox-flexalign--flex-start
+.l-flexbox-flexalign--center
+.l-flexbox-flexalign--flex-end
+.l-flexbox-flexalign--space-between
+.l-flexbox-flexalign--space-around
+.l-flexbox-flexalign--stretch
+
+.l-flexbox-flexdirection--row
+.l-flexbox-flexdirection--row-reverse
+.l-flexbox-flexdirection--column
+.l-flexbox-flexdirection--column-reverse
+.l-flexbox-flexwrap--nowrap
+.l-flexbox-flexwrap--wrap
+.l-flexbox-flexwrap--wrap-reverse
+.l-flexbox-flex--none
+.l-flexbox-flex--auto 
+.l-flexbox-flex--1
+
+.l-flexbox-u-column-container 
+.l-flexbox-u-column 
+.l-flexbox-u-column--2 
+.l-flexbox-u-column--3 
+.l-flexbox-u-column--4 
+.l-flexbox-u-column--5
+.l-flexbox-u-column--6
+.l-flexbox-u-column--7
+.l-flexbox-u-column--8
+.l-flexbox-u-column--9 
+.l-flexbox-u-column--10 
+.l-flexbox-u-column--11 
+.fk-frame-mismatched 
+
+.l-flexbox-u-column.multiline  */ 
+
+ /* 
+  .l-flexbox-column-w--100 {
+
+ .l-flexbox-column-w--80 {
+
+.l-flexbox-column-w--75 {
+
+.l-flexbox-column-w--66.6666 {
+
+.l-flexbox-column-w--60 {
+
+.l-flexbox-column-w--40 {
+
+.l-flexbox-column-w--33.3333 {
+
+.l-flexbox-column-w--25 {
+
+.l-flexbox-column-w--20 { */
+
+
+</style>
+        
+        
+        
+        <div class="fk-container">
+
+            <div class="l-flex"><div class="fk-panel">l-flex fk-panel</div><div class="fk-panel">l-flex fk-panel</div><div class="fk-panel">l-flex fk-panel</div></div>
+                
+            <div class="l-flex-wrap"><div class="fk-panel">l-flex-wrap fk-panel</div><div class="fk-panel">l-flex fk-panel</div><div class="fk-panel">l-flex fk-panel</div></div>
+            Works
+            <div class="l-flex"><div class="fk-panel l-flexbox-column-w--80">flex-column 80</div><div class="fk-panel  l-flexbox-column-w--10">l-flex fk-panel</div><div class="fk-panel l-flexbox-column-w--10">l-flex fk-panel</div></div>
+            Works
+            <div class="l-flex"><div class="fk-panel l-flexbox-width-1-3">1-3</div><div class="fk-panel l-flexbox-width-1-3">1-3</div><div class="fk-panel l-flexbox-width-1-3">1-3</div></div>
+            Align is vertical
+            <div class="l-flex l-flexbox-flexalign--space-between"><div class="fk-panel">panel</div><div class="fk-panel">panel</div><div class="fk-panel">panel</div></div>
+            
+            l-flexbox-flexjustify--start
+            <div class="l-flex l-flexbox-flexjustify--start"><div class="fk-panel">panel</div><div class="fk-panel">panel</div><div class="fk-panel">panel</div></div>
+            l-flexbox-flexjustify--center
+            <div class="l-flex l-flexbox-flexjustify--center"><div class="fk-panel">panel</div><div class="fk-panel">panel</div><div class="fk-panel">panel</div></div>
+            l-flexbox-flexjustify--flex-end 
+            <div style="width:100%;"><div class="l-flex l-flexbox-flexjustify--flex-end"><div class="fk-panel">panel</div><div class="fk-panel">panel</div><div class="fk-panel">panel</div></div></div>
+            l-flexbox-flexjustify--space-between
+            <div class="l-flex l-flexbox-flexjustify--space-between"><div class="fk-panel">panel</div><div class="fk-panel">panel</div><div class="fk-panel">panel</div></div>
+            l-flexbox-flexjustify--space-around
+            <div class="l-flex l-flexbox-flexjustify--space-around"><div class="fk-panel">panel</div><div class="fk-panel">panel</div><div class="fk-panel">panel</div></div>
+            l-flexbox-flexjustify--space-evenly
+            <div class="l-flex l-flexbox-flexjustify--space-evenly"><div class="fk-panel">panel</div><div class="fk-panel">panel</div><div class="fk-panel">panel</div></div>
+            
+            l-flexbox-flexup-6up
+            <div class="l-flexbox-flexup l-flexbox-flexup-6up">
+                    <div class="fk-panel">panel</div>
+                    <div class="fk-panel">panel</div>
+                    <div class="fk-panel">panel</div>
+                    
+                    <div class="fk-panel">panel</div>
+                    <div class="fk-panel">panel</div>
+                    <div class="fk-panel">panel</div>
+    
+                    <div class="fk-panel">panel</div>
+                    <div class="fk-panel">panel</div>
+                    <div class="fk-panel">panel</div>
+
+                    <div class="fk-panel">panel</div>
+                    <div class="fk-panel">panel</div>
+                    <div class="fk-panel">panel</div>
+                </div>
+                l-flexbox-flexup-5up
+                <div class="l-flexbox-flexup l-flexbox-flexup-5up">
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                        
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+        
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+    
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                    </div>
+                    l-flexbox-flexup-4up
+                    <div class="l-flexbox-flexup l-flexbox-flexup-4up">
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                            
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+            
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+        
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                        </div>
+                l-flexbox-flexup-3up
+                <div class="l-flexbox-flexup  l-flexbox-flexup-3up">
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                        
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+        
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+    
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                        <div class="fk-panel">panel</div>
+                    </div>
+                    l-flexbox-flexup-2up
+                    <div class="l-flexbox-flexup  l-flexbox-flexup-2up">
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                            
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+            
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+        
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                            <div class="fk-panel">panel</div>
+                        </div>
+
+
+
+                <!-- <div class="l-flex l-flexbox-u-column-container">
+                    <div class="fk-panel l-flexbox-u-column--12">panel</div>
+                    <div class="fk-panel l-flexbox-u-column--11">panel</div>
+                    <div class="fk-panel l-flexbox-u-column--10">panel</div>
+                    
+                    <div class="fk-panel l-flexbox-u-column--9">panel</div>
+                    <div class="fk-panel l-flexbox-u-column--8">panel</div>
+                    <div class="fk-panel l-flexbox-u-column--7">panel</div>
+    
+                    <div class="fk-panel l-flexbox-u-column--6">panel</div>
+                    <div class="fk-panel l-flexbox-u-column--5">panel</div>
+                    <div class="fk-panel l-flexbox-u-column--6">panel</div>
+    
+                    <div class="fk-panel l-flexbox-u-column--5">panel</div>
+                    <div class="fk-panel l-flexbox-u-column--4">panel</div>
+                    <div class="fk-panel l-flexbox-u-column--3">panel</div>
+                </div> -->
+               
+
+                l-flexbox-column-w--80
+                <div class="l-flex l-flex-wrap" style="border: 1px solid red;">
+                    <div class="fk-panel l-flexbox-column-w--10">panel 10</div>
+                    <div class="fk-panel l-flexbox-column-w--90">panel 90</div>
+                    <div class="fk-panel l-flexbox-column-w--20">panel 20</div>
+                    <div class="fk-panel l-flexbox-column-w--80">panel 80</div>
+                    <div class="fk-panel l-flexbox-column-w--30">panel 30</div>
+                    <div class="fk-panel l-flexbox-column-w--70">panel 70</div>
+                    <div class="fk-panel l-flexbox-column-w--40">panel 40</div>
+                    <div class="fk-panel l-flexbox-column-w--60">panel 60</div>
+                    <div class="fk-panel l-flexbox-column-w--50">panel 50</div>
+                    <div class="fk-panel l-flexbox-column-w--50">panel 50</div>
+                    <div class="fk-panel l-flexbox-column-w--33">panel 33.3333</div>
+                    <div class="fk-panel l-flexbox-column-w--33">panel 33.3333</div>
+                    <div class="fk-panel l-flexbox-column-w--33">panel 33.3333</div>
+                    <div class="fk-panel l-flexbox-column-w--66">panel 66</div>
+                    <div class="fk-panel l-flexbox-column-w--33">panel 33.3333</div>
+                    
+                    
+                </div>
+
+
+
+                <strong>l-flexbox-flexjustify--space-between</strong>
+                <div class="l-flex-wrap l-flexbox-flexjustify--space-between">
+                    <div class="fk-panel l-flexbox-column-w--70" style="padding: 20px; margin: 20px;">panel70</div>
+                    <div class="fk-panel l-flexbox-column-w--10" style="padding: 20px; margin: 20px;">panel10</div>
+                    <div class="fk-panel l-flexbox-column-w--10" style="padding: 20px; margin: 20px;">panel10</div>
+                    <div class="fk-panel l-flexbox-column-w--20" style="padding: 20px; margin: 20px;">panel20</div>
+                    <div class="fk-panel l-flexbox-column-w--30" style="padding: 20px; margin: 20px;">panel30</div>
+                    <div class="fk-panel l-flexbox-column-w--90" style="padding: 20px; margin: 20px;">panel90</div>
+                    <div class="fk-panel l-flexbox-column-w--30" style="padding: 20px; margin: 20px;">panel30</div>
+                    <div class="fk-panel l-flexbox-width-expand" style="padding: 20px; margin: 20px;">l-flexbox-width-expand</div>
+                </div>
+                
+                l-flexbox-flexjustify--space-around
+                <div class="l-flex-wrap l-flexbox-flexjustify--space-around">
+                    <div class="fk-panel l-flexbox-column-w--70" style="padding: 20px; margin: 20px;">panel70</div>
+                    <div class="fk-panel l-flexbox-column-w--10" style="padding: 20px; margin: 20px;">panel10</div>
+                    <div class="fk-panel l-flexbox-column-w--10" style="padding: 20px; margin: 20px;">panel10</div>
+                    <div class="fk-panel l-flexbox-column-w--20" style="padding: 20px; margin: 20px;">panel20</div>
+                    <div class="fk-panel l-flexbox-column-w--30" style="padding: 20px; margin: 20px;">panel30</div>
+                    <div class="fk-panel l-flexbox-column-w--90" style="padding: 20px; margin: 20px;">panel90</div>
+                    <div class="fk-panel l-flexbox-column-w--30" style="padding: 20px; margin: 20px;">panel30</div>
+                    <div class="fk-panel l-flexbox-width-expand" style="padding: 20px; margin: 20px;">l-flexbox-width-expand</div>
+                </div>
+                
+                l-flexbox-flexjustify--space-evenly
+                <div class="l-flex-wrap l-flexbox-flexjustify--space-around">
+                    <div class="fk-panel l-flexbox-column-w--70" style="padding: 20px; margin: 20px;">panel70</div>
+                    <div class="fk-panel l-flexbox-column-w--10" style="padding: 20px; margin: 20px;">panel10</div>
+                    <div class="fk-panel l-flexbox-column-w--10" style="padding: 20px; margin: 20px;">panel10</div>
+                    <div class="fk-panel l-flexbox-column-w--20" style="padding: 20px; margin: 20px;">panel20</div>
+                    <div class="fk-panel l-flexbox-column-w--30" style="padding: 20px; margin: 20px;">panel30</div>
+                    <div class="fk-panel l-flexbox-column-w--90" style="padding: 20px; margin: 20px;">panel90</div>
+                    <div class="fk-panel l-flexbox-column-w--30" style="padding: 20px; margin: 20px;">panel30</div>
+                    <div class="fk-panel l-flexbox-width-expand" style="padding: 20px; margin: 20px;">l-flexbox-width-expand</div>
+                </div>
+                

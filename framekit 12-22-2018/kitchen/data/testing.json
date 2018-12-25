@@ -1,0 +1,14 @@
+{
+    "buttons": {
+        "Base": "",
+        "Primary": "primary",
+        "Primary-Alt": "primary-alt",
+        "Destructive": "destructive"
+    },
+    "button-sizes": {
+        "Small": "sm",
+        "Default": "",
+        "Large": "lg",
+        "X-large": "xl"
+    }
+}

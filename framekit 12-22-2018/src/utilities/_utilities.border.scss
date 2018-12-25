@@ -1,0 +1,58 @@
+/*
+   border
+*/
+
+$fk-utils-border-responsive: true !default;
+$fk-utils-border-print: false !default;
+
+$fk-utils-border-breakpoints: map('web.breakpoints') !default;
+
+$fk-utils-border-ns: 'border' !default; 
+
+$fk-utils-border-default-width: border-width('default');
+$fk-utils-border-default-color: border-color('default');
+
+$fk-utils-border-default: $fk-utils-border-default-width solid $fk-utils-border-default-color;
+
+//if map based, add catagory, Type, Item location
+//$fk-utils-border-map: map('');
+
+
+//Private function to include through looks and conditional statements
+@mixin _border($variant:'') {
+    $important: null;
+    
+    .#{$fk-ns-utilities + $fk-utils-border-ns}#{$variant} { 
+        border: $fk-utils-border-default;
+    }
+    .#{$fk-ns-utilities + $fk-utils-border-ns}-none#{$variant} { 
+        border: none;;
+    }
+
+    // Loop through each edge and add a class
+    @each $edge, $sub in $fk-edges-map {
+        // made choice to call classe by full name
+        .#{$fk-ns-utilities + $fk-utils-border-ns}-#{map-get($fk-edges-map,$edge)}{
+            border-#{map-get($fk-edges-map,$edge)}: $fk-utils-border-default $important;
+        }
+    }
+}
+
+  
+@if($fk-config-enable-utilties){
+    @include _border();
+}
+
+@if $fk-utils-border-print AND $fk-config-enable-print {
+    @media print {
+        @include _border($fk-ns-breakpoint-separator + $fk-ns-print);
+    }
+}
+
+@if ($fk-utils-border-responsive AND $fk-config-enable-responsive) {
+    @each $breakpoint-name, $breakpoint-size in $fk-utils-border-breakpoints {
+        @include mq-only($breakpoint-name){
+         //   @include _border($fk-ns-breakpoint-separator + $breakpoint-name);
+        }
+    }
+} 

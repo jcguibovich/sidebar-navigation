@@ -1,0 +1,34 @@
+@import "../../node_modules/sass-true/sass/true";
+
+@import "../../src/globals/config";
+@import '../../src/utilities/__all.scss';
+
+
+
+// Module Group
+@include test-module('space [function]') {
+    // Test 1
+    @include test('Return default inset with padding') {
+      @include assert-equal(
+        inset('md'),
+        ('padding: 16px 16px 16px 16px'));
+    }
+  
+    // Test 2
+    @include test('Return default inset-stretch with padding') {
+      @include assert-equal(
+        inset-stretch('md'),
+        ('padding: 24px 16px 24px 16px'));
+    }
+
+
+    // Test 3
+    @include test('Return default inset-squish with padding') {
+      @include assert-equal(
+        inset-squish('md'),
+        ('padding: 8px 16px 8px 16px'));
+    }
+  }
+
+
+  @include report;

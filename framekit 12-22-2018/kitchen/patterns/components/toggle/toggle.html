@@ -1,0 +1,22 @@
+---
+notes: <span class="fk-tag fk-tag--md fk-tag--success">Sent to ADK </span><br /><strong>.fk-toggle--on-off</strong><br/>.fk-toggle-switch:after requires -2px on left and top in the scss because of Framekit. Toggles are meant to display asychrounous events and are not meant for use in forms.
+hideTitle: true
+---
+
+<!-- start toggle -->
+<div class="fk-toggle--on-off">
+  <input type="checkbox" id="demo1" class="fk-toggle__input" checked>
+  <label class="fk-toggle__label" for="demo1">
+    <div class="fk-toggle__screenreader">Enable flux capacitor</div>
+    <div class="fk-toggle__disabled-msg" data-checked="On" data-unchecked="Off" aria-hidden="true"></div>
+    <div class="fk-toggle-switch" aria-hidden="true">
+      <div class="fk-toggle-option--LEFT" aria-hidden="true">
+        <svg class="fk-toggle__svg" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" width="548.9" height="548.9" viewBox="0 0 548.9 548.9" xml:space="preserve"><polygon points="449.3 48 195.5 301.8 99.5 205.9 0 305.4 95.9 401.4 195.5 500.9 295 401.4 548.9 147.5 "/></svg>
+      </div>
+      <div class="fk-toggle-option--RIGHT" aria-hidden="true">
+        <svg class="fk-toggle__svg" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0" y="0" viewBox="0 0 28 28" xml:space="preserve"><polygon points="28 22.4 19.6 14 28 5.6 22.4 0 14 8.4 5.6 0 0 5.6 8.4 14 0 22.4 5.6 28 14 19.6 22.4 28 " fill="#030104"/></svg>
+      </div>
+    </div>
+  </label>
+</div>    
+<!-- end toggle -->

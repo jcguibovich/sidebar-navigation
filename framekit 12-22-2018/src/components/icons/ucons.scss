@@ -1,0 +1,41 @@
+
+.fk-ucon{
+    // height:100%;
+    display: inline-block;
+    position: relative;
+
+    @include icon-size();
+
+    svg {
+       vertical-align: top;
+    }
+
+    stroke-width: 0;
+    min-width: get-icon-size('sm');
+    min-height: get-icon-size('sm');
+ 
+    //TKTK test.. may be problematic
+    vertical-align: middle;
+ 
+
+    // loop through tokens to auto create these
+    &--lg {
+      @include icon-size('lg');
+    }
+
+    &--sm {
+      @include icon-size('sm');
+    }
+
+    // p & {
+    //     //margin-bottom: -2px;
+    // }
+
+    &--mirrored {
+      filter: FlipH;
+      transform: scaleX(-1);
+      fill: red;
+    }
+
+}
+

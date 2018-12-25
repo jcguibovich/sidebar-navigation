@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <title>Fannie Mae CSS Guidelines (1.0.0) – High-level advice and guidelines for writing sane, manageable, scalable CSS
+    </title>
+    <meta name="description" content="High-level advice and guidelines for writing sane, manageable, scalable CSS">
+    <link rel="stylesheet" href="/dist/framekit.css">
+    <style>
+    
+.fk-sidebar-nav__title {min-height: 0px}
+.nav-dims-l-md {
+  width: 320px;
+  height: 75vh;
+  background: #f7f7f7;
+  margin: auto;
+}
+.fk-sidebar--left__nav  {
+  background: #f7f7f7;
+}
+</style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="/dist/framekit.css">
+</head>
+
+<body>
+
+    <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+            <a href="#" class="material-icons mdc-top-app-bar__navigation-icon">menu</a>
+            <span class="mdc-top-app-bar__title">Title</span>
+          </section>
+          <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+            <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Download" alt="Download">file_download</a>
+            <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Print this page" alt="Print this page">print</a>
+            <a href="#" class="material-icons mdc-top-app-bar__action-item" aria-label="Bookmark this page" alt="Bookmark this page">bookmark</a>
+          </section>
+        </div>
+      </header>
+    <div class="holygrail-body">
+      <div class="content">
+          <nav id="navbarLeft" class="fk-sidebar--left__nav nav-dims-l-md" role="navigation" style=""width: 200px; height: 200px; margin auto;>
+              <h2 id="contents" class="fk-sidebar-nav__title">Design System</h2>
+              <div id="ns1" class="fk-sidebar-nav__scroller">
+                  <ul class="fk-sidebar-nav__menu" id="menu">
+
+                      <li class="fk-sidebar-nav__menu-item">
+                          <a class="fk-sidebar-nav__menu-link fk-sidebar-nav__menu-title" href="#introduction">Introduction</a>
+                      </li>
+                      <li class="fk-sidebar-nav__menu-item fk-dropdown">
+                          <a class="js-tgl fk-sidebar-nav__menu-link fk-dropdown-toggle" href="javascript:void(0)" data-target="#item2" data-toggle="collapse">
+                              <span class="fk-svg-rotate">
+                                  <span class="fk-ucon"></span> Syntax and Formatting</a>
+                          <ul class="fk-nav-stacked  fk-sidebar-nav__submenu" id="item2">
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#syntax-and-formatting">Overview</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#multiple-files">Multiple Files</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#table-of-contents">Table of Contents</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#characters-wide">80 Characters Wide</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#titling">Titling</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#anatomy-of-a-ruleset">Anatomy of a Ruleset</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#multi-line-css">Multi-line CSS</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item fk-dropdown">
+                                  <a class="js-tgl fk-sidebar-nav__menu-link fk-dropdown-toggle" href="javascript:void(0)" data-target="#item3" data-toggle="collapse">
+                                      <span class="fk-svg-rotate">
+                                          <span class="fk-ucon"></span> Indenting &amp; Alignment</a>
+                                  <ul class="nav-stacked fk-sidebar-nav__submenu" id="item3">
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#indenting">Indenting</a>
+                                      </li>
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#indenting-sass">Indenting Sass</a>
+                                      </li>
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#alignment">Alignment</a>
+                                      </li>
+                                  </ul>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#meaningful-whitespace">Meaningful Whitespace</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#html">HTML</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="fk-sidebar-nav__menu-item fk-dropdown">
+                          <a class="js-tgl fk-sidebar-nav__menu-link fk-dropdown-toggle" href="#commenting" data-target="#item4" data-toggle="collapse">
+                              <span class="fk-svg-rotate">
+                                  <span class="fk-ucon"></span> Commenting</a>
+                          <ul class="nav-stacked  fk-sidebar-nav__submenu" id="item4">
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#high-level">High-level</a>
+                                  <ul>
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#objectextension-pointers">Object–Extension Pointers</a>
+                                      </li>
+                                  </ul>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#low-level">Low-level</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#preprocessor-comments">Preprocessor Comments</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#removing-comments">Removing Comments</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="fk-sidebar-nav__menu-item fk-dropdown">
+                          <a class="js-tgl fk-sidebar-nav__menu-link fk-dropdown-toggle" href="#naming-conventions" data-target="#item5" data-toggle="collapse">
+                              <span class="fk-svg-rotate">
+                                  <span class="fk-ucon"></span> Naming Conventions</a>
+                          <ul class="nav-stacked  fk-sidebar-nav__submenu" id="item5">
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#hyphen-delimited">Hyphen Delimited</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item fk-dropdown">
+                                  <a class="js-tgl fk-sidebar-nav__menu-link fk-dropdown-toggle" href="#bem-like-naming" data-target="#item6" data-toggle="collapse">
+                                      <span class="fk-svg-rotate">
+                                          <span class="fk-ucon"></span> BEM-like Naming</a>
+                                  <ul class="nav-stacked  fk-sidebar-nav__submenu" id="item6">
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#starting-context">Starting Context</a>
+                                      </li>
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#more-layers">More Layers</a>
+                                      </li>
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#modifying-elements">Modifying Elements</a>
+                                      </li>
+                                  </ul>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#naming-conventions-in-html">Naming Conventions in HTML</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item fk-dropdown">
+                                  <a class="js-tgl fk-sidebar-nav__menu-link fk-dropdown-toggle" href="#javascript-hooks" data-target="#item7" data-toggle="collapse">
+                                      <span class="fk-svg-rotate">
+                                          <span class="fk-ucon"></span> JavaScript Hooks</a>
+                                  <ul class="nav-stacked  fk-sidebar-nav__submenu" id="item7">
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#data--attributes"><code class="highlighter-rouge">data-*</code> Attributes</a>
+                                      </li>
+                                  </ul>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#taking-it-further">Taking It Further</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="fk-sidebar-nav__menu-item fk-dropdown">
+                          <a class="js-tgl fk-sidebar-nav__menu-link fk-dropdown-toggle" href="#css-selectors" data-target="#item8" data-toggle="collapse">
+                              <span class="fk-svg-rotate">
+                                  <span class="fk-ucon"></span> CSS Selectors</a>
+                          <ul class="nav-stacked  fk-sidebar-nav__submenu" id="item8">
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#selector-intent">Selector Intent</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#reusability">Reusability</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#location-independence">Location Independence</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#portability">Portability</a>
+                                  <ul>
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#quasi-qualified-selectors">Quasi-Qualified Selectors</a>
+                                      </li>
+                                  </ul>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#naming">Naming</a>
+                                  <ul>
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#naming-ui-components">Naming UI Components</a>
+                                      </li>
+                                  </ul>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#selector-performance">Selector Performance</a>
+                                  <ul>
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#the-key-selector">The Key Selector</a>
+                                      </li>
+                                  </ul>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#general-rules">General Rules</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="fk-sidebar-nav__menu-item fk-dropdown">
+                          <a class="js-tgl fk-sidebar-nav__menu-link fk-dropdown-toggle" href="#specificity" data-target="#item9" data-toggle="collapse">
+                              <span class="fk-svg-rotate">
+                                  <span class="fk-ucon"></span> Specificity</a>
+                          <ul class="fk-nav-stacked  fk-sidebar-nav__submenu" id="item9">
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#ids-in-css">IDs in CSS</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#nesting">Nesting</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#important"><code class="highlighter-rouge">!important</code></a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#hacking-specificity">Hacking Specificity</a>
+                              </li>
+                          </ul>
+                      </li>
+                      <li class="fk-sidebar-nav__menu-item fk-dropdown">
+                          <a class="js-tgl fk-sidebar-nav__menu-link fk-dropdown-toggle" href="#architectural-principles" data-target="#item10" data-toggle="collapse">
+                              <span class="fk-svg-rotate">
+                                  <span class="fk-ucon"></span> Architectural Principles</a>
+                          <ul class="fk-nav-stacked  fk-sidebar-nav__submenu" id="item10">
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#high-level-overview">High-level Overview</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#object-orientation">Object-orientation</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#the-single-responsibility-principle">The Single Responsibility Principle</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#the-openclosed-principle">The Open/Closed Principle</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#dry">DRY</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#composition-over-inheritance">Composition over Inheritance</a>
+                              </li>
+                              <li class="fk-sidebar-nav__menu-item">
+                                  <a class="fk-sidebar-nav__menu-link" href="#the-separation-of-concerns">The Separation of Concerns</a>
+                                  <ul>
+                                      <li class="fk-sidebar-nav__menu-item">
+                                          <a class="fk-sidebar-nav__menu-link" href="#misconceptions">Misconceptions</a>
+                                      </li>
+                                  </ul>
+                              </li>
+                          </ul>
+                      </li>
+                  </ul>
+              </div>
+          </nav>
+      </div>
+      <ul class="nav">
+        <li>Menu 1</li>
+        <li>Menu 2</li>
+        <li>Menu 3</li>
+      </ul>
+      <div class="aside">Aside</div>
+    </div>
+    <footer class="footer">Footer</footer>
+  
+  ==================================================================================
+    <div id="wrapper" class="fk-sidebar fk-slide-in-col-left">
+        <!-- Sidebar -->
+
+    </div>
+    <script src="/src/javascript/assets/jquery.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script>
+   
+    </script>
+    
+
+</body>
+
+</html>

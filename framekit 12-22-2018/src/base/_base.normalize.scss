@@ -1,0 +1,215 @@
+@import '@csstools/normalize.css/normalize.css';
+
+
+
+/* Document
+ * ========================================================================== */
+
+/**
+ * 1. Remove repeating backgrounds in all browsers (opinionated).
+ * 2. Add border box sizing in all browsers (opinionated).
+ */
+
+ *,
+ ::before,
+ ::after {
+   background-repeat: no-repeat; /* 1 */
+   box-sizing: border-box; /* 2 */
+ }
+
+  /**
+  * 1. Add text decoration inheritance in all browsers (opinionated).
+  * 2. Add vertical alignment inheritance in all browsers (opinionated).
+  */ 
+ 
+  ::before,
+  ::after {
+    text-decoration: inherit; /* 1 */
+    vertical-align: inherit; /* 2 */
+  }
+
+   /**
+  * 1. Use the default cursor in all browsers (opinionated).
+  * 2. Use the default user interface font in all browsers (opinionated).
+  * 3. Use a 4-space tab width in all browsers (opinionated).
+  * 4. Breaks words to prevent overflow in all browsers (opinionated).
+  */
+
+  html {
+    cursor: default; /* 1 */
+    font-family:
+      system-ui,
+      /* macOS 10.11-10.12 */ -apple-system,
+      /* Windows 6+ */ Segoe UI,
+      /* Android 4+ */ Roboto,
+      /* Ubuntu 10.10+ */ Ubuntu,
+      /* Gnome 3+ */ Cantarell,
+      /* fallback */ sans-serif,
+      /* macOS emoji */ "Apple Color Emoji",
+      /* Windows emoji */ "Segoe UI Emoji",
+      /* Windows emoji */ "Segoe UI Symbol",
+      /* Linux emoji */ "Noto Color Emoji"; /* 2 */
+  
+    -moz-tab-size: 4; /* 3 */
+    tab-size: 4; /* 3 */
+    //word-break: break-word; /* 4 */
+  }
+
+ /**
+  * Remove the list style on navigation lists in all browsers (opinionated).
+  */
+ 
+  nav ol,
+  nav ul {
+    list-style: none;
+    margin: 0;
+    padding:0; //tktk review impact..
+  }
+
+   /* Embedded content
+  * ========================================================================== */
+ 
+ /*
+  * Change the alignment on media elements in all browers (opinionated).
+  */
+ 
+ audio,
+ canvas,
+ iframe,
+ img,
+ svg,
+ video {
+   vertical-align: middle;
+ }
+
+  /**
+  * Change the fill color to match the text color in all browsers (opinionated).
+  */
+ 
+  svg:not([fill]) {
+    fill: currentColor;
+  }
+
+   /* Tabular data
+  * ========================================================================== */
+  table {
+   border-collapse: collapse;
+ }
+
+ /* Forms
+  * ========================================================================== */
+ 
+ /**
+  * Inherit styling in all browsers (opinionated).
+  */
+ 
+  button,
+  input,
+  select,
+  textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  
+ /**
+  * Change the resize direction on textareas in all browsers (opinionated).
+  */
+ 
+ textarea {
+  resize: vertical; 
+ }
+
+
+ /* User interaction
+  * ========================================================================== */
+ 
+ /*
+  * 1. Remove the tapping delay in IE 10.
+  * 2. Remove the tapping delay on clickable elements
+       in all browsers (opinionated).
+  */
+ 
+  a,
+  area,
+  button,
+  input,
+  label,
+  select,
+  summary,
+  textarea,
+  [tabindex] {
+    -ms-touch-action: manipulation; /* 1 */
+    touch-action: manipulation; /* 2 */
+  }
+
+
+
+ /* Accessibility
+  * ========================================================================== */
+ 
+ /**
+  * Change the cursor on busy elements in all browsers (opinionated).
+  */
+ 
+ [aria-busy="true"] {
+  cursor: progress;
+}
+
+/*
+ * Change the cursor on control elements in all browsers (opinionated).
+ */
+
+[aria-controls] {
+  cursor: pointer;
+}
+
+/*
+ * Change the cursor on disabled, not-editable, or otherwise
+ * inoperable elements in all browsers (opinionated).
+ */
+
+[aria-disabled="true"],
+[disabled] {
+  cursor: not-allowed;
+}
+
+/*
+ * Change the display on visually hidden accessible elements
+ * in all browsers (opinionated).
+ */
+
+[aria-hidden="false"][hidden]:not(:focus) {
+  clip: rect(0, 0, 0, 0);
+  display: inherit;
+  position: absolute;
+}
+
+
+
+// TKTKTK PUTTING THIS INTO HERE BECAUSE I'M NOT SURE WHERE ELSE TO PUT IT, 
+// ASK CHRIS ABOUT THIS AND MAYBE MOVE TO ANOTHER FILE
+// FROM BLUEPRINT SITE
+
+// commenting it out until we account if we need it or not -chris
+// i was messing with some styles
+p {
+  // padding: 0 !important;
+  // margin: 0;
+  // margin-bottom: 24px;
+  // font-size: 21px;
+  // line-height: 1.5;
+  // max-width: 900px;
+}
+
+
+ul{
+  // font-size: 18px;
+  // line-height: 24px;
+}
+
+em{
+ // color: #333;
+  //font-weight: bold;
+}

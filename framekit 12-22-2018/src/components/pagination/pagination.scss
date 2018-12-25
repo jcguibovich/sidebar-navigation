@@ -1,0 +1,126 @@
+
+@import './mixins';
+ 
+// Pagination
+$pagination-padding-link-y:         $bp-space-spacing-xs;
+$pagination-padding-link-x:         $bp-space-spacing-sm;
+
+$pagination-color:                  $bp-color-feedback-interaction-base;
+$pagination-bg:                     none;
+
+$pagination-active-bg:              $bp-color-feedback-interaction-base;
+$pagination-active-color:           $bp-color-neutral-00;
+
+$pagination-hover-color:            neutral-color('80');
+// $pagination-hover-bg:               $link-hover-color !default;
+$pagination-hover-bg:               $bp-color-neutral-10;
+
+
+$pagination-border-radius:          0px; 
+
+$pagination-spacing-item:          $bp-space-spacing-md;
+$pagination-spacing-arrow:         $bp-space-spacing-xs;
+$pagination-spacing-prevnext:      $bp-space-spacing-sm;
+//$pagination-size-arrow:             1rem; // no longer neeeded as using svg
+
+$pagination-disabled-color: #ccc;
+$pagination-disabled-bg: none;
+
+.fk-pagination {
+  display: flex;
+  @include list-unstyled();
+
+  // font-size: $pagination-size-arrow;
+
+  & .fk-ucon{
+    width: 17px;
+    height: 17px;
+    fill : $pagination-color;
+    margin:0;
+  }
+
+
+  &__item {
+    margin: 0 $pagination-spacing-item/2;
+  }
+
+
+  &__link{
+    text-decoration: none;
+    border-radius: $pagination-border-radius;
+    background-color: $pagination-bg;    
+    color: $pagination-color;
+
+    .is-disabled &{
+      background-color: $pagination-disabled-bg;
+      color: $pagination-disabled-color;
+    }
+
+
+    .is-active &{
+      background-color: $pagination-active-bg;
+      color: $pagination-active-color;
+      padding: $pagination-padding-link-y $pagination-padding-link-x;
+
+      &:hover{
+        color: $pagination-active-color;
+      }
+
+    }
+
+    &:hover {
+      color: $pagination-hover-color;
+    }
+
+
+    &--previous {
+      margin-right: $pagination-spacing-prevnext;
+
+      & .fk-ucon{
+        margin-right: $pagination-spacing-arrow;
+      }
+
+      &:before{
+        // line-height: 1rem;
+        // font-size: 1.2em;      
+        // content: "←";
+      }
+    }
+
+    &--next {
+      margin-left: $pagination-spacing-prevnext;
+      
+      & .fk-ucon{
+        margin-left: $pagination-spacing-arrow;
+      }
+
+      &:after{
+        // line-height: 1rem;
+        // font-size: 1.2em;
+        //
+        // content: "→";
+      }
+
+    }
+
+  }
+
+
+
+&--lg{
+  font-size: 1.5rem;
+}
+
+&--sm{
+  font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+}

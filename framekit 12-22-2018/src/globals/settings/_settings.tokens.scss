@@ -1,0 +1,66 @@
+///* ========================================================================
+//   Tokens
+//   ======================================================================== */
+
+// This core file sets up framekit core settings They are 
+// the underpinnig of how it functions. Modify with caution. 
+
+// Import Blueprint Tokens 
+//@import "./cxd-ds-tokens/dist/sass/bp-tokens.scss";
+ 
+//@import '/node_modules/cxd-ds-tokens/dist/sass/bp-tokens';
+
+@import './node_modules/cxd-ds-tokens/dist/sass/bp-tokens.scss';
+
+$fk-global-font-size: $bp-size-type-base !global;
+$fk-global-baseline: $bp-type-baseline-default !global;
+$fk-global-spacing-unit: $fk-global-font-size * $bp-type-baseline-default !global;
+
+$fk-global-default-token-map: $bp-tokens;
+
+$fk-spacing-units-map: map-get(map-get($bp-tokens,'space'), 'spacing');
+$fk-global-radius: 4px !global; // default radius
+
+
+$fk-elevation-map :( 
+    inset: $bp-layering-elevation-inset,
+    "00": $bp-layering-elevation-00,
+    "02": $bp-layering-elevation-02,
+    "04": $bp-layering-elevation-04,
+    "08": $bp-layering-elevation-08,
+    "12": $bp-layering-elevation-12, 
+    "16": $bp-layering-elevation-16,
+    "24": $bp-layering-elevation-24 
+);
+
+
+// Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+
+$fk-zindex-zone-base: $bp-web-z-index-base;
+$fk-zindex-zone-low:  $bp-web-z-index-low;
+$fk-zindex-zone-medium:  $bp-web-z-index-medium;
+$fk-zindex-zone-high:  $bp-web-z-index-high;
+$fk-zindex-zone-highest:  $bp-web-z-index-highest;
+
+$fk-zindex-default:      $fk-zindex-zone-base !default;
+
+// Elevated Seperated elements
+$fk-zindex-fixed:        $fk-zindex-zone-low + 10 !default; 
+$fk-zindex-sticky:       $fk-zindex-zone-low + 20 !default;
+             
+// Panels
+$fk-zindex-full-panel:   $fk-zindex-zone-medium !default;
+$fk-zindex-scrim:        $fk-zindex-zone-medium + 10 !default;
+$fk-zindex-slide-panel:  $fk-zindex-zone-medium + 20 !default;
+
+// Overlays          
+$fk-zindex-modal:        $fk-zindex-zone-high !default;
+$fk-zindex-popover:      $fk-zindex-zone-high + 10 !default;
+$fk-zindex-tooltip:      $fk-zindex-zone-high + 20 !default;                  
+
+// Highest Reservation
+$fk-zindex-global-alert: $bp-web-z-index-highest !default; // Highest level reservation
+

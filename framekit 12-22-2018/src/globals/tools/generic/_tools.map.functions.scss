@@ -1,0 +1,158 @@
+// Breaks the ITCSS order only because these functions are needed at base level of some of the tools
+
+
+///@group Generic Functions
+
+$fk-global-default-token-map: null !default;
+
+/// Get a value from a nested map by keys
+/// @param {map} $map [none]- The Map to search
+/// @param {string} $keys [none]- The Keys to search the map for
+/// @return {map} - map
+/// @example
+///   deep-map-get($fk-spacing, 'xs', 'y')
+@function deep-map-get($map: $fk-global-default-token-map, $keys...) {
+    @if type-of($map) != 'map' {
+      @error 'The argument $map: `#{$map}` is of incorrect type: `#{type-of($map)}`. Type of `Map` is required!';
+    }
+    @each $key in $keys {
+      $map: map-get($map, $key);
+    }
+    @return $map;
+}
+
+
+/// Check a deep map for a key
+/// @return {boolan} - True/False
+@function deep-map-check($map: $fk-global-default-token-map, $keys...) {
+    @if type-of($map) != 'map' {
+      @error 'The argument $map: `#{$map}` is of incorrect type: `#{type-of($map)}`. Type of `Map` is required!';
+    }
+    @each $key in $keys {
+      @if not map-has-key($map, $key) {
+        @return false;
+      }
+      $map: map-get($map, $key);
+    }
+    @return true;
+  }
+
+
+
+/// Search for any value contained within nested maps, by using dot notation as the key argument.  Returns back whatever is at that location, map or value
+/// @example 
+///   get('border.radius.xs', $config);
+/// @requires deep-map-check
+/// @returns {value} The value of the key
+/// @param {string} $key - Dot notation location of a key/value
+/// @param {map} $map [$fk-global-default-token-map] - The Map to search through 
+
+@function get($key, $map: $fk-global-default-token-map) {
+    $keys: str-explode($key, '.');
+    
+    @if type-of($value: $map) != 'map' {
+        @error '$map provided to get(#{$key}`) was not a $map.';
+    }
+
+    @if not deep-map-check($map, $keys...) {
+      @error 'The argument $map doesn\'t has some of the $keys: `#{$keys}`!  `#{available-names($map, $level: 0)}';
+    }
+  
+    @return deep-map-get($map, $keys...);
+} 
+
+/// Gets a single variable value in a deep nested map using dot notation call to CTI structured tokens. Uses get() but errors out if return is map to ensure use
+/// is safe to use. labeled var to mimic out css vars will be used. Default map can be set by config. 
+/// @example 
+///   val('border.radius.xs', $config);
+/// @requires deep-map-check, get
+/// @returns {value} The value of the key
+/// @param {string} $key - Dot notation location of a key/value
+/// @param {map} $map [$fk-tokens] - The Map to search through 
+
+@function val($keys, $map: $fk-global-default-token-map){
+  $return: get($keys, $map);
+  @if (type-of($value: $return )== 'map' ) {
+    @error 'var() function returned a map, but function is for varible values, if wanting a map use get direction.';
+  }
+  @return $return;
+}
+
+
+@function map($keys, $map: $fk-global-default-token-map){
+  $return: get($keys, $map);
+  @if (type-of($value: $return ) != 'map' ) {
+    @error 'map() function did not return map if wanting to get a value, use val()';
+  }
+  @return $return;
+}
+
+@function map-q($map: $fk-global-default-token-map, $err: '[ungiven]', $key:null, $path...){
+  @if NOT $key {
+    @error 'map-q requirs a key given';
+  }
+  
+  $q: dot-str($path);
+  $map: map($q);
+ 
+  @if map-has-key($map, $key) {
+   @return map-get($map, $key);
+  }
+
+  @warn error-map('border-width()',$map, $key);
+  @return '';
+}
+
+
+
+
+@function available-names($map, $level: 1) {
+    @if type-of($map) != 'map' {
+      @return null;
+    }
+  
+    $output: '';
+    $newline: '\A ';
+  
+    @if $level == 0 {
+      @each $key, $value in $map {
+        $output: $output +
+          '#{$newline}- #{$key}';
+      }
+    } @else if $level == 1 {
+      @each $key, $value in $map {
+        $output: $output +
+          '#{$newline}- #{$key} #{available-names($value, $level + 1)}';
+      }
+    } @else {
+      $output: '(';
+      $i: 1;
+  
+      @each $key, $value in $map {
+        $sep: if($i < length($map), ', ', '');
+        $output: $output + '#{$key}#{$sep}#{available-names($value, $level + 1)}';
+        $i: $i + 1;
+      }
+  
+      $output: $output + ')';
+    }
+  
+    @return $output;
+  }
+
+
+    /// Creates a dot sepereated string from a given array of items for doing deep map queries
+    @function dot-str($items...){
+      $str: '';
+      $first: true;
+      @each $item in $items{
+        @if $first {
+          $str: $item;
+          $first: false;
+       } @else {
+          $str: $str + '.' + $item;
+       }
+      }
+      @return $str;
+  }
+  

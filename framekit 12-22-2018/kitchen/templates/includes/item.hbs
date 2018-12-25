@@ -1,0 +1,49 @@
+<section>
+  
+<div class="_shame-buttons">
+
+{{#if data.specs}}
+  <a href="{{data.specs}}" class="u-float-right fk-btn">Design Specs</a>
+{{/if}}
+
+{{#if data.adk}}
+  <a href="{{data.adk}}" id="_shame-adkbtn" class="u-float-right" target="_blank">ADK Component</a>
+  <br>
+{{/if}}
+</div>
+
+{{#unless data.hideTitle}}
+  <h2>{{name}}</h2>
+{{else}}
+{{/unless}}
+
+
+  {{!-- Notes --}}
+  {{#if data.notes}}
+    <div class="Item-notes u-rhythm">
+      {{{data.notes}}}
+    </div>
+  {{/if}}
+
+  {{!-- Code sample --}}
+  {{#unless data.sourceless}}
+    <div class="fk-snippet {{#if data.snippetStyle }}fk-snippet--{{data.snippetStyle}}{{/if}}">
+      <div class="fk-snippet__preview">
+        
+        {{!-- Sample --}}
+        <div class="{{data.previewClass}}" {{#if data.snippetTweak}}style="{{data.snippetTweak}}"{{/if}}>
+          {{{pattern id @root}}}
+        </div>
+      </div>
+
+      <div class="fk-snippet__code">
+          <figure class="highlight">
+            <pre class=""><code class="language-html">{{{patternSource id @root}}}</code></pre>
+          </figure>
+      </div>
+    </div>
+    
+  {{/unless}}
+
+
+</section>

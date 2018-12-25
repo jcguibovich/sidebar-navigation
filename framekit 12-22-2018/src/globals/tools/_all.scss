@@ -1,0 +1,27 @@
+// Automatic Mapping files. Injector should sort these by alpha to prevent triggering GIT changes
+/* inject:sass */
+@import "../../components/button/_tools.mixins.button.scss";
+@import "../../components/icons/_tools.mixins.ucons.scss";
+@import "../../components/forms/_tools.mixins.forms.scss";
+@import "_tools.align.scss";
+@import "_tools.border.scss";
+@import "_tools.color.scss";
+@import "_tools.controls.scss";
+@import "_tools.font-size.scss";
+@import "_tools.general.scss";
+@import "_tools.icons.scss";
+@import "_tools.lists.scss";
+@import "_tools.mq.scss";
+@import "_tools.objects.scss";
+@import "_tools.position.scss";
+@import "_tools.shelf.scss";
+@import "_tools.sr.scss";
+@import "_tools.typography.scss";
+@import "generic/_tools.errormsg.scss";
+@import "generic/_tools.export.scss";
+@import "generic/_tools.is.functions.scss";
+@import "generic/_tools.map.functions.scss";
+@import "generic/_tools.shapes.scss";
+@import "generic/_tools.string.functions.scss";
+@import "generic/_tools.units.scss";
+/* endinject */

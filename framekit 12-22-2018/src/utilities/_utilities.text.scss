@@ -1,0 +1,69 @@
+
+$fk-text-ns: 'text'; 
+
+
+// Text
+// Text alignment utilities
+ .#{$fk-ns-utilities + $fk-text-ns}-left {
+    text-align: left;
+  }
+  
+   .#{$fk-ns-utilities + $fk-text-ns}-right {
+    text-align: right;
+  }
+  
+   .#{$fk-ns-utilities + $fk-text-ns}-center {
+    text-align: center;
+  }
+  
+   .#{$fk-ns-utilities + $fk-text-ns}-justify {
+    text-align: justify;
+  } 
+  
+  // Text transform utilities
+   .#{$fk-ns-utilities + $fk-text-ns}-lowercase {
+    text-transform: lowercase;
+  }
+  
+   .#{$fk-ns-utilities + $fk-text-ns}-uppercase {
+    text-transform: uppercase;
+  }
+  
+   .#{$fk-ns-utilities + $fk-text-ns}-capitalize {
+    text-transform: capitalize;
+  }
+  
+  // Text style utilities
+   .#{$fk-ns-utilities + $fk-text-ns}-normal {
+    font-weight: normal;
+  }
+  
+   .#{$fk-ns-utilities + $fk-text-ns}-bold {
+    font-weight: bold;
+  }
+  
+   .#{$fk-ns-utilities + $fk-text-ns}-italic {
+    font-style: italic;
+  }
+
+  
+  // Text overflow utilities
+
+/*   Overflow behavior: display an ellipsis to represent clipped text */
+   .#{$fk-ns-utilities + $fk-text-ns}-ellipsis {
+    // @include text-ellipsis();
+  }
+    /*-- Overflow behavior: truncate the text  */
+   .#{$fk-ns-utilities + $fk-text-ns}-clip {
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+  /*--  Text may be broken at arbitrary points  */
+   .#{$fk-ns-utilities + $fk-text-ns}-break {
+    hyphens: auto;
+    word-break: break-word;
+    word-wrap: break-word;
+  }
+  
+

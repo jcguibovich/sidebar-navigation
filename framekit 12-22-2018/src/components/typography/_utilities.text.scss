@@ -1,0 +1,111 @@
+
+$fk-text-size-map: get('size.type') !default;
+
+.fk-h1{
+     @include font-size(map-get($fk-text-size-map, xxxl));
+}
+.fk-h2{
+     @include font-size(map-get($fk-text-size-map, xxl));
+}
+.fk-h3{
+     @include font-size(map-get($fk-text-size-map, xl));
+}
+.fk-h4{
+     @include font-size(map-get($fk-text-size-map, lg));
+}
+.fk-h5{
+     @include font-size(map-get($fk-text-size-map, md));
+}
+.fk-h6{
+     @include font-size(map-get($fk-text-size-map, sm));
+}
+
+.fk-display-1{
+    @include font-size(map-get($fk-text-size-map, mega));
+}
+ 
+.fk-display-2{
+    @include font-size(map-get($fk-text-size-map, giga));
+}
+
+.fk-body {
+    @include font-size(map-get($fk-text-size-map, md));
+
+    &--sm {
+        @include font-size(map-get($fk-text-size-map, sm));
+    }
+
+    &--lg {
+        @include font-size(map-get($fk-text-size-map, lg));
+    }
+}
+
+
+
+
+
+// Text
+// Text alignment utilities
+.text-left {
+    text-align: left;
+  }
+  
+  .text-right {
+    text-align: right;
+  }
+  
+  .text-center {
+    text-align: center;
+  }
+  
+  .text-justify {
+    text-align: justify;
+  }
+  
+  // Text transform utilities
+  .text-lowercase {
+    text-transform: lowercase;
+  }
+  
+  .text-uppercase {
+    text-transform: uppercase;
+  }
+  
+  .text-capitalize {
+    text-transform: capitalize;
+  }
+  
+  // Text style utilities
+  .text-normal {
+    font-weight: normal;
+  }
+  
+  .text-bold {
+    font-weight: bold;
+  }
+  
+  .text-italic {
+    font-style: italic;
+  }
+  
+  .text-large {
+    font-size: 1.2em;
+  }
+  
+  //TKTK ADD
+  // Text overflow utilities
+  .text-ellipsis {
+   // @include text-ellipsis();
+  }
+  
+  .text-clip {
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+  }
+   
+  .text-break {
+    hyphens: auto;
+    word-break: break-word;
+    word-wrap: break-word;
+  }

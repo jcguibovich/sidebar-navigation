@@ -1,0 +1,29 @@
+
+$fk-ns-measure: 'measure' !default;
+$fk-utils-measure-responsive: true !default;
+$fk-utils-measure-map: map('type.measure');
+
+//PRIVATE MIXIN. Do not use outside this local scope, import order not guaranteed in utilities
+@mixin _utilities-measure( $variant: '') { 
+    @each $name, $size in $fk-utils-measure-map {
+        @if($name!='base'){
+            $variant:--#{$name};
+        } @else{
+            $variant: '';
+        }
+
+        .#{$fk-ns-utilities + $fk-ns-measure + $variant} {
+            @include measure($name);
+        }
+    }
+}
+
+@include _utilities-measure;
+
+// @if ($fk-utils-measure-responsive == true) {
+//     @each $breakpoint-name, $breakpoint-size in $fk-breakpoints-map{
+//         @include mq-only($breakpoint-name){
+//             @include _utilities-measure($fk-ns-breakpoint-separator + $breakpoint-name);
+//         }
+//     }
+// }     

@@ -1,0 +1,104 @@
+$fk-image-dimensions:  16 24 32 48 64 96 128 !default;
+
+.fk-image {
+    display: block;
+    position: relative;
+
+    img {
+        display: block;
+        height: auto;
+        width: 100%;
+    }
+
+
+
+    // Ratio
+    &.fk-image--square,
+    &.fk-image--1by1,
+    &.fk-image--5by4,
+    &.fk-image--4by3,
+    &.fk-image--3by2,
+    &.fk-image--5by3,
+    &.fk-image--16by9,
+    &.fk-image--2by1,
+    &.fk-image--3by1,
+    &.fk-image--4by5,
+    &.fk-image--3by4,
+    &.fk-image--2by3,
+    &.fk-image--3by5,
+    &.fk-image--9by16,
+    &.fk-image--1by2,
+    &.fk-image--1by3 {
+    img {
+        @include overlay;
+
+        height: 100%;
+        width: 100%;
+    }
+    }
+
+    &.fk-image--square,
+    &.fk-image--1by1 {
+    padding-top: 100%;
+    }
+
+    &.fk-image--5by4 {
+    padding-top: 80%;
+    }
+
+    &.fk-image--4by3 {
+    padding-top: 75%;
+    }
+
+    &.fk-image--3by2 {
+    padding-top: 66.6666%;
+    }
+
+    &.fk-image--5by3 {
+    padding-top: 60%;
+    }
+
+    &.fk-image--16by9 {
+    padding-top: 56.25%;
+    }
+
+    &.fk-image--2by1 {
+    padding-top: 50%;
+    }
+
+    &.fk-image--3by1 {
+    padding-top: 33.3333%;
+    }
+
+    &.fk-image--4by5 {
+    padding-top: 125%;
+    }
+
+    &.fk-image--3by4 {
+    padding-top: 133.3333%;
+    }
+
+    &.fk-image--2by3 {
+    padding-top: 150%;
+    }
+
+    &.fk-image--3by5 {
+    padding-top: 166.6666%;
+    }
+
+    &.fk-image--9by16 {
+    padding-top: 177.7777%;
+    }
+
+    &.fk-image--1by2 {
+    padding-top: 200%;
+    }
+
+    &.fk-image--1by3 {
+    padding-top: 300%;
+    }
+
+
+
+
+}

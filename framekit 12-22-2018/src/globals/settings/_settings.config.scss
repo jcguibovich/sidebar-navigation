@@ -1,0 +1,63 @@
+///* ========================================================================
+//   Config
+//   ======================================================================== */
+
+// This core file sets up framekit core settings They are 
+// the underpinnig of how it functions. Modify with caution. 
+
+
+// Settings for sass compiling
+// @use postcss-discard-comments(removeAll: true);
+@use autoprefixer(grid:true); //grid
+//run command: npx autoprefixer --info  // to see settings of autoprefixer 
+
+///
+
+//TODO Add enviroment variables to alter some dev / prod actions
+
+// Global Config
+$fk-config-enable-print: true !default;
+$fk-config-enable-responsive: true !default;
+$fk-config-enable-utilties: true !default;
+
+//$fk-config-enable-small-screens // FUTURE POSSIBLE in case desktop only
+
+
+//Global Namespaces
+$fk-ns-objects: 'o-' !default;
+$fk-ns-utilities: 'u-' !default;
+$fk-ns-component: 'fk-' !default;
+$fk-ns-qa: 'qa-' !default;
+
+
+//Seperators 
+//tktk consider pushing - as a var
+$fk-ns-breakpoint-separator: \@ !default;
+
+// Global specific ns
+$fk-ns-left: 'left' !default;
+$fk-ns-right: 'right' !default;
+$fk-ns-top: 'top' !default;
+$fk-ns-bottom: 'right' !default;
+$fk-ns-center: 'center' !default;
+
+$fk-ns-print: 'print' !default;
+
+// Abbreviations
+$fk-abbr-padding: 'p' !default;
+$fk-abbr-margin: 'm' !default;
+
+$fk-abbr-top: 't' !default;
+$fk-abbr-right: 'r' !default;
+$fk-abbr-bottom: 'b' !default;
+$fk-abbr-left: 'l' !default;
+$fk-abbr-all: 'a' !default;
+
+
+// Maps of Abbr to CSS naming
+$fk-edges-map: (
+    $fk-abbr-top:    top,
+    $fk-abbr-right:  right,
+    $fk-abbr-bottom: bottom,
+    $fk-abbr-left:   left
+);

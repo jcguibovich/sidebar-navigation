@@ -1,0 +1,145 @@
+
+$fk-ns-utilities: 'docs-example-';
+
+// @import '../../../src/globals/settings/_settings.config.scss';
+// @import '../../../src/globals/settings/_settings.tokens.scss';
+
+
+body{
+   background: #F8F8F8;
+}
+
+.kitchen-layout{
+    height:100%;
+    margin:0;
+}
+
+.kitchen-layout-body{
+    position: relative;
+}
+
+.kitchen-layout-left{
+    background-color: #ccc;
+    position: fixed;
+    overflow-y: auto;
+    top:0;
+    left:0;
+    width:14rem;
+    height: 100%;
+    box-sizing: border-box;
+    z-index: 20;
+}
+
+.kitchen-layout-main{
+    margin-left: 14rem;
+    padding: 2.5vh 5%;
+    padding-bottom:5rem;
+}
+
+.kitchen-header{
+    background-color: #05314D;
+    color: #fff;
+    padding: 1.5rem;
+    position: relative;
+    text-align: right;
+
+    .kitchen-app-title{
+        color:#ccc;
+        margin-top: -.2rem;
+        font-size: .8rem;
+        text-transform: uppercase;
+        letter-spacing: .2em;
+    }
+}
+
+
+//TEMP move to framiekit
+.fk-menu{
+    padding:1rem;
+}
+
+.fk-menu-label{
+    text-transform: uppercase;
+    margin-top:1rem;
+    margin-bottom: .25rem;
+}
+
+.fk-menu-list{
+    padding-left: .5rem;
+    list-style: none;
+    margin: 0;
+
+    .fk-menu-list_item{
+        a{
+            text-decoration: none;
+            color: rgb(83, 83, 83);
+
+            &:hover {
+                color: rgb(39, 39, 39); 
+            } 
+        }
+        padding-bottom:  .25rem;
+    }
+}
+
+
+// .example-spacing > div{
+//     margin-bottom: 24px;
+//     display: inline-block;
+// }
+//remved as it was conflicting with previews
+
+
+// tktk broke due to mapping to node module
+// $fk-ns-space: 'space-';
+
+// @each $type, $typesizes in $fk-spacing-groups-map {
+//     @each $size, $value in $typesizes {
+//         $unit: map-get($fk-spacing-units-map, $size);
+//         .#{$fk-ns-utilities + $fk-ns-space + $type}-#{$size} { 
+//             box-shadow: inset $unit $unit 0 #c7dcbf, inset  #{'-'+$unit} #{'-'+$unit}#c7dcbf;
+//         }
+//     }
+// }
+
+
+
+// body{ 
+//     background: $bp-spa ce-spacing-md;
+// }
+
+
+
+
+
+// DEMO PAGE PURPOSES ONLY. TKTK Find better spot inside documentation not Framekit
+.docs-example-space-sm {
+    box-shadow: inset 16px 16px 0 #c7dcbf, inset -16px -16px #c7dcbf;
+}
+
+
+// DEMO PAGE PURPOSES ONLY. TKTK Find better spot inside documentation not Framekit
+.docs-example-space-md {
+    box-shadow: inset 16px 16px 0 #c7dcbf, inset -16px -16px #c7dcbf;
+}
+
+
+
+
+
+
+
+
+/*
+
+__/\\\\\\\\\\\\\\\_____/\\\\\\\\\__________/\\\\\\\\\______/\\\\____________/\\\\___/\\\\\\\\\\\\\\\___/\\\________/\\\___/\\\\\\\\\\\___/\\\\\\\\\\\\\\\_        
+ _\/\\\///////////____/\\\///////\\\______/\\\\\\\\\\\\\___\/\\\\\\________/\\\\\\__\/\\\///////////___\/\\\_____/\\\//___\/////\\\///___\///////\\\/////__       
+  _\/\\\______________\/\\\_____\/\\\_____/\\\/////////\\\__\/\\\//\\\____/\\\//\\\__\/\\\______________\/\\\__/\\\//__________\/\\\____________\/\\\_______      
+   _\/\\\\\\\\\\\______\/\\\\\\\\\\\/_____\/\\\_______\/\\\__\/\\\\///\\\/\\\/_\/\\\__\/\\\\\\\\\\\______\/\\\\\\//\\\__________\/\\\____________\/\\\_______     
+    _\/\\\///////_______\/\\\//////\\\_____\/\\\\\\\\\\\\\\\__\/\\\__\///\\\/___\/\\\__\/\\\///////_______\/\\\//_\//\\\_________\/\\\____________\/\\\_______    
+     _\/\\\______________\/\\\____\//\\\____\/\\\/////////\\\__\/\\\____\///_____\/\\\__\/\\\______________\/\\\____\//\\\________\/\\\____________\/\\\_______   
+      _\/\\\______________\/\\\_____\//\\\___\/\\\_______\/\\\__\/\\\_____________\/\\\__\/\\\______________\/\\\_____\//\\\_______\/\\\____________\/\\\_______  
+       _\/\\\______________\/\\\______\//\\\__\/\\\_______\/\\\__\/\\\_____________\/\\\__\/\\\\\\\\\\\\\\\__\/\\\______\//\\\___/\\\\\\\\\\\________\/\\\_______ 
+        _\///_______________\///________\///___\///________\///___\///______________\///___\///////////////___\///________\///___\///////////_________\///________
+
+        */

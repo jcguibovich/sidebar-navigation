@@ -1,0 +1,224 @@
+.fk-nav {
+  // display: flex;
+  flex-wrap: wrap;
+  // padding-left: 0;
+  // margin-bottom: 0;
+  list-style: none;
+}
+
+.fk-nav-link {
+  display: block;
+  padding: .25rem;
+
+  &:hover, &:focus {
+    text-decoration: none;
+  }
+
+
+  &.disabled {
+    color: $bp-color-neutral-40;
+  }
+}
+/*Reconvert for blueprint...copied over from blueprint site!*/
+.fk-nav-sidenav {
+  flex: none !important;
+  width: 246px !important; //  margin: 0 0 24px 0;
+  padding: 16px;
+  padding-bottom: 10px;
+  overflow-y: auto;
+  font-size: 1rem;
+  color: #ffffff;
+  background: #2e2e2e; 
+}
+
+//
+// Tabs
+//
+
+.fk-nav-tabs {
+  border-bottom: $bp-size-border-width-thin solid $bp-color-border-default;
+
+  .fk-nav-item {
+    margin-bottom: .25rem;
+  }
+
+  .fk-nav-link {
+    border: 1px solid transparent;
+    border-top-right-radius: $bp-size-border-radius-sm;
+    border-top-left-radius: $bp-size-border-radius-sm;
+
+    &:hover,&:focus {
+      border-color: $bp-color-border-lighter;
+    }
+
+    &.disabled {
+      color: $bp-color-neutral-40;
+      background-color: transparent;
+      border-color: transparent;
+    }
+  }
+
+  .fk-nav-link.active,
+  .fk-nav-item.show .fk-nav-link {
+    color: $bp-color-core-magenta-50;
+    background-color: transparent;
+    border-color: transparent;
+  }
+
+  .fk-dropdown-menu {
+    margin-top: .25rem;
+    border-top-right-radius: $bp-size-border-radius-sm;
+    border-top-left-radius: $bp-size-border-radius-sm;
+  }
+}
+
+
+
+.fk-nav-pills {
+  .fk-nav-link {
+    border-radius: 500px;
+  }
+
+  .fk-nav-link.active,
+  .show > .fk-nav-link {
+    color: $bp-color-core-magenta-50;
+    background-color: transparent;
+  }
+}
+
+
+//
+// Justified variants
+//
+
+.fk-nav-fill {
+  .fk-nav-item {
+    flex: 1 1 auto;
+    text-align: center;
+  }
+}
+
+.fk-nav-justified {
+  .fk-nav-item {
+    flex-basis: 0;
+    flex-grow: 1;
+    text-align: center;
+  }
+}
+
+
+// Tabbable tabs
+//
+// Hide tabbable panes to start, show them when `.active`
+
+.tab-content {
+  > .tab-pane {
+    display: none;
+  }
+  > .active {
+    display: block;
+  }
+}
+
+
+
+.fk-nav {
+  // display: flex;
+  flex-wrap: wrap;
+  // padding-left: 0;
+  // margin-bottom: 0;
+  list-style: none;
+}
+/* Copied over from Blueprint site */
+
+.fk-nav {
+  display: block !important;
+  width: 246px !important;
+  // height: calc(100vh - 69px);
+  padding: get('space.inset.md');
+  margin: get('space.stack.lg');
+  overflow-y: auto;
+  font-size: 1rem;
+  color:  $bp-color-neutral-00;
+  background: $bp-color-neutral-90;
+
+  .fk-menu__label {
+    font-size: 12px;
+    font-weight: 700;
+    margin:0;
+    color: $bp-color-neutral-30;
+    text-transform: uppercase;
+    white-space: nowrap;
+    letter-spacing: .1em;
+    
+  }
+  .fk-menu-list__item[href$="index.html"] {
+    display: none;
+  } 
+  .fk-menu-list__item {
+    display: block;
+    padding: get('space.inset.xs');
+    //margin: $bp-space-stack-sm;
+    font-size: 1rem;
+    line-height: 1rem;
+    color: #fff !important;
+    text-decoration: none;
+
+    &:last-child{
+      margin: get('space.stack.lg');;
+    }
+
+    &:hover {
+      color: #f7f7f7 !important;
+      background: $bp-color-neutral-90;
+    }
+    &:visited {
+      color: inherit;
+    }
+    &.is-active {
+      color: #f7f7f7;
+      background: #0c77ba;
+      font-weight: bold;
+    }
+    &[href$="index.html"] {
+      display: none;
+    } 
+  }
+}
+.fk-nav .fk-menu-list__item {
+  display: block;
+  padding: 4px 4px 4px 4px;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: #fff !important;
+  text-decoration: none;
+}
+.fk-nav .fk-menu-list__item.is-active {
+  font-weight: bold;
+  color: #f7f7f7;
+  background: #0c77ba;
+}
+.fk-nav .fk-menu-list__item a {
+  color: #f7f7f7 !important;
+}
+.fk-menu-list__item a{
+  color: #f7f7f7 !important;
+    font-size: 18px;
+}
+
+.fk-menu__label  {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 0;
+  color: #c7c7c7;
+  text-transform: uppercase;
+  white-space: nowrap;
+  letter-spacing: .03em;
+  //temporary
+  padding-bottom: 10px;
+  margin-top: 20px;
+}
+ul li:not(:last-child) {
+  line-height: 1.25;
+  margin-bottom: 3px;
+}

@@ -1,0 +1,57 @@
+
+{{!-- Nav item partial --}}
+{{#*inline "QA-layer-test"}}
+    <hr>
+    <br />
+    <hr>
+    <br />
+    <hr>
+    <br />
+    <hr>
+    <div class="fk-bordered">
+        Bordered Container <br>
+        <hr>
+        hr inside 
+    </div>
+
+    <br />
+    <br />
+    <hr class="thick">
+    <br />
+{{/inline}}
+
+
+
+
+Testing out Levels background colors of default theme, environment light mode. 
+
+
+
+
+
+
+<br> <br>
+<div class="fk-bg--layer0">
+    --level0 (default in light env and default theme)
+    {{> QA-layer-test }} 
+
+    <div class="fk-bg--layer1">
+        --level1 (default in light env and default theme)
+        {{> QA-layer-test }} 
+
+        <div class="fk-bg--layer2">
+            --level2 (default in light env and default theme)
+            {{> QA-layer-test}}
+            <div class="fk-bg--layer1">  1 inside 2 {{> QA-layer-test}}</div>
+
+
+
+        </div>
+    </div>
+
+</div>
+
+
+Base styled below <br>
+<hr class="thick">
+{{> QA-layer-test}}

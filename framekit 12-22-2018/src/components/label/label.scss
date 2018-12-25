@@ -1,0 +1,21 @@
+.fk-header-label{
+    text-transform: uppercase;
+    display: block !important;
+
+   // box-sizing: inherit;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    margin-bottom: .1em;
+    color: rgb(112, 112, 112);
+    font-weight: 600;
+   // font-weight: bold;
+
+    &--lg{
+        font-size: $bp-size-type-xl;
+        font-weight: 400;
+    } 
+
+    &--sm {
+        font-size: $bp-size-type-xs;
+    }  
+}

@@ -1,0 +1,45 @@
+
+
+//default setting
+$fk-tools-media-object-name-content: 'content' !default;
+$fk-tools-media-object-name-left: 'left' !default;
+$fk-tools-media-object-name-right: 'right' ;
+
+
+
+//used to extend the media object
+@mixin media-object( $ns-content:'content', $ns-left: 'left', $ns-right: 'right') {
+    align-items: flex-start;
+    display: flex;
+    text-align: left;
+
+    &__#{$ns-content}{
+        flex-basis: auto;
+        flex-grow: 1;
+        flex-shrink: 1;
+        text-align: left;
+        &:not(:last-child) {
+            margin-bottom: $fk-global-spacing-unit;
+        }
+    }
+
+    &__#{$ns-left},
+    &__#{$ns-right} {
+        flex-basis: auto;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+    &__#{$ns-left} {
+        margin-right: 1rem;
+    }
+
+    &__#{$ns-right} {
+        margin-left: 1rem;
+    }
+
+    //when nesting bump down the first a bit
+    & &:first-of-type {
+        margin-top: 1rem;
+    }
+
+}
