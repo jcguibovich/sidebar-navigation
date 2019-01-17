@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <title>Fannie Mae CSS Guidelines (1.0.0) – High-level advice and guidelines for writing sane, manageable, scalable CSS
+    </title>
+    <meta name="description" content="High-level advice and guidelines for writing sane, manageable, scalable CSS">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M"
+        crossorigin="anonymous"> -->
+    <link type="text/css" rel="stylesheet" href="css/sidebar-nav.css">
+    <style>
+        /*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css */
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 300;
+            src: local('Roboto Light'), local('Roboto-Light'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmSU5fChc4AMP6lbBP.woff2) format('woff2');
+            unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 700;
+            src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v18/KFOlCnqEu92Fr1MmWUlfBBc4AMP6lQ.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        @font-face {
+            font-family: 'Roboto';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v18/KFOmCnqEu92Fr1Mu4mxKKTU1Kg.woff2) format('woff2');
+            unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+        }
+
+        body {
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+            font-size: 1rem;
+            color: #333;
+            box-sizing: border-box
+        }
+
+        *,
+        ::after,
+        ::before {
+            box-sizing: inherit;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="tabbed-content">
+        <ul class="tabs-list" role='tablist'>
+          <li class="current">
+            <a aria-controls="apples"  aria-selected="true" href="#apples" id="tab-apples" role='tab' class='tab selected'>
+              Apples
+            </a>
+          </li>
+      
+          <li>
+            <a aria-controls="bananas" href="#bananas" aria-selected='false' id="tab-bananas" role='tab' tabindex='-1' class='tab'>
+              Bananas
+            </a>
+          </li>
+      
+          <li class='last'>
+            <a aria-controls='pears' aria-selected="false" href="#pears" id="tab-pears" role='tab' tabindex='-1' class='tab'>
+              Pears
+            </a>
+          </li>
+        </ul>
+      
+        <div aria-labelledby="tab-apples" class="tab-panel current"  id="apples" role='tabpanel'>
+          <h2>Apples</h2>
+          <p> Lorem ipsum dolor sit amet, urna class vestibulum tincidunt atque, habitasse sit wisi erat dapibus. Vitae curae natoque a, donec nulla conubia in mollis. Sapien pede in tortor, lectus neque vitae in et, vitae aliquam eget orci at, non turpis faucibus id morbi. Elit tempor turpis donec inceptos, fringilla arcu sollicitudin ligula magna, sed justo viverra lacus erat, vestibulum id in justo nulla. Viverra dui leo donec, aptent deserunt nostra magnis lobortis, id ultrices ac aenean, interdum vestibulum rhoncus phasellus libero.</p>
+        </div>
+      
+        <div aria-labelledby="tab-bananas" class="tab-panel hidden" role='tabpanel' id="bananas">
+          <h2>Bananas</h2>
+          <p>Lorem ipsum dolor sit amet, urna class vestibulum tincidunt atque, habitasse sit wisi erat dapibus. Vitae curae natoque a, donec nulla conubia in mollis. Sapien pede in tortor, lectus neque vitae in et, vitae aliquam eget orci at, non turpis faucibus id morbi. Elit tempor turpis donec inceptos, fringilla arcu sollicitudin ligula magna, sed justo viverra lacus erat, vestibulum id in justo nulla. Viverra dui leo donec, aptent deserunt nostra magnis lobortis, id ultrices ac aenean, interdum vestibulum rhoncus phasellus libero.</p>
+        </div>
+      
+        <div aria-labelledby="tab-pears" class="tab-panel hidden" id="pears" role='tabpanel'>
+          <h2>Pears</h2>
+          <p>Lorem ipsum dolor sit amet, urna class vestibulum tincidunt atque, habitasse sit wisi erat dapibus. Vitae curae natoque a, donec nulla conubia in mollis. Sapien pede in tortor, lectus neque vitae in et, vitae aliquam eget orci at, non turpis faucibus id morbi. Elit tempor turpis donec inceptos, fringilla arcu sollicitudin ligula magna, sed justo viverra lacus erat, vestibulum id in justo nulla. Viverra dui leo donec, aptent deserunt nostra magnis lobortis, id ultrices ac aenean, interdum vestibulum rhoncus phasellus libero.</p>
+        </div>
+      </div>
+</div>
+    
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script>
+      $(function(){
+  var index = 0;
+  var $tabs = $('a.tab');
+
+  $tabs.bind(
+  {
+    // on keydown,
+    // determine which tab to select
+    keydown: function(ev){
+      var LEFT_ARROW = 37;
+      var UP_ARROW = 38;
+      var RIGHT_ARROW = 39;
+      var DOWN_ARROW = 40;
+
+      var k = ev.which || ev.keyCode;
+
+      // if the key pressed was an arrow key
+      if (k >= LEFT_ARROW && k <= DOWN_ARROW){
+        // move left one tab for left and up arrows
+        if (k == LEFT_ARROW || k == UP_ARROW){
+          if (index > 0) {
+            index--;
+          }
+          // unless you are on the first tab,
+          // in which case select the last tab.
+          else {
+            index = $tabs.length - 1;
+          }
+        }
+
+        // move right one tab for right and down arrows
+        else if (k == RIGHT_ARROW || k == DOWN_ARROW){
+          if (index < ($tabs.length - 1)){
+            index++;
+          }
+          // unless you're at the last tab,
+          // in which case select the first one
+          else {
+            index = 0;
+          }
+        }
+
+        // trigger a click event on the tab to move to
+        $($tabs.get(index)).click();
+        ev.preventDefault();
+      }
+    },
+
+    // just make the clicked tab the selected one
+    click: function(ev){
+      index = $.inArray(this, $tabs.get());
+      setFocus();
+      ev.preventDefault();
+    }
+  });
+
+  var setFocus = function(){
+    // undo tab control selected state,
+    // and make them not selectable with the tab key
+    // (all tabs)
+    $tabs.attr(
+    {
+      tabindex: '-1',
+      'aria-selected': 'false'
+    }).removeClass('selected');
+
+    // hide all tab panels.
+    $('.tab-panel').removeClass('current');
+
+    // make the selected tab the selected one, shift focus to it
+    $($tabs.get(index)).attr(
+    {
+      tabindex: '0',
+      'aria-selected': 'true'
+    }).addClass('selected').focus();
+
+    // handle parent <li> current class (for coloring the tabs)
+    $($tabs.get(index)).parent().siblings().removeClass('current');
+    $($tabs.get(index)).parent().addClass('current');
+
+    // add a current class also to the tab panel
+    // controlled by the clicked tab
+    $($($tabs.get(index)).attr('href')).addClass('current');
+  };
+});
+        //hammy toggle icon
+        // $(document).ready(function () {
+        //     var trigger = $('.nautics-compass'),
+        //         isClosed = false;
+
+        //     trigger.click(function () {
+        //         nautical();
+        //     });
+
+        //     function nautical() {
+
+        //         if (isClosed == true) {
+        //             trigger.removeClass('is-open');
+        //             trigger.addClass('is-closed');
+        //             isClosed = false;
+        //         } else {
+        //             trigger.removeClass('is-closed');
+        //             trigger.addClass('is-open');
+        //             isClosed = true;
+        //         }
+        //     }
+        // });
+        // $('[data-toggle="offcanvas"]').click(function () {
+        //     $('#wrapper').toggleClass('toggled');
+        //     $(document).ready(function () {
+        //         var trigger = $('.nautics-compass'),
+        //             //overlay = $('.overlay'),
+        //             isClosed = false;
+
+        //         trigger.click(function () {
+        //             nautically();
+        //         });
+
+        //         function nautically() {
+
+        //             if (isClosed == true) {
+        //                 trigger.removeClass('is-open');
+        //                 trigger.addClass('is-closed');
+        //                 isClosed = false;
+        //             } else {
+        //                 trigger.removeClass('is-closed');
+        //                 trigger.addClass('is-open');
+        //                 isClosed = true;
+        //             }
+        //         }
+        //     })
+        // })
+        // $('[data-toggle="offcanvas"]').click(function () {
+        //     $('#wrapper').toggleClass('toggled');
+        // });
+    </script>
+
+    <script>
+        //     $(document).ready(function () {
+        //     var trigger = $('.nautics-compass'),
+        //         isClosed = false;
+
+        //     trigger.click(function () {
+        //         hammy_cross();
+        //     });
+
+        //     function hammy_cross() {
+
+        //         if (isClosed == true) {
+        //             //overlay.hide();
+        //             trigger.removeClass('is-open');
+        //             trigger.addClass('is-closed');
+        //             isClosed = false;
+        //         } else {
+        //             //overlay.show();
+        //             trigger.removeClass('is-closed');
+        //             trigger.addClass('is-open');
+        //             isClosed = true;
+        //         }
+        //     }
+        // });
+        // $('[data-toggle="offcanvas"]').click(function () {
+        //     $('#wrapper').toggleClass('toggled');
+        // $(document).ready(function () {
+        //     var trigger = $('.hammy'),
+        //         //overlay = $('.overlay'),
+        //         isClosed = false;
+
+        //     trigger.click(function () {
+        //         hammy_cross();
+        //     });
+
+        //     function hammy_cross() {
+
+        //         if (isClosed == true) {
+        //             //overlay.hide();
+        //             trigger.removeClass('is-open');
+        //             trigger.addClass('is-closed');
+        //             isClosed = false;
+        //         } else {
+        //             //overlay.show();
+        //             trigger.removeClass('is-closed');
+        //             trigger.addClass('is-open');
+        //             isClosed = true;
+        //         }
+        //     }
+        // });
+        // $('[data-toggle="offcanvas"]').click(function () {
+        //     $('#wrapper').toggleClass('toggled');
+        // });
+    </script>
+</body>
+
+</html>
