@@ -1,2 +1,0 @@
-subtitle: Help ground the user in context
-notes: Shows progress of the user through a task flow. Built out of a simple <nav> and <ul>. Seperators are inserted by CSS and are not dependant on SVGs
